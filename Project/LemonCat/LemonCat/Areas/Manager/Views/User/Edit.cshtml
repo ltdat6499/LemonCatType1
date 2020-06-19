@@ -1,0 +1,196 @@
+﻿@model LemonCat.Models.EF.TAIKHOAN
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Manager/Views/Shared/_Layout.cshtml";
+}
+    <section class="content">
+        <div class="body_scroll">
+            <div class="block-header">
+                <div class="row">
+                    <div class="col-lg-7 col-md-6 col-sm-12">
+                        <h2>User</h2>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html"><i class="zmdi zmdi-home"></i> Manager</a></li>
+                            <li class="breadcrumb-item"><a href="javascript:void(0);">User</a></li>
+                            <li class="breadcrumb-item active">Edit User</li>
+                        </ul>
+                        <button class="btn btn-primary btn-icon mobile_menu" type="button"><i class="zmdi zmdi-sort-amount-desc"></i></button>
+                    </div>
+                    <div class="col-lg-5 col-md-6 col-sm-12">
+                        <button class="btn btn-primary btn-icon float-right right_icon_toggle_btn" type="button"><i class="zmdi zmdi-arrow-right"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <!-- Advanced Validation -->
+                <div class="row clearfix">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="card">
+                            <div class="header">
+                                <h2><strong>Edit</strong> User</h2>
+                            </div>
+                            <div class="body">
+                                <form id="form_edit_user" runat="server" method="POST" enctype="multipart/form-data">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group form-float">
+                                                <input value="@Model.TenTK" placeholder="User Name" type="text" class="form-control" id="TenTK" name="TenTK" maxlength="10" minlength="5" readonly required>
+                                                <div class="help-info">Min. 5, Max. 10 characters</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group form-float">
+                                                <input value="@Model.RealPass" placeholder="Password" type="password" class="form-control" id="MatKhau" name="MatKhau" maxlength="16" minlength="8" required>
+                                                <div class="help-info">Min. 8, Max. 16 characters</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group form-float">
+                                                <input value="@Model.FirstName" placeholder="First Name" type="text" class="form-control" id="FirstName" name="FirstName" maxlength="20" minlength="3" required>
+                                                <div class="help-info">Min. 3, Max. 20 characters</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group form-float">
+                                                <input value="@Model.LastName" placeholder="Last Name" type="text" class="form-control" id="LastName" name="LastName" maxlength="20" minlength="3" required>
+                                                <div class="help-info">Min. 3, Max. 20 characters</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group form-float">
+                                                <input value="@Model.Email" placeholder="Email" type="text" class="form-control" id="Email" name="Email" maxlength="35" minlength="3" required>
+                                                <div class="help-info">Ex: 17110278@student.hcmute.edu.vn</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group form-float">
+                                                <input value="@Model.Phone" placeholder="Phone" type="number" class="form-control" id="Phone" name="Phone" maxlength="10" minlength="10" pattern="[0-9]{10,10}" required>
+                                                <div class="help-info">Ex: 1234567890</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group form-float">
+                                                <input value="@Model.CMND" placeholder="ID Card" type="number" class="form-control" id="CMND" name="CMND" maxlength="9" minlength="9" required>
+                                                <div class="help-info">Ex: 000000000</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group form-float">
+                                                @*<input value="@Model.ChucVu" placeholder="Position" type="number" class="form-control" id="ChucVu" name="ChucVu" maxlength="1" minlength="1" required>
+                                                <div class="help-info">Ex: 1</div>*@
+                                                <select name="ChucVu" id="ChucVu" class="form-control show-tick ms select2 selectpicker" data-placeholder="Select">
+                                                    @foreach (var item in ViewBag.PositionListName)
+                                                    {
+                                                        if (item.TenChucVu != "Admin")
+                                                        {
+                                                            <option value="@item.MaChucVu">@item.TenChucVu</option>
+                                                        }
+                                                        else
+                                                        {
+                                                            <option value="@item.MaChucVu" disabled>@item.TenChucVu</option>
+                                                        }
+                                                    }
+                                                </select>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group form-float">
+                                                <input value="@Model.DiaChi" placeholder="Address" type="text" class="form-control" id="DiaChi" name="DiaChi" maxlength="100" minlength="10" required>
+                                                <div class="help-info">Min. 10, Max. 100 characters</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group form-float">
+                                                <div class="row">
+                                                    <div class="col-sm-4">
+                                                        <div class="checkbox">
+                                                            @if (Model.GioiTinh == true)
+                                                            {
+                                                                <input checked name="GioiTinh" id="GioiTinh" type="checkbox">
+                                                            }
+                                                            else
+                                                            {
+                                                                <input name="GioiTinh" id="GioiTinh" type="checkbox">
+                                                            }
+                                                            <label for="GioiTinh">Male</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <div class="checkbox">
+                                                            @if (Model.KichHoat == true)
+                                                            {
+                                                                <input checked value="@Model.KichHoat" name="KichHoat" id="KichHoat" type="checkbox">
+                                                            }
+                                                            else
+                                                            {
+                                                                <input value="@Model.KichHoat" name="KichHoat" id="KichHoat" type="checkbox">
+                                                            }
+                                                            <label for="KichHoat">Active</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="card">
+                                            <div class="body">
+                                                <label for="AnhDaiDien">Avata</label>
+                                                <input name="AnhDaiDien" id="AnhDaiDien" type="file" class="dropify" data-max-file-size="3M" data-allowed-file-extensions="jpg jpeg icon pdf png psd" data-default-file="@(Model.AnhDaiDien.ToString())">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-raised btn-primary waves-effect" type="submit">Update User</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+    $('#ChucVu').val(@Model.ChucVu);
+    $(document).ready(function () {
+        $("#form_edit_user").submit(function () {
+            var filedata = document.getElementById('AnhDaiDien');
+            var form_data = new FormData();
+                form_data.append("TenTk", $("#TenTK").val()),
+                form_data.append("MatKhau", $("#MatKhau").val()),
+                form_data.append("FirstName", $("#FirstName").val()),
+                form_data.append("LastName", $("#LastName").val()),
+                form_data.append("Email", $("#Email").val()),
+                form_data.append("Phone", $("#Phone").val()),
+                form_data.append("CMND", $("#CMND").val()),
+                form_data.append("ChucVu", $("#ChucVu").val()),
+                form_data.append("DiaChi", $("#DiaChi").val()),
+                form_data.append("GioiTinh", $("#GioiTinh").val()),
+                form_data.append("KichHoat", $("#KichHoat").val()),
+                form_data.append("AnhDaiDien", filedata);
+
+            $.ajax({
+                url: '/Manager/User/Edit',
+                type: 'post',
+                data: form_data,
+                success: function (msg) {
+                    if (msg == 'ok') {
+
+                    }
+                    else {
+                        alert("Create Failed");
+                    }
+                }
+            });
+            return false;
+        });
+    });
+    </script>

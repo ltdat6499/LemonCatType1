@@ -1,0 +1,151 @@
+﻿@model LemonCat.Models.EF.PHIM
+@{
+    ViewBag.Title = "ViewDetail";
+    Layout = "~/Areas/ClientDVD/Views/Shared/_layout.cshtml";
+}
+    <section class="content">
+        <div class="body_scroll">
+            <div class="block-header">
+                <div class="row">
+                    <div class="col-lg-7 col-md-6 col-sm-12">
+                        <h2>Product Detail</h2>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html"><i class="zmdi zmdi-home"></i> User</a></li>
+                            <li class="breadcrumb-item">DVD</li>
+                            <li class="breadcrumb-item active">Product Detail</li>
+                        </ul>
+                        <button class="btn btn-primary btn-icon mobile_menu" type="button"><i class="zmdi zmdi-sort-amount-desc"></i></button>
+                    </div>
+                    <div class="col-lg-5 col-md-6 col-sm-12">
+                        <button class="btn btn-primary btn-icon float-right right_icon_toggle_btn" type="button"><i class="zmdi zmdi-arrow-right"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="row clearfix">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="body">
+                                <div class="row">
+                                    <div class="col-xl-3 col-lg-4 col-md-12">
+                                        <div class="preview preview-pic tab-content">
+                                            <div class="tab-pane active" id="product_1"><img src="@Model.AnhDaiDien" class="img-fluid" alt="" /></div>
+                                            @foreach (var item in ViewBag.Image)
+                                            {
+                                                <div class="tab-pane" id="product_Image_@item.ID"><img src="@item.Anh" class="img-fluid" alt="" /></div>
+                                            }
+                                            
+                                        </div>
+                                        <ul class="preview thumbnail nav nav-tabs">
+                                            <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#product_1"><img src="@Model.AnhDaiDien" alt="" /></a></li>
+                                            @foreach (var item in ViewBag.Image)
+                                            {
+                                                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#product_Image_@item.ID"><img src="assets/images/ecommerce/2.png" alt="" /></a></li>
+                                            }
+                                        </ul>
+                                    </div>
+                                    <div class="col-xl-9 col-lg-8 col-md-12">
+                                        <div class="product details">
+                                            <h3 class="product-title mb-0">Simple Black Clock</h3>
+                                            <h5 class="price mt-0">Current Price: <span class="col-amber">$@ViewBag.Price</span></h5>
+                                            <div class="rating">
+                                                <div class="stars">
+                                                    @for (int i = 2; i < (int)(ViewBag.Score / 10 + 0.5); i += 2)
+                                                    {
+                                                        <span class="zmdi zmdi-star col-amber"></span>
+                                                    }
+                                                    @for (int i = 10; i > (int)(ViewBag.Score / 10 + 0.5); i -= 2)
+                                                    {
+                                                        <span class="zmdi zmdi-star-outline"></span>
+                                                    }                                                  
+                                                </div>
+                                                <span class="m-l-10">@ViewBag.CountReview reviews</span>
+                                            </div>
+                                            <hr>
+                                            <p class="product-description">@Model.TomTatNgan</p>
+                                            <p class="vote">&nbsp;</p>
+                                            <h5 class="sizes">
+                                                &nbsp;
+                                            </h5>
+                                            <h5 class="colors">
+                                                &nbsp;
+                                            </h5>
+                                            <div class="action">
+                                                <button onclick="AddCart(@(ViewBag.MaDVD))" class="btn btn-primary waves-effect" type="button">ADD TO CART</button>
+                                                <button class="btn btn-info waves-effect" type="button"><i class="zmdi zmdi-favorite"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="body">
+                                <ul class="nav nav-tabs">
+                                    <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#description">Summary</a></li>
+                                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#review">Review</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="body">
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="description">
+                                        <p>@Model.TomTat</p>
+                                    </div>
+                                    <div class="tab-pane" id="review">
+                                        <ul class="row list-unstyled c_review mt-4">
+                                            @for (int i = 0; i < ViewBag.Review.Count; i++)
+                                            {
+                                                <li class="col-12">
+                                                    <div class="avatar">
+                                                        <a href="javascript:void(0);"><img class="rounded" src="@(ViewBag.Avata[i])" alt="user" width="60"></a>
+                                                    </div>
+                                                    <div class="comment-action">
+                                                        <h5 class="c_name">@(ViewBag.Name[i])</h5>
+                                                        <p class="c_msg mb-0">@(ViewBag.Review[i].NoiDungNgan)</p>
+                                                        <span class="m-l-10">
+                                                            @for (int j = 2; j < (int)(ViewBag.Review[i].Score / 10 + 0.5); j += 2)
+                                                            {
+                                                                <a href="javascript:void(0);"><i class="zmdi zmdi-star col-amber"></i></a>
+                                                            }
+                                                            @for (int j = 10; j > (int)(ViewBag.Review[i].Score / 10 + 0.5); j -= 2)
+                                                            {
+                                                                <a href="javascript:void(0);"><i class="zmdi zmdi-star-outline text-muted"></i></a>
+                                                            }
+                                                        </span>
+                                                        <small class="comment-date float-sm-right">@(ViewBag.Review[i].NgayBinhLuan)</small>
+                                                    </div>
+                                                </li>
+                                            }
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        function AddCart(id) {
+            $.ajax({
+                url: "/ClientDVD/DVD/AddCart",
+                data: { id: id },
+                dataType: "Json",
+                type: "POST",
+
+                success: function (response) {
+                    if (response.status == true) {
+                        alert("Add Cart Success");
+                    }
+                    else {
+                        alert("Error");
+                    }
+                }
+            });
+        }
+    </script>

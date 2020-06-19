@@ -1,0 +1,80 @@
+﻿@model List<LemonCat.Models.EF.PHIM>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Client/Views/Shared/_layout.cshtml";
+}
+<div class="hero common-hero">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="hero-ct">
+                    <h1> Suggest MOVIES </h1>
+                    <ul class="breadcumb">
+                        <li class="active"><a href="#">Home</a></li>
+                        <li> <span class="ion-ios-arrow-right"></span> Suggest Movies</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="page-single">
+    <div class="container">
+        <div class="row ipad-width">
+            <div class="col-md-8 col-sm-12 col-xs-12">
+                <div class="topbar-filter">
+                    <label>Sort by:</label>
+                    <select>
+                        <option value="popularity">Popularity Descending</option>
+                        <option value="popularity">Popularity Ascending</option>
+                        <option value="rating">Rating Descending</option>
+                        <option value="rating">Rating Ascending</option>
+                        <option value="date">Release date Descending</option>
+                        <option value="date">Release date Ascending</option>
+                    </select>
+                </div>
+                <div class="flex-wrap-movielist">
+                    @if (Model.Count > 0)
+                    {
+                        foreach (var item in Model)
+                        {
+                            <div class="movie-item-style-2 movie-item-style-1">
+                                <img src="@(item.AnhDaiDien)" alt="">
+                                <div class="hvr-inner">
+                                    <a href="/Client/Home/Movie?id=@(item.MaPhim)"> Read more <i class="ion-android-arrow-dropright"></i> </a>
+                                </div>
+                                <div class="mv-item-infor">
+                                    <h6><a href="#">@(item.TenPhim)</a></h6>
+                                    <p class="rate"><i class="ion-android-star"></i><span>@(item.LemonCatScore)</span> /100</p>
+                                </div>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <h1> We don't have enougn data to suggest movies </h1>
+                    }
+
+
+                </div>
+                <div class="topbar-filter">
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-12 col-xs-12">
+                <div class="sidebar">
+                    <div class="searh-form">
+                        <h4 class="sb-title">Search for movie</h4>
+                        
+                    </div>
+                    <div class="sb-facebook sb-it">
+                        <h4 class="sb-title">Find us on Facebook</h4>
+                        <iframe src="#" data-src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ftemplatespoint.net%2F%3Ffref%3Dts&tabs=timeline&width=340&height=315px&small_header=true&adapt_container_width=false&hide_cover=false&show_facepile=true&appId" height="315" style="width:100%;border:none;overflow:hidden"></iframe>
+                    </div>
+                </div>
+                <div class="pagination2">
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

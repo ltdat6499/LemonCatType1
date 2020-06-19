@@ -1,0 +1,129 @@
+﻿
+@{
+    ViewBag.Title = "CreateNewEps";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<script>
+    var rowECount = @(ViewBag.CountEps);
+    $(document).ready(function () {
+        $(".add-e-row").click(function () {
+            rowECount++;
+            $("#TapPhim tbody").append('<tr id="row-e-' + rowECount + '"><td class="EpisodeClass">' + rowECount + '</td><td class="EpisoderName" contenteditable="true">Episode Name here</td></tr>');
+        });
+        // Find and remove selected table rows
+        $(".delete-e-row").click(function () {
+            rowECount--;
+            $("#TapPhim tbody tr:last").remove();
+        });
+    });
+    function ReloadListEpisode() {
+        $('#TapPhim').val("");
+        var string = "";
+        $("#TapPhim tbody tr").each(function () {
+            string += $(this).find(".EpisodeClass").html() + "*_*" + $(this).find('.EpisoderName').html() + "*_*_*";
+            $('#Eps').val(string);
+        });
+    }
+</script>
+<section class="content">
+    <div class="body_scroll">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-lg-7 col-md-6 col-sm-12">
+                    <h2>TVShow</h2>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html"><i class="zmdi zmdi-home"></i> Admin</a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0);">TVShow</a></li>
+                        <li class="breadcrumb-item active">Create new Episode</li>
+                    </ul>
+                    <button class="btn btn-primary btn-icon mobile_menu" type="button"><i class="zmdi zmdi-sort-amount-desc"></i></button>
+                </div>
+                <div class="col-lg-5 col-md-6 col-sm-12">
+                    <button class="btn btn-primary btn-icon float-right right_icon_toggle_btn" type="button"><i class="zmdi zmdi-arrow-right"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <!-- Advanced Validation -->
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2><strong>Create</strong> New TVShow</h2>
+                        </div>
+                        <div class="body">
+                            <form id="form_create_movie" runat="server" method="POST" enctype="multipart/form-data">
+                                <div class="row">
+                                    <div class="form-group form-float">
+                                        <div class="col-sm-12">
+                                            <label for="TapPhim">Episode Create</label>
+                                            <table name="TapPhim" id="TapPhim" class="table table-hover c_table theme-color">
+                                                <thead id="headTable">
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>Name of Episode</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <div class="help-info">&nbsp</div>
+                                        <button type="button" class="btn btn-success add-e-row">Add Episode</button>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="help-info">&nbsp</div>
+                                        <button type="button" class="btn btn-danger delete-e-row">Delete Last Episode</button>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group form-float">
+                                        <textarea hidden type="text" id="Eps" name="Eps"></textarea>
+                                        <input hidden type="text" id="ID" name="ID" value="@ViewBag.ID" />
+                                    </div>
+                                        
+                                </div>
+                                <button class="btn btn-raised btn-primary waves-effect" type="submit">Create New Episode</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    $(document).ready(function () {
+        $("#form_create_movie").submit(function () {
+            //var fdata = {
+            //    TenTk: $("#TenTK").val();
+            //};
+            ReloadListEpisode();
+
+            var form_data = new FormData();
+                form_data.append("Eps", $("#Eps").val());
+                form_data.append("ID", $("#ID").val());
+            $.ajax({
+                url: '/Admin/TVShow/CreateNewEps',
+                type: 'post',
+                data: form_data,
+                dataType: 'Json',
+                success: function (msg) {
+                    if (msg == 'ok') {
+
+                    }
+                    else {
+
+                    }
+                }
+            });
+            return false;
+        });
+    });
+</script>
+

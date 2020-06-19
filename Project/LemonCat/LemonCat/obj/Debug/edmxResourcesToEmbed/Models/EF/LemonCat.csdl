@@ -1,0 +1,1388 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LemonCatModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="LemonCatEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="SelectAllCustomers" ReturnType="Collection(LemonCatModel.SelectAllCustomers_Result)">
+      <Parameter Name="City" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(LemonCatModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(LemonCatModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <FunctionImport Name="UpdateUser">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="FirstName" Mode="In" Type="String" />
+      <Parameter Name="LastName" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="Phone" Mode="In" Type="String" />
+      <Parameter Name="CMND" Mode="In" Type="String" />
+      <Parameter Name="DiaChi" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ChangePassword">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="OPassword" Mode="In" Type="String" />
+      <Parameter Name="NPassword" Mode="In" Type="String" />
+      <Parameter Name="RNPassword" Mode="In" Type="String" />
+      <Parameter Name="RPassword" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SubmitBag">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="Note" Mode="In" Type="String" />
+      <Parameter Name="NgayLapHoaDon" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="ANHDIENVIENs" EntityType="LemonCatModel.ANHDIENVIEN" />
+    <EntitySet Name="ANHPHIMs" EntityType="LemonCatModel.ANHPHIM" />
+    <EntitySet Name="BAGs" EntityType="LemonCatModel.BAG" />
+    <EntitySet Name="BAIVIET_CHILDCOMMENT" EntityType="LemonCatModel.BAIVIET_CHILDCOMMENT" />
+    <EntitySet Name="BAIVIET_ROOTCOMMENT" EntityType="LemonCatModel.BAIVIET_ROOTCOMMENT" />
+    <EntitySet Name="BAIVIET_ROOTSCORE" EntityType="LemonCatModel.BAIVIET_ROOTSCORE" />
+    <EntitySet Name="BAIVIET_SCORE" EntityType="LemonCatModel.BAIVIET_SCORE" />
+    <EntitySet Name="BAIVIETDANHGIAs" EntityType="LemonCatModel.BAIVIETDANHGIA" />
+    <EntitySet Name="ChildCommentNews" EntityType="LemonCatModel.ChildCommentNew" />
+    <EntitySet Name="CHITIETDIENVIENNEWs" EntityType="LemonCatModel.CHITIETDIENVIENNEW" />
+    <EntitySet Name="CHITIETHOADONs" EntityType="LemonCatModel.CHITIETHOADON" />
+    <EntitySet Name="CHITIETPHIMNEWs" EntityType="LemonCatModel.CHITIETPHIMNEW" />
+    <EntitySet Name="CHUCVUs" EntityType="LemonCatModel.CHUCVU" />
+    <EntitySet Name="DAODIENPHIMs" EntityType="LemonCatModel.DAODIENPHIM" />
+    <EntitySet Name="DATASETs" EntityType="LemonCatModel.DATASET" />
+    <EntitySet Name="DIENVIENs" EntityType="LemonCatModel.DIENVIEN" />
+    <EntitySet Name="DIENVIENPHIMs" EntityType="LemonCatModel.DIENVIENPHIM" />
+    <EntitySet Name="DVDs" EntityType="LemonCatModel.DVD" />
+    <EntitySet Name="GENREs" EntityType="LemonCatModel.GENRE" />
+    <EntitySet Name="GENREPHIMs" EntityType="LemonCatModel.GENREPHIM" />
+    <EntitySet Name="HanChieux" EntityType="LemonCatModel.HanChieu" />
+    <EntitySet Name="HOADONs" EntityType="LemonCatModel.HOADON" />
+    <EntitySet Name="KICHBANPHIMs" EntityType="LemonCatModel.KICHBANPHIM" />
+    <EntitySet Name="LOAINEWs" EntityType="LemonCatModel.LOAINEW" />
+    <EntitySet Name="NETWORKs" EntityType="LemonCatModel.NETWORK" />
+    <EntitySet Name="NEWs" EntityType="LemonCatModel.NEW" />
+    <EntitySet Name="NewsScores" EntityType="LemonCatModel.NewsScore" />
+    <EntitySet Name="ORDERSEATs" EntityType="LemonCatModel.ORDERSEAT" />
+    <EntitySet Name="PHIMs" EntityType="LemonCatModel.PHIM" />
+    <EntitySet Name="RAPPHIMs" EntityType="LemonCatModel.RAPPHIM" />
+    <EntitySet Name="RATINGs" EntityType="LemonCatModel.RATING" />
+    <EntitySet Name="RootCommentNews" EntityType="LemonCatModel.RootCommentNew" />
+    <EntitySet Name="RootNewScores" EntityType="LemonCatModel.RootNewScore" />
+    <EntitySet Name="SCOREs" EntityType="LemonCatModel.SCORE" />
+    <EntitySet Name="Studios" EntityType="LemonCatModel.STUDIO" />
+    <EntitySet Name="SUATCHIEUx" EntityType="LemonCatModel.SUATCHIEU" />
+    <EntitySet Name="sysdiagrams" EntityType="LemonCatModel.sysdiagram" />
+    <EntitySet Name="TAGS_MOVIE" EntityType="LemonCatModel.TAGS_MOVIE" />
+    <EntitySet Name="TAGS_PERSON" EntityType="LemonCatModel.TAGS_PERSON" />
+    <EntitySet Name="TAIKHOANs" EntityType="LemonCatModel.TAIKHOAN" />
+    <EntitySet Name="TVSHOWs" EntityType="LemonCatModel.TVSHOW" />
+    <EntitySet Name="TVSHOWEPs" EntityType="LemonCatModel.TVSHOWEP" />
+    <EntitySet Name="VIEWEDPRODUCTs" EntityType="LemonCatModel.VIEWEDPRODUCT" />
+    <EntitySet Name="YEARDATAs" EntityType="LemonCatModel.YEARDATA" />
+    <AssociationSet Name="FK__ANHDIENVI__MaDie__4316F928" Association="LemonCatModel.FK__ANHDIENVI__MaDie__4316F928">
+      <End Role="DIENVIEN" EntitySet="DIENVIENs" />
+      <End Role="ANHDIENVIEN" EntitySet="ANHDIENVIENs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ANHPHIM__MaPhim__3EDC53F0" Association="LemonCatModel.FK__ANHPHIM__MaPhim__3EDC53F0">
+      <End Role="PHIM" EntitySet="PHIMs" />
+      <End Role="ANHPHIM" EntitySet="ANHPHIMs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BAG__MaDVD__24B26D99" Association="LemonCatModel.FK__BAG__MaDVD__24B26D99">
+      <End Role="DVD" EntitySet="DVDs" />
+      <End Role="BAG" EntitySet="BAGs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BAG__MaTK__25A691D2" Association="LemonCatModel.FK__BAG__MaTK__25A691D2">
+      <End Role="TAIKHOAN" EntitySet="TAIKHOANs" />
+      <End Role="BAG" EntitySet="BAGs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BAIVIET_C__IDRoo__09FE775D" Association="LemonCatModel.FK__BAIVIET_C__IDRoo__09FE775D">
+      <End Role="BAIVIET_ROOTCOMMENT" EntitySet="BAIVIET_ROOTCOMMENT" />
+      <End Role="BAIVIET_CHILDCOMMENT" EntitySet="BAIVIET_CHILDCOMMENT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BAIVIET_CH__MaTK__0AF29B96" Association="LemonCatModel.FK__BAIVIET_CH__MaTK__0AF29B96">
+      <End Role="TAIKHOAN" EntitySet="TAIKHOANs" />
+      <End Role="BAIVIET_CHILDCOMMENT" EntitySet="BAIVIET_CHILDCOMMENT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BAIVIET_R__IDRoo__1293BD5E" Association="LemonCatModel.FK__BAIVIET_R__IDRoo__1293BD5E">
+      <End Role="BAIVIET_ROOTCOMMENT" EntitySet="BAIVIET_ROOTCOMMENT" />
+      <End Role="BAIVIET_ROOTSCORE" EntitySet="BAIVIET_ROOTSCORE" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BAIVIET_R__MaBai__062DE679" Association="LemonCatModel.FK__BAIVIET_R__MaBai__062DE679">
+      <End Role="BAIVIETDANHGIA" EntitySet="BAIVIETDANHGIAs" />
+      <End Role="BAIVIET_ROOTCOMMENT" EntitySet="BAIVIET_ROOTCOMMENT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BAIVIET_RO__MaTK__07220AB2" Association="LemonCatModel.FK__BAIVIET_RO__MaTK__07220AB2">
+      <End Role="TAIKHOAN" EntitySet="TAIKHOANs" />
+      <End Role="BAIVIET_ROOTCOMMENT" EntitySet="BAIVIET_ROOTCOMMENT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BAIVIET_RO__MaTK__119F9925" Association="LemonCatModel.FK__BAIVIET_RO__MaTK__119F9925">
+      <End Role="TAIKHOAN" EntitySet="TAIKHOANs" />
+      <End Role="BAIVIET_ROOTSCORE" EntitySet="BAIVIET_ROOTSCORE" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BAIVIET_S__MaBai__0EC32C7A" Association="LemonCatModel.FK__BAIVIET_S__MaBai__0EC32C7A">
+      <End Role="BAIVIETDANHGIA" EntitySet="BAIVIETDANHGIAs" />
+      <End Role="BAIVIET_SCORE" EntitySet="BAIVIET_SCORE" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BAIVIET_SC__MaTK__0DCF0841" Association="LemonCatModel.FK__BAIVIET_SC__MaTK__0DCF0841">
+      <End Role="TAIKHOAN" EntitySet="TAIKHOANs" />
+      <End Role="BAIVIET_SCORE" EntitySet="BAIVIET_SCORE" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BAIVIETDA__MaPhi__025D5595" Association="LemonCatModel.FK__BAIVIETDA__MaPhi__025D5595">
+      <End Role="PHIM" EntitySet="PHIMs" />
+      <End Role="BAIVIETDANHGIA" EntitySet="BAIVIETDANHGIAs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BAIVIETDAN__MaTK__035179CE" Association="LemonCatModel.FK__BAIVIETDAN__MaTK__035179CE">
+      <End Role="TAIKHOAN" EntitySet="TAIKHOANs" />
+      <End Role="BAIVIETDANHGIA" EntitySet="BAIVIETDANHGIAs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ChildComm__RootC__76EBA2E9" Association="LemonCatModel.FK__ChildComm__RootC__76EBA2E9">
+      <End Role="RootCommentNew" EntitySet="RootCommentNews" />
+      <End Role="ChildCommentNew" EntitySet="ChildCommentNews" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ChildComme__MaTK__77DFC722" Association="LemonCatModel.FK__ChildComme__MaTK__77DFC722">
+      <End Role="TAIKHOAN" EntitySet="TAIKHOANs" />
+      <End Role="ChildCommentNew" EntitySet="ChildCommentNews" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CHITIETDI__MaDie__71D1E811" Association="LemonCatModel.FK__CHITIETDI__MaDie__71D1E811">
+      <End Role="DIENVIEN" EntitySet="DIENVIENs" />
+      <End Role="CHITIETDIENVIENNEW" EntitySet="CHITIETDIENVIENNEWs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CHITIETDI__MaNew__72C60C4A" Association="LemonCatModel.FK__CHITIETDI__MaNew__72C60C4A">
+      <End Role="NEW" EntitySet="NEWs" />
+      <End Role="CHITIETDIENVIENNEW" EntitySet="CHITIETDIENVIENNEWs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CHITIETHO__MaHoa__320C68B7" Association="LemonCatModel.FK__CHITIETHO__MaHoa__320C68B7">
+      <End Role="HOADON" EntitySet="HOADONs" />
+      <End Role="CHITIETHOADON" EntitySet="CHITIETHOADONs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CHITIETPH__MaNew__6EF57B66" Association="LemonCatModel.FK__CHITIETPH__MaNew__6EF57B66">
+      <End Role="NEW" EntitySet="NEWs" />
+      <End Role="CHITIETPHIMNEW" EntitySet="CHITIETPHIMNEWs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CHITIETPH__MaPhi__6E01572D" Association="LemonCatModel.FK__CHITIETPH__MaPhi__6E01572D">
+      <End Role="PHIM" EntitySet="PHIMs" />
+      <End Role="CHITIETPHIMNEW" EntitySet="CHITIETPHIMNEWs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DAODIENPH__MaDie__46E78A0C" Association="LemonCatModel.FK__DAODIENPH__MaDie__46E78A0C">
+      <End Role="DIENVIEN" EntitySet="DIENVIENs" />
+      <End Role="DAODIENPHIM" EntitySet="DAODIENPHIMs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DAODIENPH__MaPhi__45F365D3" Association="LemonCatModel.FK__DAODIENPH__MaPhi__45F365D3">
+      <End Role="PHIM" EntitySet="PHIMs" />
+      <End Role="DAODIENPHIM" EntitySet="DAODIENPHIMs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DIENVIENP__MaDie__4E88ABD4" Association="LemonCatModel.FK__DIENVIENP__MaDie__4E88ABD4">
+      <End Role="DIENVIEN" EntitySet="DIENVIENs" />
+      <End Role="DIENVIENPHIM" EntitySet="DIENVIENPHIMs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__KICHBANPH__MaDie__4AB81AF0" Association="LemonCatModel.FK__KICHBANPH__MaDie__4AB81AF0">
+      <End Role="DIENVIEN" EntitySet="DIENVIENs" />
+      <End Role="KICHBANPHIM" EntitySet="KICHBANPHIMs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DIENVIENP__MaPhi__4D94879B" Association="LemonCatModel.FK__DIENVIENP__MaPhi__4D94879B">
+      <End Role="PHIM" EntitySet="PHIMs" />
+      <End Role="DIENVIENPHIM" EntitySet="DIENVIENPHIMs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DVD__MaPhim__75A278F5" Association="LemonCatModel.FK__DVD__MaPhim__75A278F5">
+      <End Role="PHIM" EntitySet="PHIMs" />
+      <End Role="DVD" EntitySet="DVDs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__GENREPHIM__MaGen__6F7F8B4B" Association="LemonCatModel.FK__GENREPHIM__MaGen__6F7F8B4B">
+      <End Role="GENRE" EntitySet="GENREs" />
+      <End Role="GENREPHIM" EntitySet="GENREPHIMs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__GENREPHIM__MaPhi__7073AF84" Association="LemonCatModel.FK__GENREPHIM__MaPhi__7073AF84">
+      <End Role="PHIM" EntitySet="PHIMs" />
+      <End Role="GENREPHIM" EntitySet="GENREPHIMs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__KICHBANPH__MaPhi__49C3F6B7" Association="LemonCatModel.FK__KICHBANPH__MaPhi__49C3F6B7">
+      <End Role="PHIM" EntitySet="PHIMs" />
+      <End Role="KICHBANPHIM" EntitySet="KICHBANPHIMs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TVSHOW__Network__10E07F16" Association="LemonCatModel.FK__TVSHOW__Network__10E07F16">
+      <End Role="NETWORK" EntitySet="NETWORKs" />
+      <End Role="TVSHOW" EntitySet="TVSHOWs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__NEW__MaTK__628FA481" Association="LemonCatModel.FK__NEW__MaTK__628FA481">
+      <End Role="TAIKHOAN" EntitySet="TAIKHOANs" />
+      <End Role="NEW" EntitySet="NEWs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__NewsScore__NewsI__7ABC33CD" Association="LemonCatModel.FK__NewsScore__NewsI__7ABC33CD">
+      <End Role="NEW" EntitySet="NEWs" />
+      <End Role="NewsScore" EntitySet="NewsScores" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RootComme__MaNew__731B1205" Association="LemonCatModel.FK__RootComme__MaNew__731B1205">
+      <End Role="NEW" EntitySet="NEWs" />
+      <End Role="RootCommentNew" EntitySet="RootCommentNews" />
+    </AssociationSet>
+    <AssociationSet Name="FK__NewsScore__MaTK__7BB05806" Association="LemonCatModel.FK__NewsScore__MaTK__7BB05806">
+      <End Role="TAIKHOAN" EntitySet="TAIKHOANs" />
+      <End Role="NewsScore" EntitySet="NewsScores" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ORDERSEAT__IDSua__3A6CA48E" Association="LemonCatModel.FK__ORDERSEAT__IDSua__3A6CA48E">
+      <End Role="SUATCHIEU" EntitySet="SUATCHIEUx" />
+      <End Role="ORDERSEAT" EntitySet="ORDERSEATs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PHIM__Studio__16CE6296" Association="LemonCatModel.FK__PHIM__Studio__16CE6296">
+      <End Role="STUDIO" EntitySet="Studios" />
+      <End Role="PHIM" EntitySet="PHIMs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SCORE__MaPhim__14B10FFA" Association="LemonCatModel.FK__SCORE__MaPhim__14B10FFA">
+      <End Role="PHIM" EntitySet="PHIMs" />
+      <End Role="SCORE" EntitySet="SCOREs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TVSHOW__MaPhim__3B75D760" Association="LemonCatModel.FK__TVSHOW__MaPhim__3B75D760">
+      <End Role="PHIM" EntitySet="PHIMs" />
+      <End Role="TVSHOW" EntitySet="TVSHOWs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TVSHOWEP__MaPhim__3E52440B" Association="LemonCatModel.FK__TVSHOWEP__MaPhim__3E52440B">
+      <End Role="PHIM" EntitySet="PHIMs" />
+      <End Role="TVSHOWEP" EntitySet="TVSHOWEPs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RootCommen__MaTK__740F363E" Association="LemonCatModel.FK__RootCommen__MaTK__740F363E">
+      <End Role="TAIKHOAN" EntitySet="TAIKHOANs" />
+      <End Role="RootCommentNew" EntitySet="RootCommentNews" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RootNewSc__RootC__7E8CC4B1" Association="LemonCatModel.FK__RootNewSc__RootC__7E8CC4B1">
+      <End Role="RootCommentNew" EntitySet="RootCommentNews" />
+      <End Role="RootNewScore" EntitySet="RootNewScores" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RootNewSco__MaTK__7F80E8EA" Association="LemonCatModel.FK__RootNewSco__MaTK__7F80E8EA">
+      <End Role="TAIKHOAN" EntitySet="TAIKHOANs" />
+      <End Role="RootNewScore" EntitySet="RootNewScores" />
+    </AssociationSet>
+    <AssociationSet Name="FK__VIEWEDPROD__MaTK__15702A09" Association="LemonCatModel.FK__VIEWEDPROD__MaTK__15702A09">
+      <End Role="TAIKHOAN" EntitySet="TAIKHOANs" />
+      <End Role="VIEWEDPRODUCT" EntitySet="VIEWEDPRODUCTs" />
+    </AssociationSet>
+  </EntityContainer>
+  <ComplexType Name="SelectAllCustomers_Result">
+    <Property Type="Int32" Name="MaTK" Nullable="false" />
+    <Property Type="String" Name="TenTK" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="MatKhau" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="FirstName" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="LastName" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="ChucVu" Nullable="true" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="Phone" Nullable="true" />
+    <Property Type="Int32" Name="CMND" Nullable="true" />
+    <Property Type="String" Name="DiaChi" Nullable="true" MaxLength="250" />
+    <Property Type="Binary" Name="AnhDaiDien" Nullable="true" MaxLength="Max" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="ANHDIENVIEN">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaDienVien" Type="Int32" />
+    <Property Name="Anh" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TenAnh" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="KichThuoc" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="NgayCapNhap" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DIENVIEN" Relationship="LemonCatModel.FK__ANHDIENVI__MaDie__4316F928" FromRole="ANHDIENVIEN" ToRole="DIENVIEN" />
+  </EntityType>
+  <EntityType Name="ANHPHIM">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaPhim" Type="Int32" />
+    <Property Name="Anh" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TenAnh" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="KichThuoc" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="NgayCapNhap" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PHIM" Relationship="LemonCatModel.FK__ANHPHIM__MaPhim__3EDC53F0" FromRole="ANHPHIM" ToRole="PHIM" />
+  </EntityType>
+  <EntityType Name="BAG">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaTK" Type="Int32" />
+    <Property Name="MaDVD" Type="Int32" />
+    <Property Name="SoLuong" Type="Int32" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="Gia" Type="Int32" />
+    <NavigationProperty Name="DVD" Relationship="LemonCatModel.FK__BAG__MaDVD__24B26D99" FromRole="BAG" ToRole="DVD" />
+    <NavigationProperty Name="TAIKHOAN" Relationship="LemonCatModel.FK__BAG__MaTK__25A691D2" FromRole="BAG" ToRole="TAIKHOAN" />
+  </EntityType>
+  <EntityType Name="BAIVIET_CHILDCOMMENT">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDRoot" Type="Int32" />
+    <Property Name="MaTK" Type="Int32" />
+    <Property Name="NoiDungBinhLuan" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="NgayBinhLuan" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" />
+    <NavigationProperty Name="BAIVIET_ROOTCOMMENT" Relationship="LemonCatModel.FK__BAIVIET_C__IDRoo__09FE775D" FromRole="BAIVIET_CHILDCOMMENT" ToRole="BAIVIET_ROOTCOMMENT" />
+    <NavigationProperty Name="TAIKHOAN" Relationship="LemonCatModel.FK__BAIVIET_CH__MaTK__0AF29B96" FromRole="BAIVIET_CHILDCOMMENT" ToRole="TAIKHOAN" />
+  </EntityType>
+  <EntityType Name="BAIVIET_ROOTCOMMENT">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaBaiViet" Type="Int32" />
+    <Property Name="MaTK" Type="Int32" />
+    <Property Name="NoiDungBinhLuan" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="NgayBinhLuan" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="DiemDanhGiaBinhLuan" Type="Int32" />
+    <Property Name="Status" Type="Boolean" />
+    <NavigationProperty Name="BAIVIET_CHILDCOMMENT" Relationship="LemonCatModel.FK__BAIVIET_C__IDRoo__09FE775D" FromRole="BAIVIET_ROOTCOMMENT" ToRole="BAIVIET_CHILDCOMMENT" />
+    <NavigationProperty Name="BAIVIET_ROOTSCORE" Relationship="LemonCatModel.FK__BAIVIET_R__IDRoo__1293BD5E" FromRole="BAIVIET_ROOTCOMMENT" ToRole="BAIVIET_ROOTSCORE" />
+    <NavigationProperty Name="BAIVIETDANHGIA" Relationship="LemonCatModel.FK__BAIVIET_R__MaBai__062DE679" FromRole="BAIVIET_ROOTCOMMENT" ToRole="BAIVIETDANHGIA" />
+    <NavigationProperty Name="TAIKHOAN" Relationship="LemonCatModel.FK__BAIVIET_RO__MaTK__07220AB2" FromRole="BAIVIET_ROOTCOMMENT" ToRole="TAIKHOAN" />
+  </EntityType>
+  <EntityType Name="BAIVIET_ROOTSCORE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaTK" Type="Int32" />
+    <Property Name="IDRoot" Type="Int32" />
+    <Property Name="Mark" Type="Boolean" />
+    <NavigationProperty Name="BAIVIET_ROOTCOMMENT" Relationship="LemonCatModel.FK__BAIVIET_R__IDRoo__1293BD5E" FromRole="BAIVIET_ROOTSCORE" ToRole="BAIVIET_ROOTCOMMENT" />
+    <NavigationProperty Name="TAIKHOAN" Relationship="LemonCatModel.FK__BAIVIET_RO__MaTK__119F9925" FromRole="BAIVIET_ROOTSCORE" ToRole="TAIKHOAN" />
+  </EntityType>
+  <EntityType Name="BAIVIET_SCORE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaTK" Type="Int32" />
+    <Property Name="MaBaiViet" Type="Int32" />
+    <Property Name="Mark" Type="Boolean" />
+    <NavigationProperty Name="BAIVIETDANHGIA" Relationship="LemonCatModel.FK__BAIVIET_S__MaBai__0EC32C7A" FromRole="BAIVIET_SCORE" ToRole="BAIVIETDANHGIA" />
+    <NavigationProperty Name="TAIKHOAN" Relationship="LemonCatModel.FK__BAIVIET_SC__MaTK__0DCF0841" FromRole="BAIVIET_SCORE" ToRole="TAIKHOAN" />
+  </EntityType>
+  <EntityType Name="BAIVIETDANHGIA">
+    <Key>
+      <PropertyRef Name="MaBaiViet" />
+    </Key>
+    <Property Name="MaBaiViet" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaPhim" Type="Int32" />
+    <Property Name="MaTK" Type="Int32" />
+    <Property Name="Score" Type="Int32" />
+    <Property Name="NoiDungNgan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NoiDungBinhLuan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NgayBinhLuan" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="DiemDanhGia" Type="Int32" />
+    <Property Name="Status" Type="Boolean" />
+    <NavigationProperty Name="BAIVIET_ROOTCOMMENT" Relationship="LemonCatModel.FK__BAIVIET_R__MaBai__062DE679" FromRole="BAIVIETDANHGIA" ToRole="BAIVIET_ROOTCOMMENT" />
+    <NavigationProperty Name="BAIVIET_SCORE" Relationship="LemonCatModel.FK__BAIVIET_S__MaBai__0EC32C7A" FromRole="BAIVIETDANHGIA" ToRole="BAIVIET_SCORE" />
+    <NavigationProperty Name="PHIM" Relationship="LemonCatModel.FK__BAIVIETDA__MaPhi__025D5595" FromRole="BAIVIETDANHGIA" ToRole="PHIM" />
+    <NavigationProperty Name="TAIKHOAN" Relationship="LemonCatModel.FK__BAIVIETDAN__MaTK__035179CE" FromRole="BAIVIETDANHGIA" ToRole="TAIKHOAN" />
+  </EntityType>
+  <EntityType Name="ChildCommentNew">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RootCommentNewID" Type="Int32" />
+    <Property Name="MaTK" Type="Int32" />
+    <Property Name="NoiDungBinhLuan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NgayBinhLuan" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" />
+    <NavigationProperty Name="RootCommentNew" Relationship="LemonCatModel.FK__ChildComm__RootC__76EBA2E9" FromRole="ChildCommentNew" ToRole="RootCommentNew" />
+    <NavigationProperty Name="TAIKHOAN" Relationship="LemonCatModel.FK__ChildComme__MaTK__77DFC722" FromRole="ChildCommentNew" ToRole="TAIKHOAN" />
+  </EntityType>
+  <EntityType Name="CHITIETDIENVIENNEW">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaNew" Type="Int32" />
+    <Property Name="MaDienVien" Type="Int32" />
+    <NavigationProperty Name="DIENVIEN" Relationship="LemonCatModel.FK__CHITIETDI__MaDie__71D1E811" FromRole="CHITIETDIENVIENNEW" ToRole="DIENVIEN" />
+    <NavigationProperty Name="NEW" Relationship="LemonCatModel.FK__CHITIETDI__MaNew__72C60C4A" FromRole="CHITIETDIENVIENNEW" ToRole="NEW" />
+  </EntityType>
+  <EntityType Name="CHITIETHOADON">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaHoaDon" Type="Int32" />
+    <Property Name="MaDVD" Type="Int32" />
+    <Property Name="NameDVD" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Avata" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SoLuong" Type="Int32" />
+    <Property Name="DonGia" Type="Int32" />
+    <Property Name="ThanhTien" Type="Int32" />
+    <NavigationProperty Name="HOADON" Relationship="LemonCatModel.FK__CHITIETHO__MaHoa__320C68B7" FromRole="CHITIETHOADON" ToRole="HOADON" />
+  </EntityType>
+  <EntityType Name="CHITIETPHIMNEW">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaNew" Type="Int32" />
+    <Property Name="MaPhim" Type="Int32" />
+    <NavigationProperty Name="NEW" Relationship="LemonCatModel.FK__CHITIETPH__MaNew__6EF57B66" FromRole="CHITIETPHIMNEW" ToRole="NEW" />
+    <NavigationProperty Name="PHIM" Relationship="LemonCatModel.FK__CHITIETPH__MaPhi__6E01572D" FromRole="CHITIETPHIMNEW" ToRole="PHIM" />
+  </EntityType>
+  <EntityType Name="CHUCVU">
+    <Key>
+      <PropertyRef Name="MaChucVu" />
+    </Key>
+    <Property Name="MaChucVu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenChucVu" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="DAODIENPHIM">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaPhim" Type="Int32" />
+    <Property Name="MaDienVien" Type="Int32" />
+    <NavigationProperty Name="DIENVIEN" Relationship="LemonCatModel.FK__DAODIENPH__MaDie__46E78A0C" FromRole="DAODIENPHIM" ToRole="DIENVIEN" />
+    <NavigationProperty Name="PHIM" Relationship="LemonCatModel.FK__DAODIENPH__MaPhi__45F365D3" FromRole="DAODIENPHIM" ToRole="PHIM" />
+  </EntityType>
+  <EntityType Name="DATASET">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaTK" Type="Int32" />
+    <Property Name="TheLoai" Type="Int32" />
+    <Property Name="KetQua" Type="Int32" />
+    <Property Name="Rating" Type="Int32" />
+  </EntityType>
+  <EntityType Name="DIENVIEN">
+    <Key>
+      <PropertyRef Name="MaDienVien" />
+    </Key>
+    <Property Name="MaDienVien" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NgaySinh" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="NoiSinh" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="TieuSu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AnhDaiDien" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TenDienVien" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Star" Type="Boolean" />
+    <NavigationProperty Name="ANHDIENVIENs" Relationship="LemonCatModel.FK__ANHDIENVI__MaDie__4316F928" FromRole="DIENVIEN" ToRole="ANHDIENVIEN" />
+    <NavigationProperty Name="CHITIETDIENVIENNEWs" Relationship="LemonCatModel.FK__CHITIETDI__MaDie__71D1E811" FromRole="DIENVIEN" ToRole="CHITIETDIENVIENNEW" />
+    <NavigationProperty Name="DAODIENPHIMs" Relationship="LemonCatModel.FK__DAODIENPH__MaDie__46E78A0C" FromRole="DIENVIEN" ToRole="DAODIENPHIM" />
+    <NavigationProperty Name="DIENVIENPHIMs" Relationship="LemonCatModel.FK__DIENVIENP__MaDie__4E88ABD4" FromRole="DIENVIEN" ToRole="DIENVIENPHIM" />
+    <NavigationProperty Name="KICHBANPHIMs" Relationship="LemonCatModel.FK__KICHBANPH__MaDie__4AB81AF0" FromRole="DIENVIEN" ToRole="KICHBANPHIM" />
+  </EntityType>
+  <EntityType Name="DIENVIENPHIM">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaPhim" Type="Int32" />
+    <Property Name="MaDienVien" Type="Int32" />
+    <Property Name="TenNhanVat" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DIENVIEN" Relationship="LemonCatModel.FK__DIENVIENP__MaDie__4E88ABD4" FromRole="DIENVIENPHIM" ToRole="DIENVIEN" />
+    <NavigationProperty Name="PHIM" Relationship="LemonCatModel.FK__DIENVIENP__MaPhi__4D94879B" FromRole="DIENVIENPHIM" ToRole="PHIM" />
+  </EntityType>
+  <EntityType Name="DVD">
+    <Key>
+      <PropertyRef Name="MaDVD" />
+    </Key>
+    <Property Name="MaDVD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaPhim" Type="Int32" />
+    <Property Name="SoDia" Type="Int32" />
+    <Property Name="Gia" Type="Int32" />
+    <Property Name="SoLuongTrongKho" Type="Int32" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="NgayCapNhap" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="BAGs" Relationship="LemonCatModel.FK__BAG__MaDVD__24B26D99" FromRole="DVD" ToRole="BAG" />
+    <NavigationProperty Name="PHIM" Relationship="LemonCatModel.FK__DVD__MaPhim__75A278F5" FromRole="DVD" ToRole="PHIM" />
+  </EntityType>
+  <EntityType Name="GENRE">
+    <Key>
+      <PropertyRef Name="MaGenre" />
+    </Key>
+    <Property Name="MaGenre" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenGenre" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="GENREPHIMs" Relationship="LemonCatModel.FK__GENREPHIM__MaGen__6F7F8B4B" FromRole="GENRE" ToRole="GENREPHIM" />
+  </EntityType>
+  <EntityType Name="GENREPHIM">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaPhim" Type="Int32" />
+    <Property Name="MaGenre" Type="Int32" />
+    <NavigationProperty Name="GENRE" Relationship="LemonCatModel.FK__GENREPHIM__MaGen__6F7F8B4B" FromRole="GENREPHIM" ToRole="GENRE" />
+    <NavigationProperty Name="PHIM" Relationship="LemonCatModel.FK__GENREPHIM__MaPhi__7073AF84" FromRole="GENREPHIM" ToRole="PHIM" />
+  </EntityType>
+  <EntityType Name="HanChieu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StartDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EndDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MaPhim" Type="Int32" />
+  </EntityType>
+  <EntityType Name="HOADON">
+    <Key>
+      <PropertyRef Name="MaHoaDon" />
+    </Key>
+    <Property Name="MaHoaDon" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaTK" Type="Int32" />
+    <Property Name="TongTien" Type="Int32" />
+    <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Avata" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="NgayLapHoaDon" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CHITIETHOADONs" Relationship="LemonCatModel.FK__CHITIETHO__MaHoa__320C68B7" FromRole="HOADON" ToRole="CHITIETHOADON" />
+  </EntityType>
+  <EntityType Name="KICHBANPHIM">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaPhim" Type="Int32" />
+    <Property Name="MaDienVien" Type="Int32" />
+    <NavigationProperty Name="DIENVIEN" Relationship="LemonCatModel.FK__KICHBANPH__MaDie__4AB81AF0" FromRole="KICHBANPHIM" ToRole="DIENVIEN" />
+    <NavigationProperty Name="PHIM" Relationship="LemonCatModel.FK__KICHBANPH__MaPhi__49C3F6B7" FromRole="KICHBANPHIM" ToRole="PHIM" />
+  </EntityType>
+  <EntityType Name="LOAINEW">
+    <Key>
+      <PropertyRef Name="MaLoaiNew" />
+    </Key>
+    <Property Name="MaLoaiNew" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenLoaiNew" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="NETWORK">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NetworkName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="TVSHOWs" Relationship="LemonCatModel.FK__TVSHOW__Network__10E07F16" FromRole="NETWORK" ToRole="TVSHOW" />
+  </EntityType>
+  <EntityType Name="NEW">
+    <Key>
+      <PropertyRef Name="MaNew" />
+    </Key>
+    <Property Name="MaNew" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaTK" Type="Int32" />
+    <Property Name="LoaiNew" Type="Int32" />
+    <Property Name="NoiDungNgan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NoiDung" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DiemDanhGia" Type="Int32" />
+    <Property Name="NgayDang" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="TuaNews" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" />
+    <NavigationProperty Name="CHITIETDIENVIENNEWs" Relationship="LemonCatModel.FK__CHITIETDI__MaNew__72C60C4A" FromRole="NEW" ToRole="CHITIETDIENVIENNEW" />
+    <NavigationProperty Name="CHITIETPHIMNEWs" Relationship="LemonCatModel.FK__CHITIETPH__MaNew__6EF57B66" FromRole="NEW" ToRole="CHITIETPHIMNEW" />
+    <NavigationProperty Name="TAIKHOAN" Relationship="LemonCatModel.FK__NEW__MaTK__628FA481" FromRole="NEW" ToRole="TAIKHOAN" />
+    <NavigationProperty Name="NewsScores" Relationship="LemonCatModel.FK__NewsScore__NewsI__7ABC33CD" FromRole="NEW" ToRole="NewsScore" />
+    <NavigationProperty Name="RootCommentNews" Relationship="LemonCatModel.FK__RootComme__MaNew__731B1205" FromRole="NEW" ToRole="RootCommentNew" />
+  </EntityType>
+  <EntityType Name="NewsScore">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaTK" Type="Int32" />
+    <Property Name="NewsID" Type="Int32" />
+    <Property Name="Score" Type="Boolean" />
+    <NavigationProperty Name="NEW" Relationship="LemonCatModel.FK__NewsScore__NewsI__7ABC33CD" FromRole="NewsScore" ToRole="NEW" />
+    <NavigationProperty Name="TAIKHOAN" Relationship="LemonCatModel.FK__NewsScore__MaTK__7BB05806" FromRole="NewsScore" ToRole="TAIKHOAN" />
+  </EntityType>
+  <EntityType Name="ORDERSEAT">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaTK" Type="Int32" />
+    <Property Name="IDSuatChieu" Type="Int32" />
+    <Property Name="DanhSachGheDat" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="QR" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TongTien" Type="Int32" />
+    <Property Name="TapDoan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DiaChiTapDoan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TenKhach" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Sdt" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NgayTaoHoaDon" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Int32" />
+    <NavigationProperty Name="SUATCHIEU" Relationship="LemonCatModel.FK__ORDERSEAT__IDSua__3A6CA48E" FromRole="ORDERSEAT" ToRole="SUATCHIEU" />
+  </EntityType>
+  <EntityType Name="PHIM">
+    <Key>
+      <PropertyRef Name="MaPhim" />
+    </Key>
+    <Property Name="MaPhim" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenPhim" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="IsTVShow" Type="Int32" />
+    <Property Name="TomTatNgan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TomTat" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AnhDaiDien" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Trailer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Studio" Type="Int32" />
+    <Property Name="Rating" Type="Int32" />
+    <Property Name="Theaters" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="OnDVD" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Time" Type="Int32" />
+    <Property Name="LemonCatScore" Type="Int32" />
+    <Property Name="IMDBScore" Type="Int32" />
+    <Property Name="BoxOffice" Type="Decimal" Precision="18" Scale="2" />
+    <NavigationProperty Name="ANHPHIMs" Relationship="LemonCatModel.FK__ANHPHIM__MaPhim__3EDC53F0" FromRole="PHIM" ToRole="ANHPHIM" />
+    <NavigationProperty Name="BAIVIETDANHGIAs" Relationship="LemonCatModel.FK__BAIVIETDA__MaPhi__025D5595" FromRole="PHIM" ToRole="BAIVIETDANHGIA" />
+    <NavigationProperty Name="CHITIETPHIMNEWs" Relationship="LemonCatModel.FK__CHITIETPH__MaPhi__6E01572D" FromRole="PHIM" ToRole="CHITIETPHIMNEW" />
+    <NavigationProperty Name="DAODIENPHIMs" Relationship="LemonCatModel.FK__DAODIENPH__MaPhi__45F365D3" FromRole="PHIM" ToRole="DAODIENPHIM" />
+    <NavigationProperty Name="DIENVIENPHIMs" Relationship="LemonCatModel.FK__DIENVIENP__MaPhi__4D94879B" FromRole="PHIM" ToRole="DIENVIENPHIM" />
+    <NavigationProperty Name="DVDs" Relationship="LemonCatModel.FK__DVD__MaPhim__75A278F5" FromRole="PHIM" ToRole="DVD" />
+    <NavigationProperty Name="GENREPHIMs" Relationship="LemonCatModel.FK__GENREPHIM__MaPhi__7073AF84" FromRole="PHIM" ToRole="GENREPHIM" />
+    <NavigationProperty Name="KICHBANPHIMs" Relationship="LemonCatModel.FK__KICHBANPH__MaPhi__49C3F6B7" FromRole="PHIM" ToRole="KICHBANPHIM" />
+    <NavigationProperty Name="STUDIO1" Relationship="LemonCatModel.FK__PHIM__Studio__16CE6296" FromRole="PHIM" ToRole="STUDIO" />
+    <NavigationProperty Name="SCOREs" Relationship="LemonCatModel.FK__SCORE__MaPhim__14B10FFA" FromRole="PHIM" ToRole="SCORE" />
+    <NavigationProperty Name="TVSHOWs" Relationship="LemonCatModel.FK__TVSHOW__MaPhim__3B75D760" FromRole="PHIM" ToRole="TVSHOW" />
+    <NavigationProperty Name="TVSHOWEPs" Relationship="LemonCatModel.FK__TVSHOWEP__MaPhim__3E52440B" FromRole="PHIM" ToRole="TVSHOWEP" />
+  </EntityType>
+  <EntityType Name="RAPPHIM">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenRap" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="RATING">
+    <Key>
+      <PropertyRef Name="MaRating" />
+    </Key>
+    <Property Name="MaRating" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenRating" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="RootCommentNew">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaNew" Type="Int32" />
+    <Property Name="MaTK" Type="Int32" />
+    <Property Name="NoiDungBinhLuan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NgayBinhLuan" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="DiemDanhGia" Type="Int32" />
+    <NavigationProperty Name="ChildCommentNews" Relationship="LemonCatModel.FK__ChildComm__RootC__76EBA2E9" FromRole="RootCommentNew" ToRole="ChildCommentNew" />
+    <NavigationProperty Name="NEW" Relationship="LemonCatModel.FK__RootComme__MaNew__731B1205" FromRole="RootCommentNew" ToRole="NEW" />
+    <NavigationProperty Name="TAIKHOAN" Relationship="LemonCatModel.FK__RootCommen__MaTK__740F363E" FromRole="RootCommentNew" ToRole="TAIKHOAN" />
+    <NavigationProperty Name="RootNewScores" Relationship="LemonCatModel.FK__RootNewSc__RootC__7E8CC4B1" FromRole="RootCommentNew" ToRole="RootNewScore" />
+  </EntityType>
+  <EntityType Name="RootNewScore">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaTK" Type="Int32" />
+    <Property Name="RootCommentNewID" Type="Int32" />
+    <Property Name="Score" Type="Boolean" />
+    <NavigationProperty Name="RootCommentNew" Relationship="LemonCatModel.FK__RootNewSc__RootC__7E8CC4B1" FromRole="RootNewScore" ToRole="RootCommentNew" />
+    <NavigationProperty Name="TAIKHOAN" Relationship="LemonCatModel.FK__RootNewSco__MaTK__7F80E8EA" FromRole="RootNewScore" ToRole="TAIKHOAN" />
+  </EntityType>
+  <EntityType Name="SCORE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaPhim" Type="Int32" />
+    <Property Name="UserScore" Type="Int32" />
+    <Property Name="CountUser" Type="Int32" />
+    <Property Name="LemonCatScore" Type="Int32" />
+    <Property Name="CountLemonCat" Type="Int32" />
+    <Property Name="MetacriditScore" Type="Int32" />
+    <Property Name="IMDBScore" Type="Int32" />
+    <Property Name="TomatoesScore" Type="Int32" />
+    <NavigationProperty Name="PHIM" Relationship="LemonCatModel.FK__SCORE__MaPhim__14B10FFA" FromRole="SCORE" ToRole="PHIM" />
+  </EntityType>
+  <EntityType Name="STUDIO">
+    <Key>
+      <PropertyRef Name="MaStudio" />
+    </Key>
+    <Property Name="MaStudio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenStudio" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PHIMs" Relationship="LemonCatModel.FK__PHIM__Studio__16CE6296" FromRole="STUDIO" ToRole="PHIM" />
+  </EntityType>
+  <EntityType Name="SUATCHIEU">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDRap" Type="Int32" />
+    <Property Name="IDPhim" Type="Int32" />
+    <Property Name="Time" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DanhSachGheTrong" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Int32" />
+    <NavigationProperty Name="ORDERSEATs" Relationship="LemonCatModel.FK__ORDERSEAT__IDSua__3A6CA48E" FromRole="SUATCHIEU" ToRole="ORDERSEAT" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TAGS_MOVIE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaPhim" Type="Int32" />
+    <Property Name="Tag" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TAGS_PERSON">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaDienVien" Type="Int32" />
+    <Property Name="Tag" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TAIKHOAN">
+    <Key>
+      <PropertyRef Name="MaTK" />
+    </Key>
+    <Property Name="MaTK" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenTK" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="MatKhau" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="RealPass" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="FirstName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ChucVu" Type="Int32" />
+    <Property Name="Email" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CMND" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="DiaChi" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="GioiTinh" Type="Boolean" />
+    <Property Name="AnhDaiDien" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="KichHoat" Type="Boolean" />
+    <Property Name="Money" Type="Int32" />
+    <NavigationProperty Name="BAGs" Relationship="LemonCatModel.FK__BAG__MaTK__25A691D2" FromRole="TAIKHOAN" ToRole="BAG" />
+    <NavigationProperty Name="BAIVIET_CHILDCOMMENT" Relationship="LemonCatModel.FK__BAIVIET_CH__MaTK__0AF29B96" FromRole="TAIKHOAN" ToRole="BAIVIET_CHILDCOMMENT" />
+    <NavigationProperty Name="BAIVIET_ROOTCOMMENT" Relationship="LemonCatModel.FK__BAIVIET_RO__MaTK__07220AB2" FromRole="TAIKHOAN" ToRole="BAIVIET_ROOTCOMMENT" />
+    <NavigationProperty Name="BAIVIET_ROOTSCORE" Relationship="LemonCatModel.FK__BAIVIET_RO__MaTK__119F9925" FromRole="TAIKHOAN" ToRole="BAIVIET_ROOTSCORE" />
+    <NavigationProperty Name="BAIVIET_SCORE" Relationship="LemonCatModel.FK__BAIVIET_SC__MaTK__0DCF0841" FromRole="TAIKHOAN" ToRole="BAIVIET_SCORE" />
+    <NavigationProperty Name="BAIVIETDANHGIAs" Relationship="LemonCatModel.FK__BAIVIETDAN__MaTK__035179CE" FromRole="TAIKHOAN" ToRole="BAIVIETDANHGIA" />
+    <NavigationProperty Name="ChildCommentNews" Relationship="LemonCatModel.FK__ChildComme__MaTK__77DFC722" FromRole="TAIKHOAN" ToRole="ChildCommentNew" />
+    <NavigationProperty Name="NEWs" Relationship="LemonCatModel.FK__NEW__MaTK__628FA481" FromRole="TAIKHOAN" ToRole="NEW" />
+    <NavigationProperty Name="NewsScores" Relationship="LemonCatModel.FK__NewsScore__MaTK__7BB05806" FromRole="TAIKHOAN" ToRole="NewsScore" />
+    <NavigationProperty Name="RootCommentNews" Relationship="LemonCatModel.FK__RootCommen__MaTK__740F363E" FromRole="TAIKHOAN" ToRole="RootCommentNew" />
+    <NavigationProperty Name="RootNewScores" Relationship="LemonCatModel.FK__RootNewSco__MaTK__7F80E8EA" FromRole="TAIKHOAN" ToRole="RootNewScore" />
+    <NavigationProperty Name="VIEWEDPRODUCTs" Relationship="LemonCatModel.FK__VIEWEDPROD__MaTK__15702A09" FromRole="TAIKHOAN" ToRole="VIEWEDPRODUCT" />
+  </EntityType>
+  <EntityType Name="TVSHOW">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaPhim" Type="Int32" />
+    <Property Name="SoTap" Type="Int32" />
+    <Property Name="Network" Type="Int32" />
+    <Property Name="PremiereDate" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="NETWORK1" Relationship="LemonCatModel.FK__TVSHOW__Network__10E07F16" FromRole="TVSHOW" ToRole="NETWORK" />
+    <NavigationProperty Name="PHIM" Relationship="LemonCatModel.FK__TVSHOW__MaPhim__3B75D760" FromRole="TVSHOW" ToRole="PHIM" />
+  </EntityType>
+  <EntityType Name="TVSHOWEP">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaPhim" Type="Int32" />
+    <Property Name="Ep" Type="Int32" />
+    <Property Name="TenTap" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PHIM" Relationship="LemonCatModel.FK__TVSHOWEP__MaPhim__3E52440B" FromRole="TVSHOWEP" ToRole="PHIM" />
+  </EntityType>
+  <EntityType Name="VIEWEDPRODUCT">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaTK" Type="Int32" />
+    <Property Name="MaDVD" Type="Int32" />
+    <NavigationProperty Name="TAIKHOAN" Relationship="LemonCatModel.FK__VIEWEDPROD__MaTK__15702A09" FromRole="VIEWEDPRODUCT" ToRole="TAIKHOAN" />
+  </EntityType>
+  <EntityType Name="YEARDATA">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Month" Type="Int32" />
+    <Property Name="Year" Type="Int32" />
+    <Property Name="TongMovie" Type="Int32" />
+    <Property Name="TongTV" Type="Int32" />
+    <Property Name="TongUser" Type="Int32" />
+    <Property Name="TongDVD" Type="Int32" />
+    <Property Name="TongVe" Type="Int32" />
+    <Property Name="DoanhThuBanDVD" Type="Int32" />
+    <Property Name="DoanhThuBanVe" Type="Int32" />
+    <Property Name="TongUserLoaiMot" Type="Int32" />
+    <Property Name="TongUserDacBiet" Type="Int32" />
+    <Property Name="TongReview" Type="Int32" />
+    <Property Name="TongNews" Type="Int32" />
+    <Property Name="MonthDisplay" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="YearDisplay" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK__ANHDIENVI__MaDie__4316F928">
+    <End Type="LemonCatModel.DIENVIEN" Role="DIENVIEN" Multiplicity="0..1" />
+    <End Type="LemonCatModel.ANHDIENVIEN" Role="ANHDIENVIEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DIENVIEN">
+        <PropertyRef Name="MaDienVien" />
+      </Principal>
+      <Dependent Role="ANHDIENVIEN">
+        <PropertyRef Name="MaDienVien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ANHPHIM__MaPhim__3EDC53F0">
+    <End Type="LemonCatModel.PHIM" Role="PHIM" Multiplicity="0..1" />
+    <End Type="LemonCatModel.ANHPHIM" Role="ANHPHIM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHIM">
+        <PropertyRef Name="MaPhim" />
+      </Principal>
+      <Dependent Role="ANHPHIM">
+        <PropertyRef Name="MaPhim" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BAG__MaDVD__24B26D99">
+    <End Type="LemonCatModel.DVD" Role="DVD" Multiplicity="0..1" />
+    <End Type="LemonCatModel.BAG" Role="BAG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DVD">
+        <PropertyRef Name="MaDVD" />
+      </Principal>
+      <Dependent Role="BAG">
+        <PropertyRef Name="MaDVD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BAG__MaTK__25A691D2">
+    <End Type="LemonCatModel.TAIKHOAN" Role="TAIKHOAN" Multiplicity="0..1" />
+    <End Type="LemonCatModel.BAG" Role="BAG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TAIKHOAN">
+        <PropertyRef Name="MaTK" />
+      </Principal>
+      <Dependent Role="BAG">
+        <PropertyRef Name="MaTK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BAIVIET_C__IDRoo__09FE775D">
+    <End Type="LemonCatModel.BAIVIET_ROOTCOMMENT" Role="BAIVIET_ROOTCOMMENT" Multiplicity="0..1" />
+    <End Type="LemonCatModel.BAIVIET_CHILDCOMMENT" Role="BAIVIET_CHILDCOMMENT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BAIVIET_ROOTCOMMENT">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BAIVIET_CHILDCOMMENT">
+        <PropertyRef Name="IDRoot" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BAIVIET_CH__MaTK__0AF29B96">
+    <End Type="LemonCatModel.TAIKHOAN" Role="TAIKHOAN" Multiplicity="0..1" />
+    <End Type="LemonCatModel.BAIVIET_CHILDCOMMENT" Role="BAIVIET_CHILDCOMMENT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TAIKHOAN">
+        <PropertyRef Name="MaTK" />
+      </Principal>
+      <Dependent Role="BAIVIET_CHILDCOMMENT">
+        <PropertyRef Name="MaTK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BAIVIET_R__IDRoo__1293BD5E">
+    <End Type="LemonCatModel.BAIVIET_ROOTCOMMENT" Role="BAIVIET_ROOTCOMMENT" Multiplicity="0..1" />
+    <End Type="LemonCatModel.BAIVIET_ROOTSCORE" Role="BAIVIET_ROOTSCORE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BAIVIET_ROOTCOMMENT">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BAIVIET_ROOTSCORE">
+        <PropertyRef Name="IDRoot" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BAIVIET_R__MaBai__062DE679">
+    <End Type="LemonCatModel.BAIVIETDANHGIA" Role="BAIVIETDANHGIA" Multiplicity="0..1" />
+    <End Type="LemonCatModel.BAIVIET_ROOTCOMMENT" Role="BAIVIET_ROOTCOMMENT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BAIVIETDANHGIA">
+        <PropertyRef Name="MaBaiViet" />
+      </Principal>
+      <Dependent Role="BAIVIET_ROOTCOMMENT">
+        <PropertyRef Name="MaBaiViet" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BAIVIET_RO__MaTK__07220AB2">
+    <End Type="LemonCatModel.TAIKHOAN" Role="TAIKHOAN" Multiplicity="0..1" />
+    <End Type="LemonCatModel.BAIVIET_ROOTCOMMENT" Role="BAIVIET_ROOTCOMMENT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TAIKHOAN">
+        <PropertyRef Name="MaTK" />
+      </Principal>
+      <Dependent Role="BAIVIET_ROOTCOMMENT">
+        <PropertyRef Name="MaTK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BAIVIET_RO__MaTK__119F9925">
+    <End Type="LemonCatModel.TAIKHOAN" Role="TAIKHOAN" Multiplicity="0..1" />
+    <End Type="LemonCatModel.BAIVIET_ROOTSCORE" Role="BAIVIET_ROOTSCORE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TAIKHOAN">
+        <PropertyRef Name="MaTK" />
+      </Principal>
+      <Dependent Role="BAIVIET_ROOTSCORE">
+        <PropertyRef Name="MaTK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BAIVIET_S__MaBai__0EC32C7A">
+    <End Type="LemonCatModel.BAIVIETDANHGIA" Role="BAIVIETDANHGIA" Multiplicity="0..1" />
+    <End Type="LemonCatModel.BAIVIET_SCORE" Role="BAIVIET_SCORE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BAIVIETDANHGIA">
+        <PropertyRef Name="MaBaiViet" />
+      </Principal>
+      <Dependent Role="BAIVIET_SCORE">
+        <PropertyRef Name="MaBaiViet" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BAIVIET_SC__MaTK__0DCF0841">
+    <End Type="LemonCatModel.TAIKHOAN" Role="TAIKHOAN" Multiplicity="0..1" />
+    <End Type="LemonCatModel.BAIVIET_SCORE" Role="BAIVIET_SCORE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TAIKHOAN">
+        <PropertyRef Name="MaTK" />
+      </Principal>
+      <Dependent Role="BAIVIET_SCORE">
+        <PropertyRef Name="MaTK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BAIVIETDA__MaPhi__025D5595">
+    <End Type="LemonCatModel.PHIM" Role="PHIM" Multiplicity="0..1" />
+    <End Type="LemonCatModel.BAIVIETDANHGIA" Role="BAIVIETDANHGIA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHIM">
+        <PropertyRef Name="MaPhim" />
+      </Principal>
+      <Dependent Role="BAIVIETDANHGIA">
+        <PropertyRef Name="MaPhim" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BAIVIETDAN__MaTK__035179CE">
+    <End Type="LemonCatModel.TAIKHOAN" Role="TAIKHOAN" Multiplicity="0..1" />
+    <End Type="LemonCatModel.BAIVIETDANHGIA" Role="BAIVIETDANHGIA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TAIKHOAN">
+        <PropertyRef Name="MaTK" />
+      </Principal>
+      <Dependent Role="BAIVIETDANHGIA">
+        <PropertyRef Name="MaTK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ChildComm__RootC__76EBA2E9">
+    <End Type="LemonCatModel.RootCommentNew" Role="RootCommentNew" Multiplicity="0..1" />
+    <End Type="LemonCatModel.ChildCommentNew" Role="ChildCommentNew" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RootCommentNew">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ChildCommentNew">
+        <PropertyRef Name="RootCommentNewID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ChildComme__MaTK__77DFC722">
+    <End Type="LemonCatModel.TAIKHOAN" Role="TAIKHOAN" Multiplicity="0..1" />
+    <End Type="LemonCatModel.ChildCommentNew" Role="ChildCommentNew" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TAIKHOAN">
+        <PropertyRef Name="MaTK" />
+      </Principal>
+      <Dependent Role="ChildCommentNew">
+        <PropertyRef Name="MaTK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CHITIETDI__MaDie__71D1E811">
+    <End Type="LemonCatModel.DIENVIEN" Role="DIENVIEN" Multiplicity="0..1" />
+    <End Type="LemonCatModel.CHITIETDIENVIENNEW" Role="CHITIETDIENVIENNEW" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DIENVIEN">
+        <PropertyRef Name="MaDienVien" />
+      </Principal>
+      <Dependent Role="CHITIETDIENVIENNEW">
+        <PropertyRef Name="MaDienVien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CHITIETDI__MaNew__72C60C4A">
+    <End Type="LemonCatModel.NEW" Role="NEW" Multiplicity="0..1" />
+    <End Type="LemonCatModel.CHITIETDIENVIENNEW" Role="CHITIETDIENVIENNEW" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NEW">
+        <PropertyRef Name="MaNew" />
+      </Principal>
+      <Dependent Role="CHITIETDIENVIENNEW">
+        <PropertyRef Name="MaNew" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CHITIETHO__MaHoa__320C68B7">
+    <End Type="LemonCatModel.HOADON" Role="HOADON" Multiplicity="0..1" />
+    <End Type="LemonCatModel.CHITIETHOADON" Role="CHITIETHOADON" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HOADON">
+        <PropertyRef Name="MaHoaDon" />
+      </Principal>
+      <Dependent Role="CHITIETHOADON">
+        <PropertyRef Name="MaHoaDon" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CHITIETPH__MaNew__6EF57B66">
+    <End Type="LemonCatModel.NEW" Role="NEW" Multiplicity="0..1" />
+    <End Type="LemonCatModel.CHITIETPHIMNEW" Role="CHITIETPHIMNEW" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NEW">
+        <PropertyRef Name="MaNew" />
+      </Principal>
+      <Dependent Role="CHITIETPHIMNEW">
+        <PropertyRef Name="MaNew" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CHITIETPH__MaPhi__6E01572D">
+    <End Type="LemonCatModel.PHIM" Role="PHIM" Multiplicity="0..1" />
+    <End Type="LemonCatModel.CHITIETPHIMNEW" Role="CHITIETPHIMNEW" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHIM">
+        <PropertyRef Name="MaPhim" />
+      </Principal>
+      <Dependent Role="CHITIETPHIMNEW">
+        <PropertyRef Name="MaPhim" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DAODIENPH__MaDie__46E78A0C">
+    <End Type="LemonCatModel.DIENVIEN" Role="DIENVIEN" Multiplicity="0..1" />
+    <End Type="LemonCatModel.DAODIENPHIM" Role="DAODIENPHIM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DIENVIEN">
+        <PropertyRef Name="MaDienVien" />
+      </Principal>
+      <Dependent Role="DAODIENPHIM">
+        <PropertyRef Name="MaDienVien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DAODIENPH__MaPhi__45F365D3">
+    <End Type="LemonCatModel.PHIM" Role="PHIM" Multiplicity="0..1" />
+    <End Type="LemonCatModel.DAODIENPHIM" Role="DAODIENPHIM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHIM">
+        <PropertyRef Name="MaPhim" />
+      </Principal>
+      <Dependent Role="DAODIENPHIM">
+        <PropertyRef Name="MaPhim" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DIENVIENP__MaDie__4E88ABD4">
+    <End Type="LemonCatModel.DIENVIEN" Role="DIENVIEN" Multiplicity="0..1" />
+    <End Type="LemonCatModel.DIENVIENPHIM" Role="DIENVIENPHIM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DIENVIEN">
+        <PropertyRef Name="MaDienVien" />
+      </Principal>
+      <Dependent Role="DIENVIENPHIM">
+        <PropertyRef Name="MaDienVien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__KICHBANPH__MaDie__4AB81AF0">
+    <End Type="LemonCatModel.DIENVIEN" Role="DIENVIEN" Multiplicity="0..1" />
+    <End Type="LemonCatModel.KICHBANPHIM" Role="KICHBANPHIM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DIENVIEN">
+        <PropertyRef Name="MaDienVien" />
+      </Principal>
+      <Dependent Role="KICHBANPHIM">
+        <PropertyRef Name="MaDienVien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DIENVIENP__MaPhi__4D94879B">
+    <End Type="LemonCatModel.PHIM" Role="PHIM" Multiplicity="0..1" />
+    <End Type="LemonCatModel.DIENVIENPHIM" Role="DIENVIENPHIM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHIM">
+        <PropertyRef Name="MaPhim" />
+      </Principal>
+      <Dependent Role="DIENVIENPHIM">
+        <PropertyRef Name="MaPhim" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DVD__MaPhim__75A278F5">
+    <End Type="LemonCatModel.PHIM" Role="PHIM" Multiplicity="0..1" />
+    <End Type="LemonCatModel.DVD" Role="DVD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHIM">
+        <PropertyRef Name="MaPhim" />
+      </Principal>
+      <Dependent Role="DVD">
+        <PropertyRef Name="MaPhim" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__GENREPHIM__MaGen__6F7F8B4B">
+    <End Type="LemonCatModel.GENRE" Role="GENRE" Multiplicity="0..1" />
+    <End Type="LemonCatModel.GENREPHIM" Role="GENREPHIM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GENRE">
+        <PropertyRef Name="MaGenre" />
+      </Principal>
+      <Dependent Role="GENREPHIM">
+        <PropertyRef Name="MaGenre" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__GENREPHIM__MaPhi__7073AF84">
+    <End Type="LemonCatModel.PHIM" Role="PHIM" Multiplicity="0..1" />
+    <End Type="LemonCatModel.GENREPHIM" Role="GENREPHIM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHIM">
+        <PropertyRef Name="MaPhim" />
+      </Principal>
+      <Dependent Role="GENREPHIM">
+        <PropertyRef Name="MaPhim" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__KICHBANPH__MaPhi__49C3F6B7">
+    <End Type="LemonCatModel.PHIM" Role="PHIM" Multiplicity="0..1" />
+    <End Type="LemonCatModel.KICHBANPHIM" Role="KICHBANPHIM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHIM">
+        <PropertyRef Name="MaPhim" />
+      </Principal>
+      <Dependent Role="KICHBANPHIM">
+        <PropertyRef Name="MaPhim" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TVSHOW__Network__10E07F16">
+    <End Type="LemonCatModel.NETWORK" Role="NETWORK" Multiplicity="0..1" />
+    <End Type="LemonCatModel.TVSHOW" Role="TVSHOW" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NETWORK">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TVSHOW">
+        <PropertyRef Name="Network" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__NEW__MaTK__628FA481">
+    <End Type="LemonCatModel.TAIKHOAN" Role="TAIKHOAN" Multiplicity="0..1" />
+    <End Type="LemonCatModel.NEW" Role="NEW" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TAIKHOAN">
+        <PropertyRef Name="MaTK" />
+      </Principal>
+      <Dependent Role="NEW">
+        <PropertyRef Name="MaTK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__NewsScore__NewsI__7ABC33CD">
+    <End Type="LemonCatModel.NEW" Role="NEW" Multiplicity="0..1" />
+    <End Type="LemonCatModel.NewsScore" Role="NewsScore" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NEW">
+        <PropertyRef Name="MaNew" />
+      </Principal>
+      <Dependent Role="NewsScore">
+        <PropertyRef Name="NewsID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RootComme__MaNew__731B1205">
+    <End Type="LemonCatModel.NEW" Role="NEW" Multiplicity="0..1" />
+    <End Type="LemonCatModel.RootCommentNew" Role="RootCommentNew" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NEW">
+        <PropertyRef Name="MaNew" />
+      </Principal>
+      <Dependent Role="RootCommentNew">
+        <PropertyRef Name="MaNew" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__NewsScore__MaTK__7BB05806">
+    <End Type="LemonCatModel.TAIKHOAN" Role="TAIKHOAN" Multiplicity="0..1" />
+    <End Type="LemonCatModel.NewsScore" Role="NewsScore" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TAIKHOAN">
+        <PropertyRef Name="MaTK" />
+      </Principal>
+      <Dependent Role="NewsScore">
+        <PropertyRef Name="MaTK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ORDERSEAT__IDSua__3A6CA48E">
+    <End Type="LemonCatModel.SUATCHIEU" Role="SUATCHIEU" Multiplicity="0..1" />
+    <End Type="LemonCatModel.ORDERSEAT" Role="ORDERSEAT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SUATCHIEU">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ORDERSEAT">
+        <PropertyRef Name="IDSuatChieu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PHIM__Studio__16CE6296">
+    <End Type="LemonCatModel.STUDIO" Role="STUDIO" Multiplicity="0..1" />
+    <End Type="LemonCatModel.PHIM" Role="PHIM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="STUDIO">
+        <PropertyRef Name="MaStudio" />
+      </Principal>
+      <Dependent Role="PHIM">
+        <PropertyRef Name="Studio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SCORE__MaPhim__14B10FFA">
+    <End Type="LemonCatModel.PHIM" Role="PHIM" Multiplicity="0..1" />
+    <End Type="LemonCatModel.SCORE" Role="SCORE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHIM">
+        <PropertyRef Name="MaPhim" />
+      </Principal>
+      <Dependent Role="SCORE">
+        <PropertyRef Name="MaPhim" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TVSHOW__MaPhim__3B75D760">
+    <End Type="LemonCatModel.PHIM" Role="PHIM" Multiplicity="0..1" />
+    <End Type="LemonCatModel.TVSHOW" Role="TVSHOW" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHIM">
+        <PropertyRef Name="MaPhim" />
+      </Principal>
+      <Dependent Role="TVSHOW">
+        <PropertyRef Name="MaPhim" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TVSHOWEP__MaPhim__3E52440B">
+    <End Type="LemonCatModel.PHIM" Role="PHIM" Multiplicity="0..1" />
+    <End Type="LemonCatModel.TVSHOWEP" Role="TVSHOWEP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHIM">
+        <PropertyRef Name="MaPhim" />
+      </Principal>
+      <Dependent Role="TVSHOWEP">
+        <PropertyRef Name="MaPhim" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RootCommen__MaTK__740F363E">
+    <End Type="LemonCatModel.TAIKHOAN" Role="TAIKHOAN" Multiplicity="0..1" />
+    <End Type="LemonCatModel.RootCommentNew" Role="RootCommentNew" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TAIKHOAN">
+        <PropertyRef Name="MaTK" />
+      </Principal>
+      <Dependent Role="RootCommentNew">
+        <PropertyRef Name="MaTK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RootNewSc__RootC__7E8CC4B1">
+    <End Type="LemonCatModel.RootCommentNew" Role="RootCommentNew" Multiplicity="0..1" />
+    <End Type="LemonCatModel.RootNewScore" Role="RootNewScore" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RootCommentNew">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="RootNewScore">
+        <PropertyRef Name="RootCommentNewID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RootNewSco__MaTK__7F80E8EA">
+    <End Type="LemonCatModel.TAIKHOAN" Role="TAIKHOAN" Multiplicity="0..1" />
+    <End Type="LemonCatModel.RootNewScore" Role="RootNewScore" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TAIKHOAN">
+        <PropertyRef Name="MaTK" />
+      </Principal>
+      <Dependent Role="RootNewScore">
+        <PropertyRef Name="MaTK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__VIEWEDPROD__MaTK__15702A09">
+    <End Type="LemonCatModel.TAIKHOAN" Role="TAIKHOAN" Multiplicity="0..1" />
+    <End Type="LemonCatModel.VIEWEDPRODUCT" Role="VIEWEDPRODUCT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TAIKHOAN">
+        <PropertyRef Name="MaTK" />
+      </Principal>
+      <Dependent Role="VIEWEDPRODUCT">
+        <PropertyRef Name="MaTK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

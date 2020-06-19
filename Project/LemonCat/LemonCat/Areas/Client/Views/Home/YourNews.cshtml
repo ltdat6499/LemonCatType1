@@ -1,0 +1,160 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "YourNews";
+    Layout = "~/Areas/Client/Views/Shared/_layout.cshtml";
+}
+<head>
+    <style>
+        .upload-btn-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+        }
+
+            .upload-btn-wrapper input[type=file] {
+                font-size: 100px;
+                position: absolute;
+                left: 0;
+                top: 0;
+                opacity: 0;
+                border: none;
+            }
+    </style>
+</head>
+<script>
+    function Test() {
+        $("#pageSize").val($("#pagesizedown").val());
+        var form = $(event.target).parents("form");
+        form.submit();
+    }
+</script>
+<div class="hero user-hero">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="hero-ct">
+                    <h1>@Model.LastName's profile</h1>
+                    <ul class="breadcumb">
+                        <li class="#"><a href="#">Home</a></li>
+                        <li> <span class="ion-ios-arrow-right"></span>Rated movies</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="page-single">
+    <div class="container">
+        <div class="row ipad-width2">
+            <div class="col-md-3 col-sm-12 col-xs-12">
+                <div class="user-information">
+                    @using (Html.BeginForm("EditAvata", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        <div class="user-img">
+                            <img id="img" src="@(Model.AnhDaiDien)" style="width:120px; height:120px; border-radius:50%" />
+                            <div class="upload-btn-wrapper">
+                                <button class="redbtn">CHANGE AVATAR</button>
+                                <input id="AnhDaiDien" type="file" name="AnhDaiDien" onchange="myUploadOnChangeFunction(this)" />
+                            </div>
+                        </div>
+                    }
+                    <div class="user-fav">
+                        <p>Account Details</p>
+                        <ul>
+                            <li class="active"><a href="/Client/Home/UserInfo?id=@((Session["CLIENT_USER_SESSION"] as UserLogin).UserID)">Profile</a></li>
+                            <li><a href="/Client/Home/YourNews?id=@((Session["CLIENT_USER_SESSION"] as UserLogin).UserID)">Your News</a></li>
+                            <li><a href="/Client/Home/RatedMovie?id=@((Session["CLIENT_USER_SESSION"] as UserLogin).UserID)">Rated movies</a></li>
+                        </ul>
+                    </div>
+                    <div class="user-fav">
+                        <p>Others</p>
+                        <ul>
+                            <li><a href="#" onclick="Logout()">Log out</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9 col-sm-12 col-xs-12">
+                <div class="topbar-filter">
+                    <p>Found <span>@ViewBag.CountReview rates</span> in total</p>
+                    <label>Sort by:</label>
+                    <select>
+                        <option value="1">Date</option>
+                        <option value="2">Most Like</option>
+                    </select>
+                </div>
+                @for (int i = 0; i < (ViewBag.Review).Count; i++)
+                {
+                    <div class="movie-item-style-2 userrate">
+                        <div class="mv-item-infor">
+                            <h6><a href="#">@(ViewBag.Review[i].TuaNews)</a></h6>
+                            <p class="time sm-text">your rate:</p>
+                            <p class="time sm-text">your reviews:</p>
+                            <p class="time sm">@(ViewBag.Review[i].NgayDang)</p>
+                            <p>“@(ViewBag.Review[i].NoiDungNgan)”</p>  - <a href="/Client/Home/ReviewNews?id=@(ViewBag.Review[i].MaNew)">Read full</a>
+                        </div>
+                    </div>
+                }
+                @using (Html.BeginForm("YourNews", "Home", FormMethod.Post))
+                {
+                    <input id="pageSize" name="pageSize" type="hidden" />
+                    <div class="topbar-filter">
+                        <label>News per page:</label>
+                        <select onchange="Test()" id="pagesizedown">
+                            @foreach (var item in ViewBag.Dropdown)
+                            {
+                                if (item.Value == ViewBag.Pagesize + "")
+                                {
+                                    <option value="@item.Value" selected>@item.Text</option>
+                                }
+                                else
+                                {
+                                    <option value="@item.Value">@item.Text</option>
+                                }
+                            }
+                        </select>
+                        <div class="pagination2">
+                            @Html.PagedListPager((IPagedList)(ViewBag.Review), page => Url.Action("Movie", new RouteValueDictionary(new { controller = "Home", action = "YourNews", id = (Session["CLIENT_USER_SESSION"] as UserLogin).UserID, page = page, pageSize = ViewBag.Pagesize })))
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function Logout() {
+        $.post('/Client/Home/Logout', {},
+            function (response) {
+                if (response.status == true) {
+                    window.location.href = "/Client/Home/Index"
+                }
+                else {
+
+                }
+            });
+        function createObjectURL(object) {
+            return (window.URL) ? window.URL.createObjectURL(object) : window.webkitURL.createObjectURL(object);
+        }
+
+        function revokeObjectURL(url) {
+            return (window.URL) ? window.URL.revokeObjectURL(url) : window.webkitURL.revokeObjectURL(url);
+        }
+
+        function myUploadOnChangeFunction(res) {
+            if (res.files.length) {
+                for (var i in res.files) {
+                    if (res.files.hasOwnProperty(i)) {
+                        console.log(i);
+                        var src = createObjectURL(res.files[i]);
+                        var image = new Image();
+                        image.src = src;
+                        $('#img').attr('src', src);
+                        var form = $(event.target).parents("form");
+                        form.submit();
+                    }
+                }
+            }
+        }
+</script>

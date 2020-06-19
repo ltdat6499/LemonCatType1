@@ -1,0 +1,113 @@
+﻿
+@{
+    ViewBag.Title = "WriteNews";
+    Layout = "~/Areas/ClientDVD/Views/Shared/_layout.cshtml";
+}
+<section class="content blog-page">
+    <div class="body_scroll">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-lg-7 col-md-6 col-sm-12">
+                    <h2>Blog Post</h2>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#"><i class="zmdi zmdi-home"></i> User</a></li>
+                        <li class="breadcrumb-item"><a href="#">Post</a></li>
+                        <li class="breadcrumb-item active">New Post</li>
+                    </ul>
+                    <button class="btn btn-primary btn-icon mobile_menu" type="button"><i class="zmdi zmdi-sort-amount-desc"></i></button>
+                </div>
+                <div class="col-lg-5 col-md-6 col-sm-12">
+                    <button class="btn btn-primary btn-icon float-right right_icon_toggle_btn" type="button"><i class="zmdi zmdi-arrow-right"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <form id="form_create_post" runat="server" method="POST" enctype="multipart/form-data" ValidateRequest="false">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="body">
+                                <div class="form-group form-float">
+                                    <input style="margin-bottom:8px;" id="TuaDe" name="TuaDe" type="text" class="form-control" placeholder="Enter title" required />
+                                    <input style="margin-bottom:8px;" id="NoiDungNgan" name="NoiDungNgan" type="text" class="form-control" placeholder="Enter shot review" required />
+                                    <select name="LoaiNew" id="LoaiNew" class="form-control show-tick ms select2 selectpicker" data-placeholder="Select">
+                                        @foreach (var item in ViewBag.TypeList)
+                                        {
+                                            <option value="@item.MaLoaiNew">  @item.TenLoaiNew </option>
+                                        }
+                                    </select>
+                                    <div class="row" style="margin-top:8px;">
+                                        <div class="col-sm-6">
+                                            <select name="Phim" id="Phim" class="form-control show-tick ms select2 selectpicker" data-live-search="true" multiple data-placeholder="Select">
+                                                @foreach (var item in ViewBag.FlimList)
+                                                {
+                                                    <option value="@item.MaPhim">  @item.TenPhim </option>
+                                                }
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <select name="DienVien" id="DienVien" class="form-control show-tick ms select2 selectpicker" data-live-search="true" multiple data-placeholder="Select">
+                                                @foreach (var item in ViewBag.PersonList)
+                                                {
+                                                    <option value="@item.MaDienVien">  @item.TenDienVien </option>
+                                                }
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="body">
+                                <textarea class="summernote mark" required></textarea>
+                                <textarea id="NoiDung" name="NoiDung" style="visibility:hidden;" hidden></textarea>
+                                <button type="submit" class="btn btn-info waves-effect m-t-20">POST</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    var markCode = "";
+    function myFunction() {
+        var str = $(".mark").val();
+        var markCode1 = str.replace(/</g, '&lt;');
+        markCode = markCode1.replace(/>/g, '&gt;');
+        $("#NoiDung").val(markCode);
+    }
+    $(document).ready(function () {
+        $("#form_create_post").submit(function () {
+            myFunction();
+            var form_data = new FormData();
+            form_data.append("TuaDe", $("#TuaDe").val()),
+                form_data.append("NoiDung", $("#NoiDung").val()),
+                form_data.append("NoiDungNgan", $("#NoiDungNgan").val()),
+                form_data.append("LoaiNew", $("#LoaiNew").prop('selectedIndex'));
+            $("#Phim").each(function () {
+                form_data.append("Phim", $(this).val());
+            });
+            $("#DienVien").each(function () {
+                form_data.append("DienVien", $(this).val());
+            });
+            $.ajax({
+                url: '/Client/Home/WriteNews',
+                type: 'post',
+                data:  form_data,
+                dataType: 'Json',
+                success: function (response) {
+                    if (response.WriteReview == 'ok') {
+                        alert("Review Success");
+                    }
+                    else {
+                        alert("Review Failed");
+                    }
+                }
+            });
+            return false;
+        });
+    });
+</script>

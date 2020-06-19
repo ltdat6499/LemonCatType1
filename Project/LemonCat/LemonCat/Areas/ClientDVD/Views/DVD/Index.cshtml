@@ -1,0 +1,70 @@
+﻿@model List<LemonCat.Models.EF.DVD>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/ClientDVD/Views/Shared/_layout.cshtml";
+}
+<section class="content">
+    <div class="body_scroll">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-lg-7 col-md-6 col-sm-12">
+                    <h2>Product</h2>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html"><i class="zmdi zmdi-home"></i> Product</a></li>
+                        <li class="breadcrumb-item">eCommerce</li>
+                        <li class="breadcrumb-item active">Product</li>
+                    </ul>
+                    <button class="btn btn-primary btn-icon mobile_menu" type="button"><i class="zmdi zmdi-sort-amount-desc"></i></button>
+                </div>
+                <div class="col-lg-5 col-md-6 col-sm-12">
+                    <button class="btn btn-primary btn-icon float-right right_icon_toggle_btn" type="button"><i class="zmdi zmdi-arrow-right"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row clearfix">
+                @for (int i = 0; i < Model.Count; i++)
+                {
+                    if (Model[i].Status == true)
+                    {<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+                        <div class="card">
+                            <div class="body product_item">
+                                <img style="width:230px;" src="@((ViewBag.ListFlim[i]).AnhDaiDien)" alt="Product" class="img-fluid cp_img" />
+                                <div class="product_details">
+                                    <a href="/ClientDVD/DVD/ViewDetail?id=@(Model[i].MaDVD)">@((ViewBag.ListFlim[i]).TenPhim)</a>
+                                    <ul class="product_price list-unstyled">
+                                        <li class="new_price">$@Model[i].Gia</li>
+                                    </ul>
+                                </div>
+                                <div class="action">
+                                    <a href="/ClientDVD/DVD/ViewDetail?id=@(Model[i].MaDVD)" class="btn btn-info waves-effect"><i class="zmdi zmdi-eye"></i></a>
+                                    <a onclick="AddCart(@(Model[i].MaDVD))" href="javascript:void(0);" class="btn btn-primary waves-effect">ADD TO CART</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+        function AddCart(id) {
+            $.ajax({
+                    url: "/ClientDVD/DVD/AddCart",
+                    data: { id: id },
+                    dataType: "Json",
+                    type: "POST",
+
+                    success: function (response) {
+                        if (response.status == true) {
+                            alert("Add Cart Success");
+                        }
+                        else {
+                            alert("Error");
+                        }
+                    }
+                });
+        }
+</script>

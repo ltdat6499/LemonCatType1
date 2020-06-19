@@ -1,0 +1,545 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LemonCatModelStoreContainer" CdmEntityContainer="LemonCatEntities">
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="LemonCatModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="LemonCatModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="LemonCatModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="LemonCatModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LemonCatModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="LemonCatModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LemonCatModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="LemonCatModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="LemonCatModel.Store.sp_upgraddiagrams" />
+    <FunctionImportMapping FunctionImportName="UpdateUser" FunctionName="LemonCatModel.Store.UpdateUser" />
+    <FunctionImportMapping FunctionImportName="ChangePassword" FunctionName="LemonCatModel.Store.ChangePassword" />
+    <FunctionImportMapping FunctionImportName="SubmitBag" FunctionName="LemonCatModel.Store.SubmitBag" />
+    <EntitySetMapping Name="ANHDIENVIENs">
+      <EntityTypeMapping TypeName="LemonCatModel.ANHDIENVIEN">
+        <MappingFragment StoreEntitySet="ANHDIENVIEN">
+          <ScalarProperty Name="NgayCapNhap" ColumnName="NgayCapNhap" />
+          <ScalarProperty Name="KichThuoc" ColumnName="KichThuoc" />
+          <ScalarProperty Name="TenAnh" ColumnName="TenAnh" />
+          <ScalarProperty Name="Anh" ColumnName="Anh" />
+          <ScalarProperty Name="MaDienVien" ColumnName="MaDienVien" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ANHPHIMs">
+      <EntityTypeMapping TypeName="LemonCatModel.ANHPHIM">
+        <MappingFragment StoreEntitySet="ANHPHIM">
+          <ScalarProperty Name="NgayCapNhap" ColumnName="NgayCapNhap" />
+          <ScalarProperty Name="KichThuoc" ColumnName="KichThuoc" />
+          <ScalarProperty Name="TenAnh" ColumnName="TenAnh" />
+          <ScalarProperty Name="Anh" ColumnName="Anh" />
+          <ScalarProperty Name="MaPhim" ColumnName="MaPhim" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BAGs">
+      <EntityTypeMapping TypeName="LemonCatModel.BAG">
+        <MappingFragment StoreEntitySet="BAG">
+          <ScalarProperty Name="Gia" ColumnName="Gia" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+          <ScalarProperty Name="MaDVD" ColumnName="MaDVD" />
+          <ScalarProperty Name="MaTK" ColumnName="MaTK" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BAIVIET_CHILDCOMMENT">
+      <EntityTypeMapping TypeName="LemonCatModel.BAIVIET_CHILDCOMMENT">
+        <MappingFragment StoreEntitySet="BAIVIET_CHILDCOMMENT">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="NgayBinhLuan" ColumnName="NgayBinhLuan" />
+          <ScalarProperty Name="NoiDungBinhLuan" ColumnName="NoiDungBinhLuan" />
+          <ScalarProperty Name="MaTK" ColumnName="MaTK" />
+          <ScalarProperty Name="IDRoot" ColumnName="IDRoot" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BAIVIET_ROOTCOMMENT">
+      <EntityTypeMapping TypeName="LemonCatModel.BAIVIET_ROOTCOMMENT">
+        <MappingFragment StoreEntitySet="BAIVIET_ROOTCOMMENT">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="DiemDanhGiaBinhLuan" ColumnName="DiemDanhGiaBinhLuan" />
+          <ScalarProperty Name="NgayBinhLuan" ColumnName="NgayBinhLuan" />
+          <ScalarProperty Name="NoiDungBinhLuan" ColumnName="NoiDungBinhLuan" />
+          <ScalarProperty Name="MaTK" ColumnName="MaTK" />
+          <ScalarProperty Name="MaBaiViet" ColumnName="MaBaiViet" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BAIVIET_ROOTSCORE">
+      <EntityTypeMapping TypeName="LemonCatModel.BAIVIET_ROOTSCORE">
+        <MappingFragment StoreEntitySet="BAIVIET_ROOTSCORE">
+          <ScalarProperty Name="Mark" ColumnName="Mark" />
+          <ScalarProperty Name="IDRoot" ColumnName="IDRoot" />
+          <ScalarProperty Name="MaTK" ColumnName="MaTK" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BAIVIET_SCORE">
+      <EntityTypeMapping TypeName="LemonCatModel.BAIVIET_SCORE">
+        <MappingFragment StoreEntitySet="BAIVIET_SCORE">
+          <ScalarProperty Name="Mark" ColumnName="Mark" />
+          <ScalarProperty Name="MaBaiViet" ColumnName="MaBaiViet" />
+          <ScalarProperty Name="MaTK" ColumnName="MaTK" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BAIVIETDANHGIAs">
+      <EntityTypeMapping TypeName="LemonCatModel.BAIVIETDANHGIA">
+        <MappingFragment StoreEntitySet="BAIVIETDANHGIA">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="DiemDanhGia" ColumnName="DiemDanhGia" />
+          <ScalarProperty Name="NgayBinhLuan" ColumnName="NgayBinhLuan" />
+          <ScalarProperty Name="NoiDungBinhLuan" ColumnName="NoiDungBinhLuan" />
+          <ScalarProperty Name="NoiDungNgan" ColumnName="NoiDungNgan" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
+          <ScalarProperty Name="MaTK" ColumnName="MaTK" />
+          <ScalarProperty Name="MaPhim" ColumnName="MaPhim" />
+          <ScalarProperty Name="MaBaiViet" ColumnName="MaBaiViet" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChildCommentNews">
+      <EntityTypeMapping TypeName="LemonCatModel.ChildCommentNew">
+        <MappingFragment StoreEntitySet="ChildCommentNew">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="NgayBinhLuan" ColumnName="NgayBinhLuan" />
+          <ScalarProperty Name="NoiDungBinhLuan" ColumnName="NoiDungBinhLuan" />
+          <ScalarProperty Name="MaTK" ColumnName="MaTK" />
+          <ScalarProperty Name="RootCommentNewID" ColumnName="RootCommentNewID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CHITIETDIENVIENNEWs">
+      <EntityTypeMapping TypeName="LemonCatModel.CHITIETDIENVIENNEW">
+        <MappingFragment StoreEntitySet="CHITIETDIENVIENNEW">
+          <ScalarProperty Name="MaDienVien" ColumnName="MaDienVien" />
+          <ScalarProperty Name="MaNew" ColumnName="MaNew" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CHITIETHOADONs">
+      <EntityTypeMapping TypeName="LemonCatModel.CHITIETHOADON">
+        <MappingFragment StoreEntitySet="CHITIETHOADON">
+          <ScalarProperty Name="ThanhTien" ColumnName="ThanhTien" />
+          <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+          <ScalarProperty Name="Avata" ColumnName="Avata" />
+          <ScalarProperty Name="NameDVD" ColumnName="NameDVD" />
+          <ScalarProperty Name="MaDVD" ColumnName="MaDVD" />
+          <ScalarProperty Name="MaHoaDon" ColumnName="MaHoaDon" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CHITIETPHIMNEWs">
+      <EntityTypeMapping TypeName="LemonCatModel.CHITIETPHIMNEW">
+        <MappingFragment StoreEntitySet="CHITIETPHIMNEW">
+          <ScalarProperty Name="MaPhim" ColumnName="MaPhim" />
+          <ScalarProperty Name="MaNew" ColumnName="MaNew" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CHUCVUs">
+      <EntityTypeMapping TypeName="LemonCatModel.CHUCVU">
+        <MappingFragment StoreEntitySet="CHUCVU">
+          <ScalarProperty Name="TenChucVu" ColumnName="TenChucVu" />
+          <ScalarProperty Name="MaChucVu" ColumnName="MaChucVu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DAODIENPHIMs">
+      <EntityTypeMapping TypeName="LemonCatModel.DAODIENPHIM">
+        <MappingFragment StoreEntitySet="DAODIENPHIM">
+          <ScalarProperty Name="MaDienVien" ColumnName="MaDienVien" />
+          <ScalarProperty Name="MaPhim" ColumnName="MaPhim" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DATASETs">
+      <EntityTypeMapping TypeName="LemonCatModel.DATASET">
+        <MappingFragment StoreEntitySet="DATASET">
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="KetQua" ColumnName="KetQua" />
+          <ScalarProperty Name="TheLoai" ColumnName="TheLoai" />
+          <ScalarProperty Name="MaTK" ColumnName="MaTK" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DIENVIENs">
+      <EntityTypeMapping TypeName="LemonCatModel.DIENVIEN">
+        <MappingFragment StoreEntitySet="DIENVIEN">
+          <ScalarProperty Name="Star" ColumnName="Star" />
+          <ScalarProperty Name="TenDienVien" ColumnName="TenDienVien" />
+          <ScalarProperty Name="AnhDaiDien" ColumnName="AnhDaiDien" />
+          <ScalarProperty Name="TieuSu" ColumnName="TieuSu" />
+          <ScalarProperty Name="NoiSinh" ColumnName="NoiSinh" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="MaDienVien" ColumnName="MaDienVien" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DIENVIENPHIMs">
+      <EntityTypeMapping TypeName="LemonCatModel.DIENVIENPHIM">
+        <MappingFragment StoreEntitySet="DIENVIENPHIM">
+          <ScalarProperty Name="TenNhanVat" ColumnName="TenNhanVat" />
+          <ScalarProperty Name="MaDienVien" ColumnName="MaDienVien" />
+          <ScalarProperty Name="MaPhim" ColumnName="MaPhim" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DVDs">
+      <EntityTypeMapping TypeName="LemonCatModel.DVD">
+        <MappingFragment StoreEntitySet="DVD">
+          <ScalarProperty Name="NgayCapNhap" ColumnName="NgayCapNhap" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="SoLuongTrongKho" ColumnName="SoLuongTrongKho" />
+          <ScalarProperty Name="Gia" ColumnName="Gia" />
+          <ScalarProperty Name="SoDia" ColumnName="SoDia" />
+          <ScalarProperty Name="MaPhim" ColumnName="MaPhim" />
+          <ScalarProperty Name="MaDVD" ColumnName="MaDVD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GENREs">
+      <EntityTypeMapping TypeName="LemonCatModel.GENRE">
+        <MappingFragment StoreEntitySet="GENRE">
+          <ScalarProperty Name="TenGenre" ColumnName="TenGenre" />
+          <ScalarProperty Name="MaGenre" ColumnName="MaGenre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GENREPHIMs">
+      <EntityTypeMapping TypeName="LemonCatModel.GENREPHIM">
+        <MappingFragment StoreEntitySet="GENREPHIM">
+          <ScalarProperty Name="MaGenre" ColumnName="MaGenre" />
+          <ScalarProperty Name="MaPhim" ColumnName="MaPhim" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HanChieux">
+      <EntityTypeMapping TypeName="LemonCatModel.HanChieu">
+        <MappingFragment StoreEntitySet="HanChieu">
+          <ScalarProperty Name="MaPhim" ColumnName="MaPhim" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HOADONs">
+      <EntityTypeMapping TypeName="LemonCatModel.HOADON">
+        <MappingFragment StoreEntitySet="HOADON">
+          <ScalarProperty Name="NgayLapHoaDon" ColumnName="NgayLapHoaDon" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Avata" ColumnName="Avata" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="TongTien" ColumnName="TongTien" />
+          <ScalarProperty Name="MaTK" ColumnName="MaTK" />
+          <ScalarProperty Name="MaHoaDon" ColumnName="MaHoaDon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KICHBANPHIMs">
+      <EntityTypeMapping TypeName="LemonCatModel.KICHBANPHIM">
+        <MappingFragment StoreEntitySet="KICHBANPHIM">
+          <ScalarProperty Name="MaDienVien" ColumnName="MaDienVien" />
+          <ScalarProperty Name="MaPhim" ColumnName="MaPhim" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LOAINEWs">
+      <EntityTypeMapping TypeName="LemonCatModel.LOAINEW">
+        <MappingFragment StoreEntitySet="LOAINEW">
+          <ScalarProperty Name="TenLoaiNew" ColumnName="TenLoaiNew" />
+          <ScalarProperty Name="MaLoaiNew" ColumnName="MaLoaiNew" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NETWORKs">
+      <EntityTypeMapping TypeName="LemonCatModel.NETWORK">
+        <MappingFragment StoreEntitySet="NETWORK">
+          <ScalarProperty Name="NetworkName" ColumnName="NetworkName" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NEWs">
+      <EntityTypeMapping TypeName="LemonCatModel.NEW">
+        <MappingFragment StoreEntitySet="NEW">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="TuaNews" ColumnName="TuaNews" />
+          <ScalarProperty Name="NgayDang" ColumnName="NgayDang" />
+          <ScalarProperty Name="DiemDanhGia" ColumnName="DiemDanhGia" />
+          <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
+          <ScalarProperty Name="NoiDungNgan" ColumnName="NoiDungNgan" />
+          <ScalarProperty Name="LoaiNew" ColumnName="LoaiNew" />
+          <ScalarProperty Name="MaTK" ColumnName="MaTK" />
+          <ScalarProperty Name="MaNew" ColumnName="MaNew" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NewsScores">
+      <EntityTypeMapping TypeName="LemonCatModel.NewsScore">
+        <MappingFragment StoreEntitySet="NewsScore">
+          <ScalarProperty Name="Score" ColumnName="Score" />
+          <ScalarProperty Name="NewsID" ColumnName="NewsID" />
+          <ScalarProperty Name="MaTK" ColumnName="MaTK" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ORDERSEATs">
+      <EntityTypeMapping TypeName="LemonCatModel.ORDERSEAT">
+        <MappingFragment StoreEntitySet="ORDERSEAT">
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="NgayTaoHoaDon" ColumnName="NgayTaoHoaDon" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Sdt" ColumnName="Sdt" />
+          <ScalarProperty Name="TenKhach" ColumnName="TenKhach" />
+          <ScalarProperty Name="DiaChiTapDoan" ColumnName="DiaChiTapDoan" />
+          <ScalarProperty Name="TapDoan" ColumnName="TapDoan" />
+          <ScalarProperty Name="TongTien" ColumnName="TongTien" />
+          <ScalarProperty Name="QR" ColumnName="QR" />
+          <ScalarProperty Name="DanhSachGheDat" ColumnName="DanhSachGheDat" />
+          <ScalarProperty Name="IDSuatChieu" ColumnName="IDSuatChieu" />
+          <ScalarProperty Name="MaTK" ColumnName="MaTK" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PHIMs">
+      <EntityTypeMapping TypeName="LemonCatModel.PHIM">
+        <MappingFragment StoreEntitySet="PHIM">
+          <ScalarProperty Name="BoxOffice" ColumnName="BoxOffice" />
+          <ScalarProperty Name="IMDBScore" ColumnName="IMDBScore" />
+          <ScalarProperty Name="LemonCatScore" ColumnName="LemonCatScore" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="OnDVD" ColumnName="OnDVD" />
+          <ScalarProperty Name="Theaters" ColumnName="Theaters" />
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="Studio" ColumnName="Studio" />
+          <ScalarProperty Name="Trailer" ColumnName="Trailer" />
+          <ScalarProperty Name="AnhDaiDien" ColumnName="AnhDaiDien" />
+          <ScalarProperty Name="TomTat" ColumnName="TomTat" />
+          <ScalarProperty Name="TomTatNgan" ColumnName="TomTatNgan" />
+          <ScalarProperty Name="IsTVShow" ColumnName="IsTVShow" />
+          <ScalarProperty Name="TenPhim" ColumnName="TenPhim" />
+          <ScalarProperty Name="MaPhim" ColumnName="MaPhim" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RAPPHIMs">
+      <EntityTypeMapping TypeName="LemonCatModel.RAPPHIM">
+        <MappingFragment StoreEntitySet="RAPPHIM">
+          <ScalarProperty Name="TenRap" ColumnName="TenRap" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RATINGs">
+      <EntityTypeMapping TypeName="LemonCatModel.RATING">
+        <MappingFragment StoreEntitySet="RATING">
+          <ScalarProperty Name="TenRating" ColumnName="TenRating" />
+          <ScalarProperty Name="MaRating" ColumnName="MaRating" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RootCommentNews">
+      <EntityTypeMapping TypeName="LemonCatModel.RootCommentNew">
+        <MappingFragment StoreEntitySet="RootCommentNew">
+          <ScalarProperty Name="DiemDanhGia" ColumnName="DiemDanhGia" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="NgayBinhLuan" ColumnName="NgayBinhLuan" />
+          <ScalarProperty Name="NoiDungBinhLuan" ColumnName="NoiDungBinhLuan" />
+          <ScalarProperty Name="MaTK" ColumnName="MaTK" />
+          <ScalarProperty Name="MaNew" ColumnName="MaNew" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RootNewScores">
+      <EntityTypeMapping TypeName="LemonCatModel.RootNewScore">
+        <MappingFragment StoreEntitySet="RootNewScore">
+          <ScalarProperty Name="Score" ColumnName="Score" />
+          <ScalarProperty Name="RootCommentNewID" ColumnName="RootCommentNewID" />
+          <ScalarProperty Name="MaTK" ColumnName="MaTK" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SCOREs">
+      <EntityTypeMapping TypeName="LemonCatModel.SCORE">
+        <MappingFragment StoreEntitySet="SCORE">
+          <ScalarProperty Name="TomatoesScore" ColumnName="TomatoesScore" />
+          <ScalarProperty Name="IMDBScore" ColumnName="IMDBScore" />
+          <ScalarProperty Name="MetacriditScore" ColumnName="MetacriditScore" />
+          <ScalarProperty Name="CountLemonCat" ColumnName="CountLemonCat" />
+          <ScalarProperty Name="LemonCatScore" ColumnName="LemonCatScore" />
+          <ScalarProperty Name="CountUser" ColumnName="CountUser" />
+          <ScalarProperty Name="UserScore" ColumnName="UserScore" />
+          <ScalarProperty Name="MaPhim" ColumnName="MaPhim" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Studios">
+      <EntityTypeMapping TypeName="LemonCatModel.STUDIO">
+        <MappingFragment StoreEntitySet="STUDIO">
+          <ScalarProperty Name="TenStudio" ColumnName="TenStudio" />
+          <ScalarProperty Name="MaStudio" ColumnName="MaStudio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SUATCHIEUx">
+      <EntityTypeMapping TypeName="LemonCatModel.SUATCHIEU">
+        <MappingFragment StoreEntitySet="SUATCHIEU">
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="DanhSachGheTrong" ColumnName="DanhSachGheTrong" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="IDPhim" ColumnName="IDPhim" />
+          <ScalarProperty Name="IDRap" ColumnName="IDRap" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="LemonCatModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TAGS_MOVIE">
+      <EntityTypeMapping TypeName="LemonCatModel.TAGS_MOVIE">
+        <MappingFragment StoreEntitySet="TAGS_MOVIE">
+          <ScalarProperty Name="Tag" ColumnName="Tag" />
+          <ScalarProperty Name="MaPhim" ColumnName="MaPhim" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TAGS_PERSON">
+      <EntityTypeMapping TypeName="LemonCatModel.TAGS_PERSON">
+        <MappingFragment StoreEntitySet="TAGS_PERSON">
+          <ScalarProperty Name="Tag" ColumnName="Tag" />
+          <ScalarProperty Name="MaDienVien" ColumnName="MaDienVien" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TAIKHOANs">
+      <EntityTypeMapping TypeName="LemonCatModel.TAIKHOAN">
+        <MappingFragment StoreEntitySet="TAIKHOAN">
+          <ScalarProperty Name="Money" ColumnName="Money" />
+          <ScalarProperty Name="KichHoat" ColumnName="KichHoat" />
+          <ScalarProperty Name="AnhDaiDien" ColumnName="AnhDaiDien" />
+          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="CMND" ColumnName="CMND" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="ChucVu" ColumnName="ChucVu" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="RealPass" ColumnName="RealPass" />
+          <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+          <ScalarProperty Name="TenTK" ColumnName="TenTK" />
+          <ScalarProperty Name="MaTK" ColumnName="MaTK" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TVSHOWs">
+      <EntityTypeMapping TypeName="LemonCatModel.TVSHOW">
+        <MappingFragment StoreEntitySet="TVSHOW">
+          <ScalarProperty Name="PremiereDate" ColumnName="PremiereDate" />
+          <ScalarProperty Name="Network" ColumnName="Network" />
+          <ScalarProperty Name="SoTap" ColumnName="SoTap" />
+          <ScalarProperty Name="MaPhim" ColumnName="MaPhim" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TVSHOWEPs">
+      <EntityTypeMapping TypeName="LemonCatModel.TVSHOWEP">
+        <MappingFragment StoreEntitySet="TVSHOWEP">
+          <ScalarProperty Name="TenTap" ColumnName="TenTap" />
+          <ScalarProperty Name="Ep" ColumnName="Ep" />
+          <ScalarProperty Name="MaPhim" ColumnName="MaPhim" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VIEWEDPRODUCTs">
+      <EntityTypeMapping TypeName="LemonCatModel.VIEWEDPRODUCT">
+        <MappingFragment StoreEntitySet="VIEWEDPRODUCT">
+          <ScalarProperty Name="MaDVD" ColumnName="MaDVD" />
+          <ScalarProperty Name="MaTK" ColumnName="MaTK" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="YEARDATAs">
+      <EntityTypeMapping TypeName="LemonCatModel.YEARDATA">
+        <MappingFragment StoreEntitySet="YEARDATA">
+          <ScalarProperty Name="YearDisplay" ColumnName="YearDisplay" />
+          <ScalarProperty Name="MonthDisplay" ColumnName="MonthDisplay" />
+          <ScalarProperty Name="TongNews" ColumnName="TongNews" />
+          <ScalarProperty Name="TongReview" ColumnName="TongReview" />
+          <ScalarProperty Name="TongUserDacBiet" ColumnName="TongUserDacBiet" />
+          <ScalarProperty Name="TongUserLoaiMot" ColumnName="TongUserLoaiMot" />
+          <ScalarProperty Name="DoanhThuBanVe" ColumnName="DoanhThuBanVe" />
+          <ScalarProperty Name="DoanhThuBanDVD" ColumnName="DoanhThuBanDVD" />
+          <ScalarProperty Name="TongVe" ColumnName="TongVe" />
+          <ScalarProperty Name="TongDVD" ColumnName="TongDVD" />
+          <ScalarProperty Name="TongUser" ColumnName="TongUser" />
+          <ScalarProperty Name="TongTV" ColumnName="TongTV" />
+          <ScalarProperty Name="TongMovie" ColumnName="TongMovie" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="Month" ColumnName="Month" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

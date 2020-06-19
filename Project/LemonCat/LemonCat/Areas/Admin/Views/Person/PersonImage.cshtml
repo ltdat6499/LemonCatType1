@@ -1,0 +1,90 @@
+﻿@model List<LemonCat.Models.EF.ANHDIENVIEN>
+@{
+    ViewBag.Title = "PersonImage";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<section class="content file_manager">
+    <div class="body_scroll">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-lg-7 col-md-6 col-sm-12">
+                    <h2>@ViewBag.PersonName</h2>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#"><i class="zmdi zmdi-home"></i> Admin</a></li>
+                        <li class="breadcrumb-item"><a href="#">Images Manager</a></li>
+                        <li class="breadcrumb-item active">Images</li>
+                    </ul>
+                    <button class="btn btn-primary btn-icon mobile_menu" type="button"><i class="zmdi zmdi-sort-amount-desc"></i></button>
+                </div>
+                <div class="col-lg-5 col-md-6 col-sm-12">
+                    <button class="btn btn-primary btn-icon float-right right_icon_toggle_btn" type="button"><i class="zmdi zmdi-arrow-right"></i></button>
+                    <a href="/Admin/Person/AddImagePerson?id=@(ViewBag.IDImagePerson)"><button class="btn btn-success btn-icon float-right" type="button"><i class="zmdi zmdi-upload"></i></button></a> 
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row clearfix">
+                @foreach (var item in Model)
+                {
+                    <div id="row_@item.ID" class="col-lg-3 col-md-4 col-sm-12">
+                        <div class="card">
+                            <div class="header">
+                                <h2>&nbsp</h2>
+                                <ul class="header-dropdown">
+                                    <li class="dropdown">
+                                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
+                                        <ul class="dropdown-menu dropdown-menu-right">
+                                            <li><a href="/Admin/Person/EditImagePerson?id=@item.ID">Edit</a></li>
+                                            <li><a href="#" onclick="myFunction(@item.ID)">Delete</a></li>
+                                        </ul>
+                                    </li>
+
+                                </ul>
+                            </div>
+                            <a href="#" class="file">
+                                <div class="hover">
+                                    <button type="button" class="btn btn-icon btn-icon-mini btn-round btn-danger" onclick="myFunction(@item.ID)"><i class="zmdi zmdi-delete"></i></button>
+                                </div>
+                                <div class="image">
+                                    <img style="height:170px; display: block; margin-left: auto; margin-right: auto;" src="@item.Anh" alt="img" class="img-fluid">
+                                </div>
+                                <div class="file-name">
+                                    @*/Admin/Person/EditImagePerson?id=@item.ID*@
+                                    <p class="m-b-5 text-muted">@item.TenAnh</p>
+                                    <small>Size: @(item.KichThuoc) KB<span class="date">@item.NgayCapNhap</span></small>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+        function myFunction(id) {
+            var idrow = "#row_" + id;
+            var r = confirm("Are you sure?!");
+            if (r == true) {
+                $.ajax({
+                    url: "/Admin/Person/DeleteImagePerson",
+                    data: { id: id },
+                    dataType: "Json",
+                    type: "POST",
+
+                    success: function (response) {
+                        if (response.DeleteImagePerson == true) {
+                            $(idrow).remove();
+                            alert("Your Row has been delete !!");
+                        }
+                        else {
+                            alert("Error");
+                        }
+                    }
+                });
+
+            } else {
+                alert("Your Row is saved !!");
+            }
+        }
+</script>

@@ -1,0 +1,72 @@
+﻿@model List<LemonCat.Models.EF.PHIM>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Manager/Views/Shared/_Layout.cshtml";
+}
+<section class="content contact">
+    <div class="body_scroll">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-lg-7 col-md-6 col-sm-12">
+                    <h2>Flim</h2>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#"><i class="zmdi zmdi-home"></i> Manager</a></li>
+                        <li class="breadcrumb-item"><a href="#">Review</a></li>
+                        <li class="breadcrumb-item active">Flim Review List</li>
+                    </ul>
+                    <button class="btn btn-primary btn-icon mobile_menu" type="button"><i class="zmdi zmdi-sort-amount-desc"></i></button>
+                </div>
+                <div class="col-lg-5 col-md-6 col-sm-12">
+                    <button class="btn btn-primary btn-icon float-right right_icon_toggle_btn" type="button"><i class="zmdi zmdi-arrow-right"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <form class="row clearfix">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="table-responsive">
+                            <!--js-basic-example <> js-exportable-->
+                            <table id="example" class="table table-striped table table-hover mb-0 c_list c_table js-exportable dataTable">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Name</th>
+                                        <th>UserScore</th>
+                                        <th>LemonCat</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @for (int i = 0; i < Model.Count; i++)
+                                    {
+                                        <tr id="row_@(Model[i].MaPhim)">
+                                            <td>
+                                                <p class="c_name" style="visibility:hidden">@(Model[i].MaPhim)</p>
+                                            </td>
+                                            <td>
+                                                <img src="@(Model[i].AnhDaiDien)" class="avatar w30" style="height:40px;" alt="Avata">
+                                                <p class="c_name">@(Model[i].TenPhim)</p>
+                                            </td>
+                                            <td>
+                                                <span class="phone"><a href="#" title=""><i class="zmdi zmdi-hc-fw"></i> @(ViewBag.UserScore[i])</a></span>
+                                            </td>
+                                            <td>
+                                                <span class="phone"><a href="#" title=""><i class="zmdi zmdi-hc-fw"></i> @(ViewBag.LemonCat[i])</a></span>
+                                            </td>
+                                            <td>
+                                                <a href="/Manager/FlimReview/WriteReview?id=@(Model[i].MaPhim)"><span class="btn btn-primary btn-sm"><i class="zmdi zmdi-edit"></i></span></a>
+                                                <a href="/Manager/FlimReview/ManagerReview?id=@(Model[i].MaPhim)"><span class="btn btn-primary btn-sm"><i class="zmdi zmdi-hc-fw"></i></span></a>
+                                            </td>
+                                        </tr>
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

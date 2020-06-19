@@ -1,0 +1,107 @@
+﻿
+@{
+    ViewBag.Title = "SetDate";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<script>
+        $(function () {
+            $('.getDate').bootstrapMaterialDatePicker({
+                format: 'DD-MM-YYYY',
+                time: false
+            });
+            $('#date-end').bootstrapMaterialDatePicker({
+                weekStart: 0, format: 'DD-MM-YYYY', time: false
+            });
+
+            $('#date-start').bootstrapMaterialDatePicker({
+                weekStart: 0, format: 'DD-MM-YYYY', time: false
+            }).on('change', function(e, date) {
+                $('#date-end').bootstrapMaterialDatePicker('setMinDate', date);
+            });
+        });
+        
+</script>
+<section class="content">
+    <div class="body_scroll">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-lg-7 col-md-6 col-sm-12">
+                    <h2>Movie</h2>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html"><i class="zmdi zmdi-home"></i> Admin</a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0);">Movie</a></li>
+                        <li class="breadcrumb-item active">Create new Movie</li>
+                    </ul>
+                    <button class="btn btn-primary btn-icon mobile_menu" type="button"><i class="zmdi zmdi-sort-amount-desc"></i></button>
+                </div>
+                <div class="col-lg-5 col-md-6 col-sm-12">
+                    <button class="btn btn-primary btn-icon float-right right_icon_toggle_btn" type="button"><i class="zmdi zmdi-arrow-right"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <!-- Advanced Validation -->
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2><strong>Create</strong> Theater Date</h2>
+                        </div>
+                        <div class="body">
+                            <form id="form_create_movie" runat="server" method="POST" enctype="multipart/form-data">
+
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="zmdi zmdi-calendar"></i></span>
+                                            </div>
+                                            <input id="date-start" name="date-start" type="text" class="form-control datetimepicker getDate" placeholder="Please choose Start Date" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="zmdi zmdi-calendar"></i></span>
+                                            </div>
+                                            <input id="date-end" name="date-end" type="text" class="form-control datetimepicker getDate" placeholder="Please choose End Date" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <input id="id" name="id" type="text" class="form-control" value="@ViewBag.ID" hidden>
+                                <button class="btn btn-raised btn-primary waves-effect" type="submit">Create Date On Theater</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    $(document).ready(function () {
+        $("#form_create_movie").submit(function () {
+            var form_data = new FormData();
+            form_data.append("id", $("#id").val()),
+            form_data.append("date-start", $("#date-start").val()),
+                form_data.append("date-end", $("#date-end").val());
+
+            $.ajax({
+                url: '/Admin/Ticket/SetDate',
+                type: 'post',
+                data: form_data,
+                dataType: 'Json',
+                success: function (msg) {
+                    if (msg == 'ok') {
+                        window.open('/Admin/User/Index', '_Top');
+                    }
+                    else {
+                        alert("Create Failed")
+                    }
+                }
+            });
+            return false;
+        });
+    });
+</script>

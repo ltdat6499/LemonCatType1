@@ -1,0 +1,206 @@
+﻿@model LemonCat.Models.EF.BAIVIETDANHGIA
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Manager/Views/Shared/_Layout.cshtml";
+}
+<head>
+    <link href="~/Areas/Admin/assets/css/star.css" rel="stylesheet" />
+</head>
+<script>
+        function calcRate(r) {
+            const f = ~~r,//Tương tự Math.floor(r)
+            id = 'star' + f + (r % f ? 'half' : '')
+            id && (document.getElementById(id).checked = !0)
+        }
+</script>
+<section class="content blog-page">
+    <div class="body_scroll">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-lg-7 col-md-6 col-sm-12">
+                    <h2>Flim Review</h2>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html"><i class="zmdi zmdi-home"></i> Manager</a></li>
+                        <li class="breadcrumb-item"><a href="blog-dashboard.html">Review</a></li>
+                        <li class="breadcrumb-item active">Edit Review</li>
+                    </ul>
+                    <button class="btn btn-primary btn-icon mobile_menu" type="button"><i class="zmdi zmdi-sort-amount-desc"></i></button>
+                </div>
+                <div class="col-lg-5 col-md-6 col-sm-12">
+                    <button class="btn btn-primary btn-icon float-right right_icon_toggle_btn" type="button"><i class="zmdi zmdi-arrow-right"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <form id="form_create_review" runat="server" method="POST" enctype="multipart/form-data" ValidateRequest="false">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="body">
+                                <div class="form-group form-float">
+                                    <input value="@Model.NoiDungNgan" id="NoiDungNgan" name="NoiDungNgan" type="text" class="form-control" placeholder="Enter shot review" required />
+                                    <div id="rating">
+                                        @if ((((float)Model.Score) / 10 / 2) == 5)
+                                        {
+                                            <input type="radio" id="star5" name="rating" value="5" checked />
+                                        }
+                                        else
+                                        {
+                                            <input type="radio" id="star5" name="rating" value="5" />
+                                        }
+                                        <label class="full" for="star5" title="Awesome"></label>
+
+
+                                        @if ((((float)Model.Score) / 10 / 2) == 4.5)
+                                        {
+                                            <input type="radio" id="star4half" name="rating" value="4.5" checked />
+                                        }
+                                        else
+                                        {
+                                            <input type="radio" id="star4half" name="rating" value="4.5" />
+                                        }
+                                        <label class="half" for="star4half" title="Pretty good"></label>
+
+
+                                        @if ((((float)Model.Score) / 10 / 2) == 4)
+                                        {
+                                            <input type="radio" id="star4" name="rating" value="4" checked />
+                                        }
+                                        else
+                                        {
+                                            <input type="radio" id="star4" name="rating" value="4" />
+                                        }
+                                        <label class="full" for="star4" title="Pretty"></label>
+
+
+                                        @if ((((float)Model.Score) / 10 / 2) == 3.5)
+                                        {
+                                            <input type="radio" id="star3half" name="rating" value="3.5" checked />
+                                        }
+                                        else
+                                        {
+                                            <input type="radio" id="star3half" name="rating" value="3.5" />
+                                        }
+                                        <label class="half" for="star3half" title="Meh"></label>
+
+
+                                        @if ((((float)Model.Score) / 10 / 2) == 3)
+                                        {
+                                            <input type="radio" id="star3" name="rating" value="3" checked />
+                                        }
+                                        else
+                                        {
+                                            <input type="radio" id="star3" name="rating" value="3" />
+                                        }
+                                        <label class="full" for="star3" title="Meh"></label>
+
+
+                                        @if ((((float)Model.Score) / 10 / 2) == 2.5)
+                                        {
+                                            <input type="radio" id="star2half" name="rating" value="2.5" checked />
+                                        }
+                                        else
+                                        {
+                                            <input type="radio" id="star2half" name="rating" value="2.5" />
+                                        }
+                                        <label class="half" for="star2half" title="Kinda bad"></label>
+
+
+                                        @if ((((float)Model.Score) / 10 / 2) == 2)
+                                        {
+                                            <input type="radio" id="star2" name="rating" value="2" checked />
+                                        }
+                                        else
+                                        {
+                                            <input type="radio" id="star2" name="rating" value="2" />
+                                        }
+                                        <label class="full" for="star2" title="Kinda bad"></label>
+
+
+                                        @if ((((float)Model.Score) / 10 / 2) == 1.5)
+                                        {
+                                            <input type="radio" id="star1half" name="rating" value="1.5" checked />
+                                        }
+                                        else
+                                        {
+                                            <input type="radio" id="star1half" name="rating" value="1.5" />
+                                        }
+                                        <label class="half" for="star1half" title="Meh"></label>
+
+
+                                        @if ((((float)Model.Score) / 10 / 2) == 1)
+                                        {
+                                            <input type="radio" id="star1" name="rating" value="1" checked />
+                                        }
+                                        else
+                                        {
+                                            <input type="radio" id="star1" name="rating" value="1" />
+                                        }
+                                        <label class="full" for="star1" title="Sucks big time"></label>
+
+
+                                        @if ((((float)Model.Score) / 10 / 2) == 0.5)
+                                        {
+                                            <input type="radio" id="starhalf" name="rating" value="0.5" checked />
+                                        }
+                                        else
+                                        {
+                                            <input type="radio" id="starhalf" name="rating" value="0.5" />
+                                        }
+                                        <label class="half" for="starhalf" title="Sucks big time"></label>
+                                    </div>
+                                    <h5>&nbsp</h5>
+                                </div>
+                                <input hidden id="ID" name="ID" type="text" class="form-control" value="@Model.MaBaiViet" />
+                                <input hidden id="RadioValue" name="RadioValue" type="text" class="form-control" value="@(((float)Model.Score)/10/2)" />
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="body">
+                                <textarea class="summernote mark" required>@Model.NoiDungBinhLuan</textarea>
+                                <textarea id="NoiDungBinhLuan" name="NoiDungBinhLuan" style="visibility:hidden;" hidden></textarea>
+                                <button type="submit" class="btn btn-info waves-effect m-t-20">RE POST</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    var markCode = "";
+    function myFunction() {
+        var str = $(".mark").val();
+        var markCode1 = str.replace(/</g, '&lt;');
+        markCode = markCode1.replace(/>/g, '&gt;');
+        $("#NoiDungBinhLuan").val(markCode);
+    }
+    $(document).ready(function () {
+        $("#form_create_review").submit(function () {
+            myFunction();
+            $("#RadioValue").val($("input[name='rating']:checked").val());
+            var form_data = new FormData();
+                form_data.append("ID", $("#ID").val()),
+                form_data.append("NoiDungBinhLuan", $("#NoiDungBinhLuan").val()),
+                form_data.append("NoiDungNgan", $("#NoiDungNgan").val()),
+                form_data.append("RadioValue", $("#RadioValue").val());
+
+            $.ajax({
+                url: '/Manager/FlimReviewController/Edit',
+                type: 'post',
+                data:  form_data,
+                dataType: 'Json',
+                success: function (response) {
+                    if (response.WriteReview == 'ok') {
+                        alert("Review Success");
+                    }
+                    else {
+                        alert("Review Failed");
+                    }
+                }
+            });
+            return false;
+        });
+    });
+</script>

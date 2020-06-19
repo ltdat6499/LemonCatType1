@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8dd4666e265d423299765fef9081b021" Name="Diagram1" ZoomLevel="94">
+        <EntityTypeShape EntityType="LemonCatModel.ANHDIENVIEN" Width="1.5" PointX="5.25" PointY="44.625" />
+        <EntityTypeShape EntityType="LemonCatModel.ANHPHIM" Width="1.5" PointX="3.75" PointY="3.125" />
+        <EntityTypeShape EntityType="LemonCatModel.BAG" Width="1.5" PointX="3" PointY="15.25" />
+        <EntityTypeShape EntityType="LemonCatModel.BAIVIET_CHILDCOMMENT" Width="1.5" PointX="8.25" PointY="19.25" />
+        <EntityTypeShape EntityType="LemonCatModel.BAIVIET_ROOTCOMMENT" Width="1.5" PointX="6" PointY="19" />
+        <EntityTypeShape EntityType="LemonCatModel.BAIVIET_ROOTSCORE" Width="1.5" PointX="11.25" PointY="19.5" />
+        <EntityTypeShape EntityType="LemonCatModel.BAIVIET_SCORE" Width="1.5" PointX="6" PointY="15.5" />
+        <EntityTypeShape EntityType="LemonCatModel.BAIVIETDANHGIA" Width="1.5" PointX="6" PointY="23.75" />
+        <EntityTypeShape EntityType="LemonCatModel.ChildCommentNew" Width="1.5" PointX="3" PointY="19.25" />
+        <EntityTypeShape EntityType="LemonCatModel.CHITIETDIENVIENNEW" Width="1.5" PointX="5.25" PointY="41.875" />
+        <EntityTypeShape EntityType="LemonCatModel.CHITIETHOADON" Width="1.5" PointX="11" PointY="6.625" />
+        <EntityTypeShape EntityType="LemonCatModel.CHITIETPHIMNEW" Width="1.5" PointX="5.25" PointY="38.875" />
+        <EntityTypeShape EntityType="LemonCatModel.CHUCVU" Width="1.5" PointX="5.75" PointY="10.25" />
+        <EntityTypeShape EntityType="LemonCatModel.DAODIENPHIM" Width="1.5" PointX="8.25" PointY="27" />
+        <EntityTypeShape EntityType="LemonCatModel.DATASET" Width="1.5" PointX="7.75" PointY="11.25" />
+        <EntityTypeShape EntityType="LemonCatModel.DIENVIEN" Width="1.5" PointX="3" PointY="36.125" />
+        <EntityTypeShape EntityType="LemonCatModel.DIENVIENPHIM" Width="1.5" PointX="8.25" PointY="15.875" />
+        <EntityTypeShape EntityType="LemonCatModel.DVD" Width="1.5" PointX="0.75" PointY="12.125" />
+        <EntityTypeShape EntityType="LemonCatModel.GENRE" Width="1.5" PointX="4.5" PointY="0.75" />
+        <EntityTypeShape EntityType="LemonCatModel.GENREPHIM" Width="1.5" PointX="6.75" PointY="3.5" />
+        <EntityTypeShape EntityType="LemonCatModel.HanChieu" Width="1.5" PointX="10.75" PointY="10.25" />
+        <EntityTypeShape EntityType="LemonCatModel.HOADON" Width="1.5" PointX="8.75" PointY="6.375" />
+        <EntityTypeShape EntityType="LemonCatModel.KICHBANPHIM" Width="1.5" PointX="11.25" PointY="23" />
+        <EntityTypeShape EntityType="LemonCatModel.LOAINEW" Width="1.5" PointX="12.75" PointY="10.25" />
+        <EntityTypeShape EntityType="LemonCatModel.NETWORK" Width="1.5" PointX="4.5" PointY="33.75" />
+        <EntityTypeShape EntityType="LemonCatModel.NEW" Width="1.5" PointX="3" PointY="41" />
+        <EntityTypeShape EntityType="LemonCatModel.NewsScore" Width="1.5" PointX="8.25" PointY="30" />
+        <EntityTypeShape EntityType="LemonCatModel.ORDERSEAT" Width="1.5" PointX="11" PointY="1.5" />
+        <EntityTypeShape EntityType="LemonCatModel.PHIM" Width="1.5" PointX="1.5" PointY="4.5" />
+        <EntityTypeShape EntityType="LemonCatModel.RAPPHIM" Width="1.5" PointX="9.75" PointY="13.25" />
+        <EntityTypeShape EntityType="LemonCatModel.RATING" Width="1.5" PointX="11.75" PointY="13.25" />
+        <EntityTypeShape EntityType="LemonCatModel.RootCommentNew" Width="1.5" PointX="5.25" PointY="29.5" />
+        <EntityTypeShape EntityType="LemonCatModel.RootNewScore" Width="1.5" PointX="8.5" PointY="24" />
+        <EntityTypeShape EntityType="LemonCatModel.SCORE" Width="1.5" PointX="3.75" PointY="11.5" />
+        <EntityTypeShape EntityType="LemonCatModel.STUDIO" Width="1.5" PointX="1.5" PointY="1.75" />
+        <EntityTypeShape EntityType="LemonCatModel.SUATCHIEU" Width="1.5" PointX="8.75" PointY="2.125" />
+        <EntityTypeShape EntityType="LemonCatModel.sysdiagram" Width="1.5" PointX="13.75" PointY="1.25" />
+        <EntityTypeShape EntityType="LemonCatModel.TAGS_MOVIE" Width="1.5" PointX="13.75" PointY="4.25" />
+        <EntityTypeShape EntityType="LemonCatModel.TAGS_PERSON" Width="1.5" PointX="13.75" PointY="7.25" />
+        <EntityTypeShape EntityType="LemonCatModel.TAIKHOAN" Width="1.5" PointX="0.75" PointY="17.5" />
+        <EntityTypeShape EntityType="LemonCatModel.TVSHOW" Width="1.5" PointX="6.75" PointY="6.375" />
+        <EntityTypeShape EntityType="LemonCatModel.TVSHOWEP" Width="1.5" PointX="3.75" PointY="8.25" />
+        <EntityTypeShape EntityType="LemonCatModel.VIEWEDPRODUCT" Width="1.5" PointX="3" PointY="24.625" />
+        <EntityTypeShape EntityType="LemonCatModel.YEARDATA" Width="1.5" PointX="13.75" PointY="13.25" />
+        <AssociationConnector Association="LemonCatModel.FK__ANHDIENVI__MaDie__4316F928" />
+        <AssociationConnector Association="LemonCatModel.FK__ANHPHIM__MaPhim__3EDC53F0" />
+        <AssociationConnector Association="LemonCatModel.FK__BAG__MaDVD__24B26D99" />
+        <AssociationConnector Association="LemonCatModel.FK__BAG__MaTK__25A691D2" />
+        <AssociationConnector Association="LemonCatModel.FK__BAIVIET_C__IDRoo__09FE775D" />
+        <AssociationConnector Association="LemonCatModel.FK__BAIVIET_CH__MaTK__0AF29B96" />
+        <AssociationConnector Association="LemonCatModel.FK__BAIVIET_R__IDRoo__1293BD5E" />
+        <AssociationConnector Association="LemonCatModel.FK__BAIVIET_R__MaBai__062DE679" />
+        <AssociationConnector Association="LemonCatModel.FK__BAIVIET_RO__MaTK__07220AB2" />
+        <AssociationConnector Association="LemonCatModel.FK__BAIVIET_RO__MaTK__119F9925" />
+        <AssociationConnector Association="LemonCatModel.FK__BAIVIET_S__MaBai__0EC32C7A" />
+        <AssociationConnector Association="LemonCatModel.FK__BAIVIET_SC__MaTK__0DCF0841" />
+        <AssociationConnector Association="LemonCatModel.FK__BAIVIETDA__MaPhi__025D5595" />
+        <AssociationConnector Association="LemonCatModel.FK__BAIVIETDAN__MaTK__035179CE" />
+        <AssociationConnector Association="LemonCatModel.FK__ChildComm__RootC__76EBA2E9" />
+        <AssociationConnector Association="LemonCatModel.FK__ChildComme__MaTK__77DFC722" />
+        <AssociationConnector Association="LemonCatModel.FK__CHITIETDI__MaDie__71D1E811" />
+        <AssociationConnector Association="LemonCatModel.FK__CHITIETDI__MaNew__72C60C4A" />
+        <AssociationConnector Association="LemonCatModel.FK__CHITIETHO__MaHoa__320C68B7" />
+        <AssociationConnector Association="LemonCatModel.FK__CHITIETPH__MaNew__6EF57B66" />
+        <AssociationConnector Association="LemonCatModel.FK__CHITIETPH__MaPhi__6E01572D" />
+        <AssociationConnector Association="LemonCatModel.FK__DAODIENPH__MaDie__46E78A0C" />
+        <AssociationConnector Association="LemonCatModel.FK__DAODIENPH__MaPhi__45F365D3" />
+        <AssociationConnector Association="LemonCatModel.FK__DIENVIENP__MaDie__4E88ABD4" />
+        <AssociationConnector Association="LemonCatModel.FK__KICHBANPH__MaDie__4AB81AF0" />
+        <AssociationConnector Association="LemonCatModel.FK__DIENVIENP__MaPhi__4D94879B" />
+        <AssociationConnector Association="LemonCatModel.FK__DVD__MaPhim__75A278F5" />
+        <AssociationConnector Association="LemonCatModel.FK__GENREPHIM__MaGen__6F7F8B4B" />
+        <AssociationConnector Association="LemonCatModel.FK__GENREPHIM__MaPhi__7073AF84" />
+        <AssociationConnector Association="LemonCatModel.FK__KICHBANPH__MaPhi__49C3F6B7" />
+        <AssociationConnector Association="LemonCatModel.FK__TVSHOW__Network__10E07F16" />
+        <AssociationConnector Association="LemonCatModel.FK__NEW__MaTK__628FA481" />
+        <AssociationConnector Association="LemonCatModel.FK__NewsScore__NewsI__7ABC33CD" />
+        <AssociationConnector Association="LemonCatModel.FK__RootComme__MaNew__731B1205" />
+        <AssociationConnector Association="LemonCatModel.FK__NewsScore__MaTK__7BB05806" />
+        <AssociationConnector Association="LemonCatModel.FK__ORDERSEAT__IDSua__3A6CA48E" />
+        <AssociationConnector Association="LemonCatModel.FK__PHIM__Studio__16CE6296" />
+        <AssociationConnector Association="LemonCatModel.FK__SCORE__MaPhim__14B10FFA" />
+        <AssociationConnector Association="LemonCatModel.FK__TVSHOW__MaPhim__3B75D760" />
+        <AssociationConnector Association="LemonCatModel.FK__TVSHOWEP__MaPhim__3E52440B" />
+        <AssociationConnector Association="LemonCatModel.FK__RootCommen__MaTK__740F363E" />
+        <AssociationConnector Association="LemonCatModel.FK__RootNewSc__RootC__7E8CC4B1" />
+        <AssociationConnector Association="LemonCatModel.FK__RootNewSco__MaTK__7F80E8EA" />
+        <AssociationConnector Association="LemonCatModel.FK__VIEWEDPROD__MaTK__15702A09" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

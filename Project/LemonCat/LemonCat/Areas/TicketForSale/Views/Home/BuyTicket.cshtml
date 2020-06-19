@@ -1,0 +1,112 @@
+﻿@model List<LemonCat.Models.EF.RAPPHIM>
+@{
+    ViewBag.Title = "BuyTicket";
+    Layout = "~/Areas/TicketForSale/Views/Shared/_layout.cshtml";
+}
+<section class="content contact">
+    <div class="body_scroll">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-lg-7 col-md-6 col-sm-12">
+                    <h2>@ViewBag.TenPhim</h2>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#"><i class="zmdi zmdi-home"></i> Staff</a></li>
+                        <li class="breadcrumb-item"><a href="#">Ticket</a></li>
+                        <li class="breadcrumb-item active">Booking</li>
+                    </ul>
+                    <button class="btn btn-primary btn-icon mobile_menu" type="button"><i class="zmdi zmdi-sort-amount-desc"></i></button>
+                </div>
+                <div class="col-lg-5 col-md-6 col-sm-12">
+                    <button class="btn btn-primary btn-icon float-right right_icon_toggle_btn" type="button"><i class="zmdi zmdi-arrow-right"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="body">
+                <form id="form_create_movie" runat="server" method="POST" enctype="multipart/form-data" class="row clearfix">
+
+                    <div class="col-lg-3">
+                        <div class="card" id="Rap">
+                            <h3>LIST CINEMA</h3>
+                            @foreach (var item in Model)
+                            {
+                                <div style="margin-bottom:25px;" class="radio">
+                                    <input type="radio" name="radio_Rap" id="radio_Rap_@item.ID" value="@item.ID" checked>
+                                    <label style="font-weight:bolder" for="radio_Rap_@item.ID">@item.TenRap</label>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="card" id="Ngay">
+                            <h3>DAY</h3>
+                            @if (ViewBag.ListNgayChieu != null)
+                            {
+                                foreach (var item in ViewBag.ListNgayChieu)
+                                {
+                                    <div style="margin-bottom:25px;" class="radio">
+                                        <input type="radio" name="radio_Ngay" id="radio_Ngay_@item" value="@item" checked>
+                                        <label style="font-weight:bolder" for="radio_Ngay_@item">@item</label>
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="card" id="Gio">
+                            <h3>SHOWTIMES</h3>
+                            @if (ViewBag.LichTrongNgay != null)
+                            {
+                                foreach (var item in ViewBag.LichTrongNgay)
+                                {
+                                    <div style="margin-bottom:25px;" class="radio">
+                                        <input type="radio" name="radio_Gio" id="radio_Gio_@item" value="@item" checked>
+                                        <label style="font-weight:bolder" for="radio_Gio_@item">@item h</label>
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <h3>&nbsp;</h3>
+                        <h3>&nbsp;</h3>
+                        <h3>&nbsp;</h3>
+                        <h3>&nbsp;</h3>
+                        <button class="btn btn-lg btn-raised btn-success waves-effect" type="submit">Go to Booking your seat</button>
+                    </div>
+                    <input type="text" name="IDRap" id="IDRap" hidden />
+                    <input type="text" name="IDPhim" id="IDPhim" value="@ViewBag.MovieID" hidden />
+                    <input type="text" name="DateTime" id="DateTime" hidden />
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    $(document).ready(function () {
+        $("#IDRap").val(document.querySelector('input[name="radio_Rap"]:checked').value);
+        $("#DateTime").val(document.querySelector('input[name="radio_Ngay"]:checked').value + " " + document.querySelector('input[name="radio_Gio"]:checked').value);
+        $("#form_create_movie").submit(function () {
+            var form_data = new FormData();
+            form_data.append("IDRap", $("#IDRap").val()),
+                form_data.append("DateTime", $("#DateTime").val()),
+                form_data.append("IDPhim", $("#IDPhim").val());
+
+            $.ajax({
+                url: '/TicketForSale/Home/BuyTicket',
+                type: 'post',
+                data: form_data,
+                dataType: 'Json',
+                success: function (msg) {
+                    if (msg == 'ok') {
+
+                    }
+                    else {
+
+                    }
+                }
+            });
+            return false;
+        });
+    });
+</script>

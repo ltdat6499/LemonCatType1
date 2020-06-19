@@ -1,0 +1,105 @@
+﻿@model LemonCat.Models.EF.ORDERSEAT
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Example 2</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="~/Areas/ClientTicket/TicketAssets/BillCss/style.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="body" style="margin: 0 auto">
+        <div class="container" style="vertical-align:central;">
+            <header class="clearfix">
+                <div id="logo">
+                    <img src="~/Areas/ClientTicket/TicketAssets/BillCss/logo.png">
+                </div>
+                <div id="company">
+                    <h2 class="name">@Model.TapDoan</h2>
+                    <div>@Model.DiaChiTapDoan, HCM, VN</div>
+                    <div>XXXXXXXXXX</div>
+                    <div><a href="#" style="text-decoration:none">dat6499proo@gmail.com</a></div>
+                </div>
+            </header>
+            <main>
+                <div id="details" class="clearfix">
+                    <div id="client">
+                        <div class="to">INVOICE TO:</div>
+                        <h2 class="name" style="color:black">@Model.TenKhach</h2>
+                        <div class="address" style="color:black">@Model.Sdt</div>
+                        <div class="email" style="color:black"><a style="text-decoration:none" href="#">@Model.Email</a></div>
+                    </div>
+                    <div id="invoice">
+                        <h1>INVOICE #@Model.ID</h1>
+                        <div class="date">Date of Invoice: @Model.NgayTaoHoaDon.Replace("-", "/")</div>
+                        <div class="date" style="color:black">Show Time: @ViewBag.Time:00 @ViewBag.Date.Replace("-", "/")</div>
+                        <div class="date" style="color:black">Cinema: @ViewBag.CinemaName - Movie Name: @ViewBag.MovieName</div>
+                    </div>
+                </div>
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <thead>
+                        <tr>
+                            <th class="no">#</th>
+                            <th class="desc" style="color:black">SEAT</th>
+                            <th class="unit" style="color:black">UNIT PRICE</th>
+                            <th class="qty" style="color:black">QUANTITY</th>
+                            <th class="total">TOTAL</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (int i = 0; i < ViewBag.Seat.Count; i++)
+                        {
+                            <tr>
+                                <td class="no">0@(i + 1)</td>
+                                <td style="color:black" class="desc">@((ViewBag.Seat)[i])</td>
+                                <td style="color:black" class="unit">$@Model.Price</td>
+                                <td style="color:black" class="qty">1</td>
+                                <td class="total">$@Model.Price</td>
+                            </tr>
+                        }
+                    </tbody>
+                    <tfoot>
+
+                        <tr>
+                            <td colspan="2"></td>
+                            <td colspan="2">SUBTOTAL</td>
+                            <td>$@Model.TongTien</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"></td>
+                            <td colspan="2">TAX 0%</td>
+                            <td>$0</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"></td>
+                            <td colspan="2">GRAND TOTAL</td>
+                            <td>$@Model.TongTien</td>
+                        </tr>
+                    </tfoot>
+                </table>
+                <div class="row">
+                    <div class="col-sm-8">
+                        <div id="thanks">Thank you!</div>
+                        <div id="notices">
+                            <div>NOTICE:</div>
+
+                            <div class="notice">Please come to the cinema 30 minutes early, give this QR code to the staff to get tickets.</div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <img src="data:image/png;base64, @Model.QR" alt="Nothing to show" style="width: 150px;height: 150px;float:right;" />
+                        <a style="text-decoration:none;float:right" href="#" onclick="window.print()">Print your Booking&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                    </div>
+                </div>
+
+            </main>
+            <footer>
+                LemonCat
+            </footer>
+        </div>
+    </div>
+
+
+</body>
+</html>

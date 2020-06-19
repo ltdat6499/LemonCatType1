@@ -1,0 +1,1298 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LemonCatModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ANHDIENVIEN">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaDienVien" Type="int" />
+    <Property Name="Anh" Type="nvarchar(max)" />
+    <Property Name="TenAnh" Type="nvarchar" MaxLength="250" />
+    <Property Name="KichThuoc" Type="nvarchar" MaxLength="250" />
+    <Property Name="NgayCapNhap" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="ANHPHIM">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaPhim" Type="int" />
+    <Property Name="Anh" Type="nvarchar(max)" />
+    <Property Name="TenAnh" Type="nvarchar" MaxLength="250" />
+    <Property Name="KichThuoc" Type="nvarchar" MaxLength="250" />
+    <Property Name="NgayCapNhap" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="BAG">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaTK" Type="int" />
+    <Property Name="MaDVD" Type="int" />
+    <Property Name="SoLuong" Type="int" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="Gia" Type="int" />
+  </EntityType>
+  <EntityType Name="BAIVIET_CHILDCOMMENT">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDRoot" Type="int" />
+    <Property Name="MaTK" Type="int" />
+    <Property Name="NoiDungBinhLuan" Type="text" />
+    <Property Name="NgayBinhLuan" Type="nvarchar" MaxLength="250" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="BAIVIET_ROOTCOMMENT">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaBaiViet" Type="int" />
+    <Property Name="MaTK" Type="int" />
+    <Property Name="NoiDungBinhLuan" Type="text" />
+    <Property Name="NgayBinhLuan" Type="nvarchar" MaxLength="250" />
+    <Property Name="DiemDanhGiaBinhLuan" Type="int" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="BAIVIET_ROOTSCORE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaTK" Type="int" />
+    <Property Name="IDRoot" Type="int" />
+    <Property Name="Mark" Type="bit" />
+  </EntityType>
+  <EntityType Name="BAIVIET_SCORE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaTK" Type="int" />
+    <Property Name="MaBaiViet" Type="int" />
+    <Property Name="Mark" Type="bit" />
+  </EntityType>
+  <EntityType Name="BAIVIETDANHGIA">
+    <Key>
+      <PropertyRef Name="MaBaiViet" />
+    </Key>
+    <Property Name="MaBaiViet" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaPhim" Type="int" />
+    <Property Name="MaTK" Type="int" />
+    <Property Name="Score" Type="int" />
+    <Property Name="NoiDungNgan" Type="ntext" />
+    <Property Name="NoiDungBinhLuan" Type="ntext" />
+    <Property Name="NgayBinhLuan" Type="nvarchar" MaxLength="250" />
+    <Property Name="DiemDanhGia" Type="int" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="ChildCommentNew">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RootCommentNewID" Type="int" />
+    <Property Name="MaTK" Type="int" />
+    <Property Name="NoiDungBinhLuan" Type="ntext" />
+    <Property Name="NgayBinhLuan" Type="nvarchar" MaxLength="250" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="CHITIETDIENVIENNEW">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaNew" Type="int" />
+    <Property Name="MaDienVien" Type="int" />
+  </EntityType>
+  <EntityType Name="CHITIETHOADON">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaHoaDon" Type="int" />
+    <Property Name="MaDVD" Type="int" />
+    <Property Name="NameDVD" Type="nvarchar" MaxLength="250" />
+    <Property Name="Avata" Type="nvarchar(max)" />
+    <Property Name="SoLuong" Type="int" />
+    <Property Name="DonGia" Type="int" />
+    <Property Name="ThanhTien" Type="int" />
+  </EntityType>
+  <EntityType Name="CHITIETPHIMNEW">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaNew" Type="int" />
+    <Property Name="MaPhim" Type="int" />
+  </EntityType>
+  <EntityType Name="CHUCVU">
+    <Key>
+      <PropertyRef Name="MaChucVu" />
+    </Key>
+    <Property Name="MaChucVu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenChucVu" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="DAODIENPHIM">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaPhim" Type="int" />
+    <Property Name="MaDienVien" Type="int" />
+  </EntityType>
+  <EntityType Name="DATASET">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaTK" Type="int" />
+    <Property Name="TheLoai" Type="int" />
+    <Property Name="KetQua" Type="int" />
+    <Property Name="Rating" Type="int" />
+  </EntityType>
+  <EntityType Name="DIENVIEN">
+    <Key>
+      <PropertyRef Name="MaDienVien" />
+    </Key>
+    <Property Name="MaDienVien" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NgaySinh" Type="nvarchar" MaxLength="250" />
+    <Property Name="NoiSinh" Type="nvarchar" MaxLength="250" />
+    <Property Name="TieuSu" Type="ntext" />
+    <Property Name="AnhDaiDien" Type="nvarchar(max)" />
+    <Property Name="TenDienVien" Type="nvarchar" MaxLength="100" />
+    <Property Name="Star" Type="bit" />
+  </EntityType>
+  <EntityType Name="DIENVIENPHIM">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaPhim" Type="int" />
+    <Property Name="MaDienVien" Type="int" />
+    <Property Name="TenNhanVat" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="DVD">
+    <Key>
+      <PropertyRef Name="MaDVD" />
+    </Key>
+    <Property Name="MaDVD" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaPhim" Type="int" />
+    <Property Name="SoDia" Type="int" />
+    <Property Name="Gia" Type="int" />
+    <Property Name="SoLuongTrongKho" Type="int" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="NgayCapNhap" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="GENRE">
+    <Key>
+      <PropertyRef Name="MaGenre" />
+    </Key>
+    <Property Name="MaGenre" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenGenre" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="GENREPHIM">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaPhim" Type="int" />
+    <Property Name="MaGenre" Type="int" />
+  </EntityType>
+  <EntityType Name="HanChieu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StartDate" Type="nvarchar(max)" />
+    <Property Name="EndDate" Type="nvarchar(max)" />
+    <Property Name="MaPhim" Type="int" />
+  </EntityType>
+  <EntityType Name="HOADON">
+    <Key>
+      <PropertyRef Name="MaHoaDon" />
+    </Key>
+    <Property Name="MaHoaDon" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaTK" Type="int" />
+    <Property Name="TongTien" Type="int" />
+    <Property Name="Note" Type="ntext" />
+    <Property Name="Name" Type="nvarchar" MaxLength="250" />
+    <Property Name="Avata" Type="nvarchar(max)" />
+    <Property Name="Address" Type="nvarchar(max)" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="250" />
+    <Property Name="Status" Type="int" />
+    <Property Name="NgayLapHoaDon" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="KICHBANPHIM">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaPhim" Type="int" />
+    <Property Name="MaDienVien" Type="int" />
+  </EntityType>
+  <EntityType Name="LOAINEW">
+    <Key>
+      <PropertyRef Name="MaLoaiNew" />
+    </Key>
+    <Property Name="MaLoaiNew" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenLoaiNew" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="NETWORK">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NetworkName" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="NEW">
+    <Key>
+      <PropertyRef Name="MaNew" />
+    </Key>
+    <Property Name="MaNew" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaTK" Type="int" />
+    <Property Name="LoaiNew" Type="int" />
+    <Property Name="NoiDungNgan" Type="ntext" />
+    <Property Name="NoiDung" Type="ntext" />
+    <Property Name="DiemDanhGia" Type="int" />
+    <Property Name="NgayDang" Type="nvarchar" MaxLength="250" />
+    <Property Name="TuaNews" Type="nvarchar" MaxLength="250" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="NewsScore">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaTK" Type="int" />
+    <Property Name="NewsID" Type="int" />
+    <Property Name="Score" Type="bit" />
+  </EntityType>
+  <EntityType Name="ORDERSEAT">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaTK" Type="int" />
+    <Property Name="IDSuatChieu" Type="int" />
+    <Property Name="DanhSachGheDat" Type="nvarchar(max)" />
+    <Property Name="QR" Type="nvarchar(max)" />
+    <Property Name="TongTien" Type="int" />
+    <Property Name="TapDoan" Type="nvarchar(max)" />
+    <Property Name="DiaChiTapDoan" Type="nvarchar(max)" />
+    <Property Name="TenKhach" Type="nvarchar(max)" />
+    <Property Name="Sdt" Type="nvarchar(max)" />
+    <Property Name="Email" Type="nvarchar(max)" />
+    <Property Name="NgayTaoHoaDon" Type="nvarchar" MaxLength="30" />
+    <Property Name="Price" Type="int" />
+  </EntityType>
+  <EntityType Name="PHIM">
+    <Key>
+      <PropertyRef Name="MaPhim" />
+    </Key>
+    <Property Name="MaPhim" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenPhim" Type="nvarchar" MaxLength="250" />
+    <Property Name="IsTVShow" Type="int" />
+    <Property Name="TomTatNgan" Type="ntext" />
+    <Property Name="TomTat" Type="ntext" />
+    <Property Name="AnhDaiDien" Type="nvarchar(max)" />
+    <Property Name="Trailer" Type="nvarchar(max)" />
+    <Property Name="Studio" Type="int" />
+    <Property Name="Rating" Type="int" />
+    <Property Name="Theaters" Type="nvarchar" MaxLength="250" />
+    <Property Name="OnDVD" Type="nvarchar" MaxLength="250" />
+    <Property Name="Time" Type="int" />
+    <Property Name="LemonCatScore" Type="int" />
+    <Property Name="IMDBScore" Type="int" />
+    <Property Name="BoxOffice" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="RAPPHIM">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenRap" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="RATING">
+    <Key>
+      <PropertyRef Name="MaRating" />
+    </Key>
+    <Property Name="MaRating" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenRating" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="RootCommentNew">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaNew" Type="int" />
+    <Property Name="MaTK" Type="int" />
+    <Property Name="NoiDungBinhLuan" Type="ntext" />
+    <Property Name="NgayBinhLuan" Type="nvarchar" MaxLength="250" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="DiemDanhGia" Type="int" />
+  </EntityType>
+  <EntityType Name="RootNewScore">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaTK" Type="int" />
+    <Property Name="RootCommentNewID" Type="int" />
+    <Property Name="Score" Type="bit" />
+  </EntityType>
+  <EntityType Name="SCORE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaPhim" Type="int" />
+    <Property Name="UserScore" Type="int" />
+    <Property Name="CountUser" Type="int" />
+    <Property Name="LemonCatScore" Type="int" />
+    <Property Name="CountLemonCat" Type="int" />
+    <Property Name="MetacriditScore" Type="int" />
+    <Property Name="IMDBScore" Type="int" />
+    <Property Name="TomatoesScore" Type="int" />
+  </EntityType>
+  <EntityType Name="STUDIO">
+    <Key>
+      <PropertyRef Name="MaStudio" />
+    </Key>
+    <Property Name="MaStudio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenStudio" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="SUATCHIEU">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDRap" Type="int" />
+    <Property Name="IDPhim" Type="int" />
+    <Property Name="Time" Type="nvarchar(max)" />
+    <Property Name="DanhSachGheTrong" Type="nvarchar(max)" />
+    <Property Name="Price" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TAGS_MOVIE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaPhim" Type="int" />
+    <Property Name="Tag" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="TAGS_PERSON">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaDienVien" Type="int" />
+    <Property Name="Tag" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="TAIKHOAN">
+    <Key>
+      <PropertyRef Name="MaTK" />
+    </Key>
+    <Property Name="MaTK" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenTK" Type="nvarchar" MaxLength="250" />
+    <Property Name="MatKhau" Type="nvarchar" MaxLength="250" />
+    <Property Name="RealPass" Type="nvarchar" MaxLength="250" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="250" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="250" />
+    <Property Name="ChucVu" Type="int" />
+    <Property Name="Email" Type="nvarchar" MaxLength="250" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="20" />
+    <Property Name="CMND" Type="nvarchar" MaxLength="20" />
+    <Property Name="DiaChi" Type="nvarchar" MaxLength="250" />
+    <Property Name="GioiTinh" Type="bit" />
+    <Property Name="AnhDaiDien" Type="nvarchar(max)" />
+    <Property Name="KichHoat" Type="bit" />
+    <Property Name="Money" Type="int" />
+  </EntityType>
+  <EntityType Name="TVSHOW">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaPhim" Type="int" />
+    <Property Name="SoTap" Type="int" />
+    <Property Name="Network" Type="int" />
+    <Property Name="PremiereDate" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="TVSHOWEP">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaPhim" Type="int" />
+    <Property Name="Ep" Type="int" />
+    <Property Name="TenTap" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="VIEWEDPRODUCT">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaTK" Type="int" />
+    <Property Name="MaDVD" Type="int" />
+  </EntityType>
+  <EntityType Name="YEARDATA">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Month" Type="int" />
+    <Property Name="Year" Type="int" />
+    <Property Name="TongMovie" Type="int" />
+    <Property Name="TongTV" Type="int" />
+    <Property Name="TongUser" Type="int" />
+    <Property Name="TongDVD" Type="int" />
+    <Property Name="TongVe" Type="int" />
+    <Property Name="DoanhThuBanDVD" Type="int" />
+    <Property Name="DoanhThuBanVe" Type="int" />
+    <Property Name="TongUserLoaiMot" Type="int" />
+    <Property Name="TongUserDacBiet" Type="int" />
+    <Property Name="TongReview" Type="int" />
+    <Property Name="TongNews" Type="int" />
+    <Property Name="MonthDisplay" Type="nvarchar" MaxLength="50" />
+    <Property Name="YearDisplay" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK__ANHDIENVI__MaDie__4316F928">
+    <End Role="DIENVIEN" Type="Self.DIENVIEN" Multiplicity="0..1" />
+    <End Role="ANHDIENVIEN" Type="Self.ANHDIENVIEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DIENVIEN">
+        <PropertyRef Name="MaDienVien" />
+      </Principal>
+      <Dependent Role="ANHDIENVIEN">
+        <PropertyRef Name="MaDienVien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ANHPHIM__MaPhim__3EDC53F0">
+    <End Role="PHIM" Type="Self.PHIM" Multiplicity="0..1" />
+    <End Role="ANHPHIM" Type="Self.ANHPHIM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHIM">
+        <PropertyRef Name="MaPhim" />
+      </Principal>
+      <Dependent Role="ANHPHIM">
+        <PropertyRef Name="MaPhim" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BAG__MaDVD__24B26D99">
+    <End Role="DVD" Type="Self.DVD" Multiplicity="0..1" />
+    <End Role="BAG" Type="Self.BAG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DVD">
+        <PropertyRef Name="MaDVD" />
+      </Principal>
+      <Dependent Role="BAG">
+        <PropertyRef Name="MaDVD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BAG__MaTK__25A691D2">
+    <End Role="TAIKHOAN" Type="Self.TAIKHOAN" Multiplicity="0..1" />
+    <End Role="BAG" Type="Self.BAG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TAIKHOAN">
+        <PropertyRef Name="MaTK" />
+      </Principal>
+      <Dependent Role="BAG">
+        <PropertyRef Name="MaTK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BAIVIET_C__IDRoo__09FE775D">
+    <End Role="BAIVIET_ROOTCOMMENT" Type="Self.BAIVIET_ROOTCOMMENT" Multiplicity="0..1" />
+    <End Role="BAIVIET_CHILDCOMMENT" Type="Self.BAIVIET_CHILDCOMMENT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BAIVIET_ROOTCOMMENT">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BAIVIET_CHILDCOMMENT">
+        <PropertyRef Name="IDRoot" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BAIVIET_CH__MaTK__0AF29B96">
+    <End Role="TAIKHOAN" Type="Self.TAIKHOAN" Multiplicity="0..1" />
+    <End Role="BAIVIET_CHILDCOMMENT" Type="Self.BAIVIET_CHILDCOMMENT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TAIKHOAN">
+        <PropertyRef Name="MaTK" />
+      </Principal>
+      <Dependent Role="BAIVIET_CHILDCOMMENT">
+        <PropertyRef Name="MaTK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BAIVIET_R__IDRoo__1293BD5E">
+    <End Role="BAIVIET_ROOTCOMMENT" Type="Self.BAIVIET_ROOTCOMMENT" Multiplicity="0..1" />
+    <End Role="BAIVIET_ROOTSCORE" Type="Self.BAIVIET_ROOTSCORE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BAIVIET_ROOTCOMMENT">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BAIVIET_ROOTSCORE">
+        <PropertyRef Name="IDRoot" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BAIVIET_R__MaBai__062DE679">
+    <End Role="BAIVIETDANHGIA" Type="Self.BAIVIETDANHGIA" Multiplicity="0..1" />
+    <End Role="BAIVIET_ROOTCOMMENT" Type="Self.BAIVIET_ROOTCOMMENT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BAIVIETDANHGIA">
+        <PropertyRef Name="MaBaiViet" />
+      </Principal>
+      <Dependent Role="BAIVIET_ROOTCOMMENT">
+        <PropertyRef Name="MaBaiViet" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BAIVIET_RO__MaTK__07220AB2">
+    <End Role="TAIKHOAN" Type="Self.TAIKHOAN" Multiplicity="0..1" />
+    <End Role="BAIVIET_ROOTCOMMENT" Type="Self.BAIVIET_ROOTCOMMENT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TAIKHOAN">
+        <PropertyRef Name="MaTK" />
+      </Principal>
+      <Dependent Role="BAIVIET_ROOTCOMMENT">
+        <PropertyRef Name="MaTK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BAIVIET_RO__MaTK__119F9925">
+    <End Role="TAIKHOAN" Type="Self.TAIKHOAN" Multiplicity="0..1" />
+    <End Role="BAIVIET_ROOTSCORE" Type="Self.BAIVIET_ROOTSCORE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TAIKHOAN">
+        <PropertyRef Name="MaTK" />
+      </Principal>
+      <Dependent Role="BAIVIET_ROOTSCORE">
+        <PropertyRef Name="MaTK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BAIVIET_S__MaBai__0EC32C7A">
+    <End Role="BAIVIETDANHGIA" Type="Self.BAIVIETDANHGIA" Multiplicity="0..1" />
+    <End Role="BAIVIET_SCORE" Type="Self.BAIVIET_SCORE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BAIVIETDANHGIA">
+        <PropertyRef Name="MaBaiViet" />
+      </Principal>
+      <Dependent Role="BAIVIET_SCORE">
+        <PropertyRef Name="MaBaiViet" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BAIVIET_SC__MaTK__0DCF0841">
+    <End Role="TAIKHOAN" Type="Self.TAIKHOAN" Multiplicity="0..1" />
+    <End Role="BAIVIET_SCORE" Type="Self.BAIVIET_SCORE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TAIKHOAN">
+        <PropertyRef Name="MaTK" />
+      </Principal>
+      <Dependent Role="BAIVIET_SCORE">
+        <PropertyRef Name="MaTK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BAIVIETDA__MaPhi__025D5595">
+    <End Role="PHIM" Type="Self.PHIM" Multiplicity="0..1" />
+    <End Role="BAIVIETDANHGIA" Type="Self.BAIVIETDANHGIA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHIM">
+        <PropertyRef Name="MaPhim" />
+      </Principal>
+      <Dependent Role="BAIVIETDANHGIA">
+        <PropertyRef Name="MaPhim" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BAIVIETDAN__MaTK__035179CE">
+    <End Role="TAIKHOAN" Type="Self.TAIKHOAN" Multiplicity="0..1" />
+    <End Role="BAIVIETDANHGIA" Type="Self.BAIVIETDANHGIA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TAIKHOAN">
+        <PropertyRef Name="MaTK" />
+      </Principal>
+      <Dependent Role="BAIVIETDANHGIA">
+        <PropertyRef Name="MaTK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ChildComm__RootC__76EBA2E9">
+    <End Role="RootCommentNew" Type="Self.RootCommentNew" Multiplicity="0..1" />
+    <End Role="ChildCommentNew" Type="Self.ChildCommentNew" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RootCommentNew">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ChildCommentNew">
+        <PropertyRef Name="RootCommentNewID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ChildComme__MaTK__77DFC722">
+    <End Role="TAIKHOAN" Type="Self.TAIKHOAN" Multiplicity="0..1" />
+    <End Role="ChildCommentNew" Type="Self.ChildCommentNew" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TAIKHOAN">
+        <PropertyRef Name="MaTK" />
+      </Principal>
+      <Dependent Role="ChildCommentNew">
+        <PropertyRef Name="MaTK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CHITIETDI__MaDie__71D1E811">
+    <End Role="DIENVIEN" Type="Self.DIENVIEN" Multiplicity="0..1" />
+    <End Role="CHITIETDIENVIENNEW" Type="Self.CHITIETDIENVIENNEW" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DIENVIEN">
+        <PropertyRef Name="MaDienVien" />
+      </Principal>
+      <Dependent Role="CHITIETDIENVIENNEW">
+        <PropertyRef Name="MaDienVien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CHITIETDI__MaNew__72C60C4A">
+    <End Role="NEW" Type="Self.NEW" Multiplicity="0..1" />
+    <End Role="CHITIETDIENVIENNEW" Type="Self.CHITIETDIENVIENNEW" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NEW">
+        <PropertyRef Name="MaNew" />
+      </Principal>
+      <Dependent Role="CHITIETDIENVIENNEW">
+        <PropertyRef Name="MaNew" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CHITIETHO__MaHoa__320C68B7">
+    <End Role="HOADON" Type="Self.HOADON" Multiplicity="0..1" />
+    <End Role="CHITIETHOADON" Type="Self.CHITIETHOADON" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HOADON">
+        <PropertyRef Name="MaHoaDon" />
+      </Principal>
+      <Dependent Role="CHITIETHOADON">
+        <PropertyRef Name="MaHoaDon" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CHITIETPH__MaNew__6EF57B66">
+    <End Role="NEW" Type="Self.NEW" Multiplicity="0..1" />
+    <End Role="CHITIETPHIMNEW" Type="Self.CHITIETPHIMNEW" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NEW">
+        <PropertyRef Name="MaNew" />
+      </Principal>
+      <Dependent Role="CHITIETPHIMNEW">
+        <PropertyRef Name="MaNew" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CHITIETPH__MaPhi__6E01572D">
+    <End Role="PHIM" Type="Self.PHIM" Multiplicity="0..1" />
+    <End Role="CHITIETPHIMNEW" Type="Self.CHITIETPHIMNEW" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHIM">
+        <PropertyRef Name="MaPhim" />
+      </Principal>
+      <Dependent Role="CHITIETPHIMNEW">
+        <PropertyRef Name="MaPhim" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DAODIENPH__MaDie__46E78A0C">
+    <End Role="DIENVIEN" Type="Self.DIENVIEN" Multiplicity="0..1" />
+    <End Role="DAODIENPHIM" Type="Self.DAODIENPHIM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DIENVIEN">
+        <PropertyRef Name="MaDienVien" />
+      </Principal>
+      <Dependent Role="DAODIENPHIM">
+        <PropertyRef Name="MaDienVien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DAODIENPH__MaPhi__45F365D3">
+    <End Role="PHIM" Type="Self.PHIM" Multiplicity="0..1" />
+    <End Role="DAODIENPHIM" Type="Self.DAODIENPHIM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHIM">
+        <PropertyRef Name="MaPhim" />
+      </Principal>
+      <Dependent Role="DAODIENPHIM">
+        <PropertyRef Name="MaPhim" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DIENVIENP__MaDie__4E88ABD4">
+    <End Role="DIENVIEN" Type="Self.DIENVIEN" Multiplicity="0..1" />
+    <End Role="DIENVIENPHIM" Type="Self.DIENVIENPHIM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DIENVIEN">
+        <PropertyRef Name="MaDienVien" />
+      </Principal>
+      <Dependent Role="DIENVIENPHIM">
+        <PropertyRef Name="MaDienVien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DIENVIENP__MaPhi__4D94879B">
+    <End Role="PHIM" Type="Self.PHIM" Multiplicity="0..1" />
+    <End Role="DIENVIENPHIM" Type="Self.DIENVIENPHIM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHIM">
+        <PropertyRef Name="MaPhim" />
+      </Principal>
+      <Dependent Role="DIENVIENPHIM">
+        <PropertyRef Name="MaPhim" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DVD__MaPhim__75A278F5">
+    <End Role="PHIM" Type="Self.PHIM" Multiplicity="0..1" />
+    <End Role="DVD" Type="Self.DVD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHIM">
+        <PropertyRef Name="MaPhim" />
+      </Principal>
+      <Dependent Role="DVD">
+        <PropertyRef Name="MaPhim" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__GENREPHIM__MaGen__6F7F8B4B">
+    <End Role="GENRE" Type="Self.GENRE" Multiplicity="0..1" />
+    <End Role="GENREPHIM" Type="Self.GENREPHIM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GENRE">
+        <PropertyRef Name="MaGenre" />
+      </Principal>
+      <Dependent Role="GENREPHIM">
+        <PropertyRef Name="MaGenre" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__GENREPHIM__MaPhi__7073AF84">
+    <End Role="PHIM" Type="Self.PHIM" Multiplicity="0..1" />
+    <End Role="GENREPHIM" Type="Self.GENREPHIM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHIM">
+        <PropertyRef Name="MaPhim" />
+      </Principal>
+      <Dependent Role="GENREPHIM">
+        <PropertyRef Name="MaPhim" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__KICHBANPH__MaDie__4AB81AF0">
+    <End Role="DIENVIEN" Type="Self.DIENVIEN" Multiplicity="0..1" />
+    <End Role="KICHBANPHIM" Type="Self.KICHBANPHIM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DIENVIEN">
+        <PropertyRef Name="MaDienVien" />
+      </Principal>
+      <Dependent Role="KICHBANPHIM">
+        <PropertyRef Name="MaDienVien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__KICHBANPH__MaPhi__49C3F6B7">
+    <End Role="PHIM" Type="Self.PHIM" Multiplicity="0..1" />
+    <End Role="KICHBANPHIM" Type="Self.KICHBANPHIM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHIM">
+        <PropertyRef Name="MaPhim" />
+      </Principal>
+      <Dependent Role="KICHBANPHIM">
+        <PropertyRef Name="MaPhim" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__NEW__MaTK__628FA481">
+    <End Role="TAIKHOAN" Type="Self.TAIKHOAN" Multiplicity="0..1" />
+    <End Role="NEW" Type="Self.NEW" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TAIKHOAN">
+        <PropertyRef Name="MaTK" />
+      </Principal>
+      <Dependent Role="NEW">
+        <PropertyRef Name="MaTK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__NewsScore__MaTK__7BB05806">
+    <End Role="TAIKHOAN" Type="Self.TAIKHOAN" Multiplicity="0..1" />
+    <End Role="NewsScore" Type="Self.NewsScore" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TAIKHOAN">
+        <PropertyRef Name="MaTK" />
+      </Principal>
+      <Dependent Role="NewsScore">
+        <PropertyRef Name="MaTK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__NewsScore__NewsI__7ABC33CD">
+    <End Role="NEW" Type="Self.NEW" Multiplicity="0..1" />
+    <End Role="NewsScore" Type="Self.NewsScore" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NEW">
+        <PropertyRef Name="MaNew" />
+      </Principal>
+      <Dependent Role="NewsScore">
+        <PropertyRef Name="NewsID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ORDERSEAT__IDSua__3A6CA48E">
+    <End Role="SUATCHIEU" Type="Self.SUATCHIEU" Multiplicity="0..1" />
+    <End Role="ORDERSEAT" Type="Self.ORDERSEAT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SUATCHIEU">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ORDERSEAT">
+        <PropertyRef Name="IDSuatChieu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PHIM__Studio__16CE6296">
+    <End Role="STUDIO" Type="Self.STUDIO" Multiplicity="0..1" />
+    <End Role="PHIM" Type="Self.PHIM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="STUDIO">
+        <PropertyRef Name="MaStudio" />
+      </Principal>
+      <Dependent Role="PHIM">
+        <PropertyRef Name="Studio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RootComme__MaNew__731B1205">
+    <End Role="NEW" Type="Self.NEW" Multiplicity="0..1" />
+    <End Role="RootCommentNew" Type="Self.RootCommentNew" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NEW">
+        <PropertyRef Name="MaNew" />
+      </Principal>
+      <Dependent Role="RootCommentNew">
+        <PropertyRef Name="MaNew" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RootCommen__MaTK__740F363E">
+    <End Role="TAIKHOAN" Type="Self.TAIKHOAN" Multiplicity="0..1" />
+    <End Role="RootCommentNew" Type="Self.RootCommentNew" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TAIKHOAN">
+        <PropertyRef Name="MaTK" />
+      </Principal>
+      <Dependent Role="RootCommentNew">
+        <PropertyRef Name="MaTK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RootNewSc__RootC__7E8CC4B1">
+    <End Role="RootCommentNew" Type="Self.RootCommentNew" Multiplicity="0..1" />
+    <End Role="RootNewScore" Type="Self.RootNewScore" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RootCommentNew">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="RootNewScore">
+        <PropertyRef Name="RootCommentNewID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RootNewSco__MaTK__7F80E8EA">
+    <End Role="TAIKHOAN" Type="Self.TAIKHOAN" Multiplicity="0..1" />
+    <End Role="RootNewScore" Type="Self.RootNewScore" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TAIKHOAN">
+        <PropertyRef Name="MaTK" />
+      </Principal>
+      <Dependent Role="RootNewScore">
+        <PropertyRef Name="MaTK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SCORE__MaPhim__14B10FFA">
+    <End Role="PHIM" Type="Self.PHIM" Multiplicity="0..1" />
+    <End Role="SCORE" Type="Self.SCORE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHIM">
+        <PropertyRef Name="MaPhim" />
+      </Principal>
+      <Dependent Role="SCORE">
+        <PropertyRef Name="MaPhim" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TVSHOW__MaPhim__3B75D760">
+    <End Role="PHIM" Type="Self.PHIM" Multiplicity="0..1" />
+    <End Role="TVSHOW" Type="Self.TVSHOW" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHIM">
+        <PropertyRef Name="MaPhim" />
+      </Principal>
+      <Dependent Role="TVSHOW">
+        <PropertyRef Name="MaPhim" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TVSHOW__Network__10E07F16">
+    <End Role="NETWORK" Type="Self.NETWORK" Multiplicity="0..1" />
+    <End Role="TVSHOW" Type="Self.TVSHOW" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NETWORK">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TVSHOW">
+        <PropertyRef Name="Network" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TVSHOWEP__MaPhim__3E52440B">
+    <End Role="PHIM" Type="Self.PHIM" Multiplicity="0..1" />
+    <End Role="TVSHOWEP" Type="Self.TVSHOWEP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHIM">
+        <PropertyRef Name="MaPhim" />
+      </Principal>
+      <Dependent Role="TVSHOWEP">
+        <PropertyRef Name="MaPhim" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__VIEWEDPROD__MaTK__15702A09">
+    <End Role="TAIKHOAN" Type="Self.TAIKHOAN" Multiplicity="0..1" />
+    <End Role="VIEWEDPRODUCT" Type="Self.VIEWEDPRODUCT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TAIKHOAN">
+        <PropertyRef Name="MaTK" />
+      </Principal>
+      <Dependent Role="VIEWEDPRODUCT">
+        <PropertyRef Name="MaTK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="ChangePassword" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="OPassword" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="NPassword" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="RNPassword" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="RPassword" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="ClientCheckLock" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="bit">
+    <Parameter Name="username" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="ClientUserLogin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="bit">
+    <Parameter Name="username" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="password" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="IsExistEmail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="bit">
+    <Parameter Name="email" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="IsExistIDCard" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="bit">
+    <Parameter Name="cmnd" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="IsExistPhone" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="bit">
+    <Parameter Name="phone" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="IsExistUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="bit">
+    <Parameter Name="username" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="email" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="password" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SubmitBag" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="Note" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="NgayLapHoaDon" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="UpdateUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="FirstName" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="LastName" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Email" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Phone" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="CMND" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="DiaChi" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <EntityContainer Name="LemonCatModelStoreContainer">
+    <EntitySet Name="ANHDIENVIEN" EntityType="Self.ANHDIENVIEN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ANHPHIM" EntityType="Self.ANHPHIM" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BAG" EntityType="Self.BAG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BAIVIET_CHILDCOMMENT" EntityType="Self.BAIVIET_CHILDCOMMENT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BAIVIET_ROOTCOMMENT" EntityType="Self.BAIVIET_ROOTCOMMENT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BAIVIET_ROOTSCORE" EntityType="Self.BAIVIET_ROOTSCORE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BAIVIET_SCORE" EntityType="Self.BAIVIET_SCORE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BAIVIETDANHGIA" EntityType="Self.BAIVIETDANHGIA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ChildCommentNew" EntityType="Self.ChildCommentNew" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CHITIETDIENVIENNEW" EntityType="Self.CHITIETDIENVIENNEW" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CHITIETHOADON" EntityType="Self.CHITIETHOADON" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CHITIETPHIMNEW" EntityType="Self.CHITIETPHIMNEW" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CHUCVU" EntityType="Self.CHUCVU" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DAODIENPHIM" EntityType="Self.DAODIENPHIM" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DATASET" EntityType="Self.DATASET" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DIENVIEN" EntityType="Self.DIENVIEN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DIENVIENPHIM" EntityType="Self.DIENVIENPHIM" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DVD" EntityType="Self.DVD" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GENRE" EntityType="Self.GENRE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GENREPHIM" EntityType="Self.GENREPHIM" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HanChieu" EntityType="Self.HanChieu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HOADON" EntityType="Self.HOADON" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KICHBANPHIM" EntityType="Self.KICHBANPHIM" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LOAINEW" EntityType="Self.LOAINEW" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NETWORK" EntityType="Self.NETWORK" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NEW" EntityType="Self.NEW" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NewsScore" EntityType="Self.NewsScore" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ORDERSEAT" EntityType="Self.ORDERSEAT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PHIM" EntityType="Self.PHIM" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RAPPHIM" EntityType="Self.RAPPHIM" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RATING" EntityType="Self.RATING" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RootCommentNew" EntityType="Self.RootCommentNew" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RootNewScore" EntityType="Self.RootNewScore" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SCORE" EntityType="Self.SCORE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="STUDIO" EntityType="Self.STUDIO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SUATCHIEU" EntityType="Self.SUATCHIEU" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TAGS_MOVIE" EntityType="Self.TAGS_MOVIE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TAGS_PERSON" EntityType="Self.TAGS_PERSON" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TAIKHOAN" EntityType="Self.TAIKHOAN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TVSHOW" EntityType="Self.TVSHOW" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TVSHOWEP" EntityType="Self.TVSHOWEP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VIEWEDPRODUCT" EntityType="Self.VIEWEDPRODUCT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="YEARDATA" EntityType="Self.YEARDATA" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__ANHDIENVI__MaDie__4316F928" Association="Self.FK__ANHDIENVI__MaDie__4316F928">
+      <End Role="DIENVIEN" EntitySet="DIENVIEN" />
+      <End Role="ANHDIENVIEN" EntitySet="ANHDIENVIEN" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ANHPHIM__MaPhim__3EDC53F0" Association="Self.FK__ANHPHIM__MaPhim__3EDC53F0">
+      <End Role="PHIM" EntitySet="PHIM" />
+      <End Role="ANHPHIM" EntitySet="ANHPHIM" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BAG__MaDVD__24B26D99" Association="Self.FK__BAG__MaDVD__24B26D99">
+      <End Role="DVD" EntitySet="DVD" />
+      <End Role="BAG" EntitySet="BAG" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BAG__MaTK__25A691D2" Association="Self.FK__BAG__MaTK__25A691D2">
+      <End Role="TAIKHOAN" EntitySet="TAIKHOAN" />
+      <End Role="BAG" EntitySet="BAG" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BAIVIET_C__IDRoo__09FE775D" Association="Self.FK__BAIVIET_C__IDRoo__09FE775D">
+      <End Role="BAIVIET_ROOTCOMMENT" EntitySet="BAIVIET_ROOTCOMMENT" />
+      <End Role="BAIVIET_CHILDCOMMENT" EntitySet="BAIVIET_CHILDCOMMENT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BAIVIET_CH__MaTK__0AF29B96" Association="Self.FK__BAIVIET_CH__MaTK__0AF29B96">
+      <End Role="TAIKHOAN" EntitySet="TAIKHOAN" />
+      <End Role="BAIVIET_CHILDCOMMENT" EntitySet="BAIVIET_CHILDCOMMENT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BAIVIET_R__IDRoo__1293BD5E" Association="Self.FK__BAIVIET_R__IDRoo__1293BD5E">
+      <End Role="BAIVIET_ROOTCOMMENT" EntitySet="BAIVIET_ROOTCOMMENT" />
+      <End Role="BAIVIET_ROOTSCORE" EntitySet="BAIVIET_ROOTSCORE" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BAIVIET_R__MaBai__062DE679" Association="Self.FK__BAIVIET_R__MaBai__062DE679">
+      <End Role="BAIVIETDANHGIA" EntitySet="BAIVIETDANHGIA" />
+      <End Role="BAIVIET_ROOTCOMMENT" EntitySet="BAIVIET_ROOTCOMMENT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BAIVIET_RO__MaTK__07220AB2" Association="Self.FK__BAIVIET_RO__MaTK__07220AB2">
+      <End Role="TAIKHOAN" EntitySet="TAIKHOAN" />
+      <End Role="BAIVIET_ROOTCOMMENT" EntitySet="BAIVIET_ROOTCOMMENT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BAIVIET_RO__MaTK__119F9925" Association="Self.FK__BAIVIET_RO__MaTK__119F9925">
+      <End Role="TAIKHOAN" EntitySet="TAIKHOAN" />
+      <End Role="BAIVIET_ROOTSCORE" EntitySet="BAIVIET_ROOTSCORE" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BAIVIET_S__MaBai__0EC32C7A" Association="Self.FK__BAIVIET_S__MaBai__0EC32C7A">
+      <End Role="BAIVIETDANHGIA" EntitySet="BAIVIETDANHGIA" />
+      <End Role="BAIVIET_SCORE" EntitySet="BAIVIET_SCORE" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BAIVIET_SC__MaTK__0DCF0841" Association="Self.FK__BAIVIET_SC__MaTK__0DCF0841">
+      <End Role="TAIKHOAN" EntitySet="TAIKHOAN" />
+      <End Role="BAIVIET_SCORE" EntitySet="BAIVIET_SCORE" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BAIVIETDA__MaPhi__025D5595" Association="Self.FK__BAIVIETDA__MaPhi__025D5595">
+      <End Role="PHIM" EntitySet="PHIM" />
+      <End Role="BAIVIETDANHGIA" EntitySet="BAIVIETDANHGIA" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BAIVIETDAN__MaTK__035179CE" Association="Self.FK__BAIVIETDAN__MaTK__035179CE">
+      <End Role="TAIKHOAN" EntitySet="TAIKHOAN" />
+      <End Role="BAIVIETDANHGIA" EntitySet="BAIVIETDANHGIA" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ChildComm__RootC__76EBA2E9" Association="Self.FK__ChildComm__RootC__76EBA2E9">
+      <End Role="RootCommentNew" EntitySet="RootCommentNew" />
+      <End Role="ChildCommentNew" EntitySet="ChildCommentNew" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ChildComme__MaTK__77DFC722" Association="Self.FK__ChildComme__MaTK__77DFC722">
+      <End Role="TAIKHOAN" EntitySet="TAIKHOAN" />
+      <End Role="ChildCommentNew" EntitySet="ChildCommentNew" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CHITIETDI__MaDie__71D1E811" Association="Self.FK__CHITIETDI__MaDie__71D1E811">
+      <End Role="DIENVIEN" EntitySet="DIENVIEN" />
+      <End Role="CHITIETDIENVIENNEW" EntitySet="CHITIETDIENVIENNEW" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CHITIETDI__MaNew__72C60C4A" Association="Self.FK__CHITIETDI__MaNew__72C60C4A">
+      <End Role="NEW" EntitySet="NEW" />
+      <End Role="CHITIETDIENVIENNEW" EntitySet="CHITIETDIENVIENNEW" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CHITIETHO__MaHoa__320C68B7" Association="Self.FK__CHITIETHO__MaHoa__320C68B7">
+      <End Role="HOADON" EntitySet="HOADON" />
+      <End Role="CHITIETHOADON" EntitySet="CHITIETHOADON" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CHITIETPH__MaNew__6EF57B66" Association="Self.FK__CHITIETPH__MaNew__6EF57B66">
+      <End Role="NEW" EntitySet="NEW" />
+      <End Role="CHITIETPHIMNEW" EntitySet="CHITIETPHIMNEW" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CHITIETPH__MaPhi__6E01572D" Association="Self.FK__CHITIETPH__MaPhi__6E01572D">
+      <End Role="PHIM" EntitySet="PHIM" />
+      <End Role="CHITIETPHIMNEW" EntitySet="CHITIETPHIMNEW" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DAODIENPH__MaDie__46E78A0C" Association="Self.FK__DAODIENPH__MaDie__46E78A0C">
+      <End Role="DIENVIEN" EntitySet="DIENVIEN" />
+      <End Role="DAODIENPHIM" EntitySet="DAODIENPHIM" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DAODIENPH__MaPhi__45F365D3" Association="Self.FK__DAODIENPH__MaPhi__45F365D3">
+      <End Role="PHIM" EntitySet="PHIM" />
+      <End Role="DAODIENPHIM" EntitySet="DAODIENPHIM" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DIENVIENP__MaDie__4E88ABD4" Association="Self.FK__DIENVIENP__MaDie__4E88ABD4">
+      <End Role="DIENVIEN" EntitySet="DIENVIEN" />
+      <End Role="DIENVIENPHIM" EntitySet="DIENVIENPHIM" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DIENVIENP__MaPhi__4D94879B" Association="Self.FK__DIENVIENP__MaPhi__4D94879B">
+      <End Role="PHIM" EntitySet="PHIM" />
+      <End Role="DIENVIENPHIM" EntitySet="DIENVIENPHIM" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DVD__MaPhim__75A278F5" Association="Self.FK__DVD__MaPhim__75A278F5">
+      <End Role="PHIM" EntitySet="PHIM" />
+      <End Role="DVD" EntitySet="DVD" />
+    </AssociationSet>
+    <AssociationSet Name="FK__GENREPHIM__MaGen__6F7F8B4B" Association="Self.FK__GENREPHIM__MaGen__6F7F8B4B">
+      <End Role="GENRE" EntitySet="GENRE" />
+      <End Role="GENREPHIM" EntitySet="GENREPHIM" />
+    </AssociationSet>
+    <AssociationSet Name="FK__GENREPHIM__MaPhi__7073AF84" Association="Self.FK__GENREPHIM__MaPhi__7073AF84">
+      <End Role="PHIM" EntitySet="PHIM" />
+      <End Role="GENREPHIM" EntitySet="GENREPHIM" />
+    </AssociationSet>
+    <AssociationSet Name="FK__KICHBANPH__MaDie__4AB81AF0" Association="Self.FK__KICHBANPH__MaDie__4AB81AF0">
+      <End Role="DIENVIEN" EntitySet="DIENVIEN" />
+      <End Role="KICHBANPHIM" EntitySet="KICHBANPHIM" />
+    </AssociationSet>
+    <AssociationSet Name="FK__KICHBANPH__MaPhi__49C3F6B7" Association="Self.FK__KICHBANPH__MaPhi__49C3F6B7">
+      <End Role="PHIM" EntitySet="PHIM" />
+      <End Role="KICHBANPHIM" EntitySet="KICHBANPHIM" />
+    </AssociationSet>
+    <AssociationSet Name="FK__NEW__MaTK__628FA481" Association="Self.FK__NEW__MaTK__628FA481">
+      <End Role="TAIKHOAN" EntitySet="TAIKHOAN" />
+      <End Role="NEW" EntitySet="NEW" />
+    </AssociationSet>
+    <AssociationSet Name="FK__NewsScore__MaTK__7BB05806" Association="Self.FK__NewsScore__MaTK__7BB05806">
+      <End Role="TAIKHOAN" EntitySet="TAIKHOAN" />
+      <End Role="NewsScore" EntitySet="NewsScore" />
+    </AssociationSet>
+    <AssociationSet Name="FK__NewsScore__NewsI__7ABC33CD" Association="Self.FK__NewsScore__NewsI__7ABC33CD">
+      <End Role="NEW" EntitySet="NEW" />
+      <End Role="NewsScore" EntitySet="NewsScore" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ORDERSEAT__IDSua__3A6CA48E" Association="Self.FK__ORDERSEAT__IDSua__3A6CA48E">
+      <End Role="SUATCHIEU" EntitySet="SUATCHIEU" />
+      <End Role="ORDERSEAT" EntitySet="ORDERSEAT" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PHIM__Studio__16CE6296" Association="Self.FK__PHIM__Studio__16CE6296">
+      <End Role="STUDIO" EntitySet="STUDIO" />
+      <End Role="PHIM" EntitySet="PHIM" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RootComme__MaNew__731B1205" Association="Self.FK__RootComme__MaNew__731B1205">
+      <End Role="NEW" EntitySet="NEW" />
+      <End Role="RootCommentNew" EntitySet="RootCommentNew" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RootCommen__MaTK__740F363E" Association="Self.FK__RootCommen__MaTK__740F363E">
+      <End Role="TAIKHOAN" EntitySet="TAIKHOAN" />
+      <End Role="RootCommentNew" EntitySet="RootCommentNew" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RootNewSc__RootC__7E8CC4B1" Association="Self.FK__RootNewSc__RootC__7E8CC4B1">
+      <End Role="RootCommentNew" EntitySet="RootCommentNew" />
+      <End Role="RootNewScore" EntitySet="RootNewScore" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RootNewSco__MaTK__7F80E8EA" Association="Self.FK__RootNewSco__MaTK__7F80E8EA">
+      <End Role="TAIKHOAN" EntitySet="TAIKHOAN" />
+      <End Role="RootNewScore" EntitySet="RootNewScore" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SCORE__MaPhim__14B10FFA" Association="Self.FK__SCORE__MaPhim__14B10FFA">
+      <End Role="PHIM" EntitySet="PHIM" />
+      <End Role="SCORE" EntitySet="SCORE" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TVSHOW__MaPhim__3B75D760" Association="Self.FK__TVSHOW__MaPhim__3B75D760">
+      <End Role="PHIM" EntitySet="PHIM" />
+      <End Role="TVSHOW" EntitySet="TVSHOW" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TVSHOW__Network__10E07F16" Association="Self.FK__TVSHOW__Network__10E07F16">
+      <End Role="NETWORK" EntitySet="NETWORK" />
+      <End Role="TVSHOW" EntitySet="TVSHOW" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TVSHOWEP__MaPhim__3E52440B" Association="Self.FK__TVSHOWEP__MaPhim__3E52440B">
+      <End Role="PHIM" EntitySet="PHIM" />
+      <End Role="TVSHOWEP" EntitySet="TVSHOWEP" />
+    </AssociationSet>
+    <AssociationSet Name="FK__VIEWEDPROD__MaTK__15702A09" Association="Self.FK__VIEWEDPROD__MaTK__15702A09">
+      <End Role="TAIKHOAN" EntitySet="TAIKHOAN" />
+      <End Role="VIEWEDPRODUCT" EntitySet="VIEWEDPRODUCT" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,95 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Manager/Views/Shared/_Layout.cshtml";
+}
+<section class="content">
+    <div class="body_scroll">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-lg-7 col-md-6 col-sm-12">
+                    <h2>DVD</h2>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html"><i class="zmdi zmdi-home"></i> Manager</a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0);">DVD</a></li>
+                        <li class="breadcrumb-item active">Create DVD</li>
+                    </ul>
+                    <button class="btn btn-primary btn-icon mobile_menu" type="button"><i class="zmdi zmdi-sort-amount-desc"></i></button>
+                </div>
+                <div class="col-lg-5 col-md-6 col-sm-12">
+                    <button class="btn btn-primary btn-icon float-right right_icon_toggle_btn" type="button"><i class="zmdi zmdi-arrow-right"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <!-- Advanced Validation -->
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2><strong>Create</strong> DVD</h2>
+                        </div>
+                        <div class="body">
+                            <form id="form_create_movie" runat="server" method="POST" enctype="multipart/form-data">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <div class="form-group form-float">
+                                            <input placeholder="Disks" type="number" class="form-control" id="Disks" name="Disks" maxlength="50" minlength="2" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div class="form-group form-float">
+                                            <input placeholder="Price" type="number" class="form-control" id="Price" name="Price" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div class="form-group form-float">
+                                            <input placeholder="Total Count" type="number" class="form-control" id="Count" name="Count" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <select name="Phim" id="Phim" class="form-control show-tick ms select2 selectpicker" data-live-search="true" data-placeholder="Select">
+                                            @foreach (var item in ViewBag.FlimList)
+                                            {
+                                                <option value="@item.MaPhim">  @item.TenPhim </option>
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <button class="btn btn-raised btn-primary waves-effect" type="submit">Create DVD</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    $(document).ready(function () {
+        $("#form_create_movie").submit(function () {
+            var form_data = new FormData();
+                form_data.append("Count", $("#Count").val()),
+                form_data.append("Price", $("#Price").val()),
+                form_data.append("Disks", $("#Disks").val()),
+                form_data.append("Phim", $("#Phim").prop('selectedIndex'));
+            $.ajax({
+                url: '/Manager/DVD/Create',
+                type: 'post',
+                data:  form_data,
+                dataType: 'Json',
+                success: function (response) {
+                    if (response.WriteReview == 'ok') {
+                        alert("Create Success");
+                    }
+                    else {
+                        alert("Create Failed");
+                    }
+                }
+            });
+            return false;
+        });
+    });
+</script>

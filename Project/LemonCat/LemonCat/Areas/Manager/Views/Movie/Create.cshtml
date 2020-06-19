@@ -1,0 +1,300 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Manager/Views/Shared/_Layout.cshtml";
+}
+    <script>
+        $(function () {
+            $('.getDate').bootstrapMaterialDatePicker({
+                format: 'DD-MM-YYYY',
+                time: false
+            });
+        });
+
+        var rowCount = -1;
+        $(document).ready(function(){
+            $(".add-row").click(function(){
+                rowCount += 1;
+                var id = $("#CastList").children("option:selected").val();
+                var value = $("#CastList option:selected").text();
+                $("table tbody").append('<tr id="row' + rowCount + '"><td class="PersonID" id="' + id + '" >' + value + '</td><td class="CharacterName" contenteditable="true">Character Name here</td><td><button id="'+ rowCount + '" class="btn btn-danger btn-sm" onclick="DeleteRow('+rowCount+')"><i class="zmdi zmdi-delete"></i></button></td></tr>');
+            });
+        // Find and remove selected table rows
+            $(".delete-row").click(function(){
+                $("table tbody tr:last").remove();
+            }); 
+        }); 
+        function DeleteRow(id){
+            var rowid = "#row" + id;
+            $(rowid).remove();
+        }
+        function ReloadListCast() {
+            $('#Cast').val("");
+            var string = "";
+            $("#test tbody tr").each(function () {
+                string += $(this).find(".PersonID").prop('id') + "*_*" + $(this).find('.CharacterName').html() + "*_*_*";
+                $('#Cast').val(string);
+            }); 
+        }
+    </script>
+<section class="content">
+    <div class="body_scroll">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-lg-7 col-md-6 col-sm-12">
+                    <h2>Movie</h2>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html"><i class="zmdi zmdi-home"></i> Manager</a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0);">Movie</a></li>
+                        <li class="breadcrumb-item active">Create new Movie</li>
+                    </ul>
+                    <button class="btn btn-primary btn-icon mobile_menu" type="button"><i class="zmdi zmdi-sort-amount-desc"></i></button>
+                </div>
+                <div class="col-lg-5 col-md-6 col-sm-12">
+                    <button class="btn btn-primary btn-icon float-right right_icon_toggle_btn" type="button"><i class="zmdi zmdi-arrow-right"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <!-- Advanced Validation -->
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2><strong>Create</strong> New Movie</h2>
+                        </div>
+                        <div class="body">
+                            <form id="form_create_movie" runat="server" method="POST" enctype="multipart/form-data">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <div class="form-group form-float">
+                                            <input placeholder="Movie Name" type="text" class="form-control" id="TenPhim" name="TenPhim" maxlength="50" minlength="2" required>
+                                            <div class="help-info">Min. 2, Max. 50 characters</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group form-float">
+                                            <input placeholder="Trailer Link" type="text" class="form-control" id="Trailer" name="Trailer" required>
+                                            <div class="help-info">Ex: "https://www.youtube.com/watch?v=PeBcCm-ryaY"</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="form-group form-float">
+                                            <input placeholder="Runtime" type="number" class="form-control" id="Time" name="Time" required>
+                                            <div class="help-info">Ex: 120 (minutes)</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group form-float">
+                                            <div class="help-info">Directed By</div>
+                                            <select name="DaoDien" id="DaoDien" class="form-control show-tick ms select2 selectpicker" data-live-search="true" multiple data-placeholder="Select">
+                                                @foreach (var item in ViewBag.PersonList)
+                                                {
+                                                    <option value="@item.MaDienVien">@item.TenDienVien</option>
+                                                }
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group form-float">
+                                            <div class="help-info">Written By</div>
+                                            <select name="KichBan" id="KichBan" class="form-control show-tick ms select2 selectpicker" data-live-search="true" multiple data-placeholder="Select">
+                                                @foreach (var item in ViewBag.PersonList)
+                                                {
+                                                    <option value="@item.MaDienVien">@item.TenDienVien</option>
+                                                }
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group form-float">
+                                            <textarea id="TomTatNgan" name="TomTatNgan" class="form-control m-b-20" placeholder="Shot Summary" rows="10" required></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group form-float">
+                                            <textarea id="TomTat" name="TomTat" class="form-control m-b-20" placeholder="Long Summary" rows="10" required></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group form-float">
+                                            <div class="help-info">Genre</div>
+                                            <select name="Genre" id="Genre" class="form-control show-tick ms select2 selectpicker" multiple data-placeholder="Select">
+                                                @foreach (var item in ViewBag.GenreList)
+                                                {
+                                                    <option value="@item.MaGenre">@item.TenGenre</option>
+
+                                                }
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group form-float">
+                                            <div class="help-info">Rating</div>
+                                            <select name="Rating" id="Rating" class="form-control show-tick ms select2 selectpicker" data-placeholder="Select">
+                                                @foreach (var item in ViewBag.RatingList)
+                                                {
+                                                    <option value="@item.MaRating">@item.TenRating</option>
+                                                }
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group form-float">
+                                            <div class="help-info">Studio</div>
+                                            <select name="Studio" id="Studio" class="form-control show-tick ms select2 selectpicker" data-placeholder="Select">
+                                                @foreach (var item in ViewBag.StudioList)
+                                                {
+                                                    <option value="@item.MaStudio">@item.TenStudio</option>
+                                                }
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="zmdi zmdi-calendar"></i></span>
+                                            </div>
+                                            <input id="Theaters" name="Theaters" type="text" class="form-control datetimepicker getDate" placeholder="Please choose on theaters date" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="zmdi zmdi-calendar"></i></span>
+                                            </div>
+                                            <input id="OnDVD" name="OnDVD" type="text" class="form-control datetimepicker getDate" placeholder="Please choose on DVD date & time...">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="body">
+                                            <label for="AnhDaiDien">Poster</label>
+                                            <input name="AnhDaiDien" id="AnhDaiDien" type="file" class="dropify" data-max-file-size="3M" data-allowed-file-extensions="jpg jpeg icon pdf png psd" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="body">
+                                            <label for="AnhPhim">Image</label>
+                                            <input name="AnhPhim" id="AnhPhim" type="file" class="dropify" data-max-file-size="3M" data-allowed-file-extensions="jpg jpeg icon pdf png psd" multiple required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group form-float">
+                                        <div class="col-sm-12">
+                                            <label for="test">Cast Create</label>
+                                            <table name="test" id="test" class="table table-hover c_table theme-color">
+                                                <thead id="headTable">
+                                                    <tr>
+                                                        <th>Actor</th>
+                                                        <th>Character</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-8">
+                                        <div class="form-group form-float">
+                                            <div class="help-info">Cast List</div>
+                                            <select id="CastList" class="form-control show-tick ms select2 selectpicker" data-live-search="true" data-placeholder="Select">
+                                                @foreach (var item in ViewBag.PersonList)
+                                                {
+                                                    <option value="@item.MaDienVien">@item.TenDienVien</option>
+                                                }
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div class="help-info">&nbsp</div>
+                                        <button type="button" class="btn btn-success add-row">Add Cast</button>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div class="help-info">&nbsp</div>
+                                        <button type="button" class="btn btn-danger delete-row">Delete Last Cast</button>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group form-float">
+                                        <input hidden type="text" id="Cast" name="Cast" value="" />
+                                    </div>
+                                </div>
+                                <button class="btn btn-raised btn-primary waves-effect" type="submit">Create New Movie</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    $(document).ready(function () {
+        $("#form_create_movie").submit(function () {
+            //var fdata = {
+            //    TenTk: $("#TenTK").val();
+            //};
+            ReloadListCast();
+            var poster = document.getElementById('AnhDaiDien');
+            var files = $("#AnhPhim").get(0).files;
+
+            var form_data = new FormData();
+            form_data.append("TenPhim", $("#TenPhim").val()),
+                form_data.append("TomTatNgan", $("#TomTatNgan").val()),
+                form_data.append("TomTat", $("#TomTat").val()),
+                form_data.append("Trailer", $("#Trailer").val()),
+                form_data.append("Theaters", $("#Theaters").val()),
+                form_data.append("OnDVD", $("#OnDVD").val()),
+                form_data.append("Time", $("#Time").val()),
+                form_data.append("Studio", $("#Studio").prop('selectedIndex')),
+                form_data.append("Rating", $("#Rating").prop('selectedIndex')),
+                form_data.append("Cast", $("#Cast").val()),
+                form_data.append("AnhDaiDien", poster);
+            for (var i = 0; i < files.length; i++) {
+                form_data.append("AnhPhim", files[i]);
+            }
+            $("#Genre").each(function () {
+                form_data.append("Genre", $(this).val());
+            });
+            $("#DaoDien").each(function () {
+                form_data.append("DaoDien", $(this).val());
+            });
+            $("#KichBan").each(function () {
+                form_data.append("KichBan", $(this).val());
+            });
+            
+            $.ajax({
+                url: '/Manager/Movie/Create',
+                type: 'post',
+                data: form_data,
+                dataType: 'Json',
+                success: function (msg) {
+                    if (msg == 'ok') {
+                        
+                    }
+                    else {
+                        alert("Create Failed");
+                    }
+                }
+            });
+            return false;
+        });
+    });
+</script>

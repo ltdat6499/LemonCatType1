@@ -1,0 +1,656 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+    <section class="content">
+        <div class="">
+            <div class="block-header">
+                <div class="row">
+                    <div class="col-lg-7 col-md-6 col-sm-12">
+                        <h2>Dashboard</h2>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html"><i class="zmdi zmdi-home"></i> Admin</a></li>
+                            <li class="breadcrumb-item active">Dashboard</li>
+                        </ul>
+                        <button class="btn btn-primary btn-icon mobile_menu" type="button"><i class="zmdi zmdi-sort-amount-desc"></i></button>
+                    </div>
+                    <div class="col-lg-5 col-md-6 col-sm-12">
+                        <button class="btn btn-primary btn-icon float-right right_icon_toggle_btn" type="button"><i class="zmdi zmdi-arrow-right"></i></button>
+                    </div>
+                </div>
+            </div>
+                <div class="row clearfix">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="header">
+                                <h2><strong><i class="zmdi zmdi-chart"></i> Flim</strong> Report</h2>
+                            </div>
+                            <div class="body mb-2">
+                                <div class="row clearfix">
+                                    <div class="col-lg-2 col-md-6 col-sm-6">
+                                        <div class="state_w1 mb-1 mt-1">
+                                            <div class="d-flex justify-content-between">
+                                                <div>
+                                                    <h5>@ViewBag.TongUser</h5>
+                                                    <span><i class="zmdi zmdi-balance"></i> User</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 col-md-6 col-sm-6">
+                                        <div class="state_w1 mb-1 mt-1">
+                                            <div class="d-flex justify-content-between">
+                                                <div>
+                                                    <h5>@ViewBag.TongMovie</h5>
+                                                    <span><i class="zmdi zmdi-balance"></i> Movie</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 col-md-6 col-sm-6">
+                                        <div class="state_w1 mb-1 mt-1">
+                                            <div class="d-flex justify-content-between">
+                                                <div>
+                                                    <h5>@ViewBag.TongTV</h5>
+                                                    <span><i class="zmdi zmdi-turning-sign"></i> TV Show</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 col-md-6 col-sm-6">
+                                        <div class="state_w1 mb-1 mt-1">
+                                            <div class="d-flex justify-content-between">
+                                                <div>
+                                                    <h5>@ViewBag.Person</h5>
+                                                    <span><i class="zmdi zmdi-print"></i> Star</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 col-md-6 col-sm-6">
+                                        <div class="state_w1 mb-1 mt-1">
+                                            <div class="d-flex justify-content-between">
+                                                <div>
+                                                    <h5>@ViewBag.TongReview</h5>
+                                                    <span><i class="zmdi zmdi-alert-circle-o"></i> Review</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 col-md-6 col-sm-6">
+                                        <div class="state_w1 mb-1 mt-1">
+                                            <div class="d-flex justify-content-between">
+                                                <div>
+                                                    <h5>@ViewBag.TongNews</h5>
+                                                    <span><i class="zmdi zmdi-print"></i> News</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="col-lg-3 col-md-12">
+                                    <div class="card">
+                                        <div class="header">
+                                            <h2><strong>User - Non User</strong></h2>
+                                        </div>
+                                        <div class="body text-center">
+                                            <div id="User-NonUser" class="c3_chart d_distribution"></div>
+                                            <button class="btn btn-primary mt-4 mb-4">View More</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-12">
+                                    <div class="card">
+                                        <div class="header">
+                                            <h2><strong>Movie - TVShow</strong></h2>
+                                        </div>
+                                        <div class="body text-center">
+                                            <div id="MovievsTVShow" class="c3_chart d_distribution"></div>
+                                            <button class="btn btn-primary mt-4 mb-4">View More</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-12">
+                                    <div class="card">
+                                        <div class="header">
+                                            <h2><strong>News - Review</strong></h2>
+                                        </div>
+                                        <div class="body text-center">
+                                            <div id="NewsvsReview" class="c3_chart d_distribution"></div>
+                                            <button class="btn btn-primary mt-4 mb-4">View More</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-12">
+                                    <div class="card">
+                                        <div class="header">
+                                            <h2><strong>Ticket - DVD</strong></h2>
+                                        </div>
+                                        <div class="body text-center">
+                                            <div id="TicketvsDVD" class="c3_chart d_distribution"></div>
+                                            <button class="btn btn-primary mt-4 mb-4">View More</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="body">
+                                <div class="header">
+                                    <h2><strong><i class="zmdi zmdi-chart"></i> User</strong> Report</h2>
+                                </div>
+                                <div id="User" class="c3_chart d_sales"></div>
+                            </div>
+                            <div class="body">
+                                <div class="header">
+                                    <h2><strong><i class="zmdi zmdi-chart"></i> Movie - TVShow</strong> Report</h2>
+                                </div>
+                                <div id="Movie-TVShow" class="c3_chart d_sales"></div>
+                            </div>
+                            <div class="body">
+                                <div class="header">
+                                    <h2><strong><i class="zmdi zmdi-chart"></i> Review - News</strong> Report</h2>
+                                </div>
+                                <div id="DVD" class="c3_chart d_sales"></div>
+                            </div>
+                            <div class="body">
+                                <div class="header">
+                                    <h2><strong><i class="zmdi zmdi-chart"></i> Review - News</strong> Report</h2>
+                                </div>
+                                <div id="Review-News" class="c3_chart d_sales"></div>
+                            </div>
+                            <div class="body">
+                                <div class="header">
+                                    <h2><strong><i class="zmdi zmdi-chart"></i> DVD - Ticket</strong> Report</h2>
+                                </div>
+                                <div id="DVD-Ticket" class="c3_chart d_sales"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>      
+    </section>
+<script>
+
+$(function() {
+    "use strict";
+    initC3Chart();    
+});
+function initC3Chart() {
+    setTimeout(function () {
+            $(document).ready(function () {
+                $.ajax({
+                    type: "GET",
+                    url: "/Admin/Home/BarChart",
+                    data: {},
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (response) {
+                        successFunc(response);
+                    },
+                });
+                function successFunc(jsondata) {
+                    var MonthYr = [];
+                    jsondata.forEach(function (e) {
+                        MonthYr.push(e.MonthDisplay);
+                    })
+                    var chart = c3.generate({
+                        bindto: '#User', // id of chart wrapper
+                        data: {
+                            json: jsondata,
+                            keys: {
+                                value: ['TongUser'],
+                            },
+                            columns: [
+                                // each columns data
+                                ['TongUser'],
+                            ],
+                            type: 'area-spline', // default type of chart
+                            groups: [
+                                ['TongUser']
+                            ],
+                            colors: {
+                                'TongUser': Aero.colors["lime"],
+                            },
+                            names: {
+                                // name of each serie
+                                'TongUser': 'User Count',
+                            }
+                        },
+                        axis: {
+                            x: {
+                                type: 'category',
+                                // name of each category
+                                categories: MonthYr
+                            },
+                        },
+                        legend: {
+                            show: true, //hide legend
+                        },
+                        padding: {
+                            bottom: 0,
+                            top: 0
+                        },
+                    });
+                }
+            });
+            $(document).ready(function () {
+                $.ajax({
+                    type: "GET",
+                    url: "/Admin/Home/BarChart",
+                    data: {},
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (response) {
+                        successFunc(response);
+                    },
+                });
+                function successFunc(jsondata) {
+                    var MonthYr = [];
+                    jsondata.forEach(function (e) {
+                        MonthYr.push(e.MonthDisplay);
+                    })
+                    var chart = c3.generate({
+                        bindto: '#Movie-TVShow', // id of chart wrapper
+                        data: {
+                            json: jsondata,
+                            keys: {
+                                value: ['TongMovie', 'TongTV'],
+                            },
+                            columns: [
+                                // each columns data
+                                ['TongMovie', 'TongTV'],
+                            ],
+                            type: 'area-spline', // default type of chart
+                            groups: [
+                                ['TongMovie', 'TongTV']
+                            ],
+                            colors: {
+                                'TongMovie': Aero.colors["lime"],
+                                'TongTV': Aero.colors["purple"],
+                            },
+                            names: {
+                                // name of each serie
+                                'TongMovie': 'Movie Count',
+                                'TongTV': 'TV Show Count',
+                            }
+                        },
+                        axis: {
+                            x: {
+                                type: 'category',
+                                // name of each category
+                                categories: MonthYr
+                            },
+                        },
+                        legend: {
+                            show: true, //hide legend
+                        },
+                        padding: {
+                            bottom: 0,
+                            top: 0
+                        },
+                    });
+                }
+            });
+            $(document).ready(function () {
+                $.ajax({
+                    type: "GET",
+                    url: "/Admin/Home/BarChart",
+                    data: {},
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (response) {
+                        successFunc(response);
+                    },
+                });
+                function successFunc(jsondata) {
+                    var MonthYr = [];
+                    jsondata.forEach(function (e) {
+                        MonthYr.push(e.MonthDisplay);
+                    })
+                    var chart = c3.generate({
+                        bindto: '#DVD', // id of chart wrapper
+                        data: {
+                            json: jsondata,
+                            keys: {
+                                value: ['TongDVD'],
+                            },
+                            columns: [
+                                // each columns data
+                                ['TongDVD'],
+                            ],
+                            type: 'area-spline', // default type of chart
+                            groups: [
+                                ['TongDVD']
+                            ],
+                            colors: {
+                                'TongDVD': Aero.colors["black"],
+                            },
+                            names: {
+                                // name of each serie
+                                'TongDVD': 'DVD Count',
+                            }
+                        },
+                        axis: {
+                            x: {
+                                type: 'category',
+                                // name of each category
+                                categories: MonthYr
+                            },
+                        },
+                        legend: {
+                            show: true, //hide legend
+                        },
+                        padding: {
+                            bottom: 0,
+                            top: 0
+                        },
+                    });
+                }
+            });
+            $(document).ready(function () {
+                $.ajax({
+                    type: "GET",
+                    url: "/Admin/Home/BarChart",
+                    data: {},
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (response) {
+                        successFunc(response);
+                    },
+                });
+                function successFunc(jsondata) {
+                    var MonthYr = [];
+                    jsondata.forEach(function (e) {
+                        MonthYr.push(e.MonthDisplay);
+                    })
+                    var chart = c3.generate({
+                        bindto: '#Review-News', // id of chart wrapper
+                        data: {
+                            json: jsondata,
+                            keys: {
+                                value: ['TongReview', 'TongNews'],
+                            },
+                            columns: [
+                                // each columns data
+                                ['TongReview', 'TongNews'],
+                            ],
+                            type: 'area-spline', // default type of chart
+                            groups: [
+                                ['TongReview', 'TongNews']
+                            ],
+                            colors: {
+                                'TongReview': Aero.colors["amber"],
+                                'TongNews': Aero.colors["pink"],
+                            },
+                            names: {
+                                // name of each serie
+                                'TongReview': 'Review Count',
+                                'TongNews': 'News Count',
+                            }
+                        },
+                        axis: {
+                            x: {
+                                type: 'category',
+                                // name of each category
+                                categories: MonthYr
+                            },
+                        },
+                        legend: {
+                            show: true, //hide legend
+                        },
+                        padding: {
+                            bottom: 0,
+                            top: 0
+                        },
+                    });
+                }
+            });
+            $(document).ready(function () {
+                $.ajax({
+                    type: "GET",
+                    url: "/Admin/Home/BarChart",
+                    data: {},
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (response) {
+                        successFunc(response);
+                    },
+                });
+                function successFunc(jsondata) {
+                    var MonthYr = [];
+                    jsondata.forEach(function (e) {
+                        MonthYr.push(e.MonthDisplay);
+                    })
+                    var chart = c3.generate({
+                        bindto: '#DVD-Ticket', // id of chart wrapper
+                        data: {
+                            json: jsondata,
+                            keys: {
+                                value: ['DoanhThuBanDVD', 'DoanhThuBanVe'],
+                            },
+                            columns: [
+                                // each columns data
+                                ['DoanhThuBanDVD', 'DoanhThuBanVe'],
+                            ],
+                            type: 'area-spline', // default type of chart
+                            groups: [
+                                ['DoanhThuBanDVD', 'DoanhThuBanVe']
+                            ],
+                            colors: {
+                                'DoanhThuBanDVD': Aero.colors["blue"],
+                                'DoanhThuBanVe': Aero.colors["red"],
+                            },
+                            names: {
+                                // name of each serie
+                                'DoanhThuBanDVD': 'DVD Revenue',
+                                'DoanhThuBanVe': 'Ticket Revenue',
+                            }
+                        },
+                        axis: {
+                            x: {
+                                type: 'category',
+                                // name of each category
+                                categories: MonthYr
+                            },
+                        },
+                        legend: {
+                            show: true, //hide legend
+                        },
+                        padding: {
+                            bottom: 0,
+                            top: 0
+                        },
+                    });
+                }
+            });
+            $(document).ready(function () {
+                $.ajax({
+                    type: "GET",
+                    url: "/Admin/Home/PieChart",
+                    data: {},
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (response) {
+                        successFunc(response);
+                    },
+                });
+                function successFunc(jsondata) {
+                    var VarTongUserLoaiMot = jsondata.TongUserLoaiMot;
+                    var VarTongUserDacBiet = jsondata.TongUserDacBiet;
+                    
+                    var chart = c3.generate({
+                        bindto: '#User-NonUser', // id of chart wrapper
+                        data: {
+                            columns: [
+                                // each columns data
+                                ['TongUserLoaiMot', VarTongUserLoaiMot],
+                                ['TongUserDacBiet', VarTongUserDacBiet],
+                            ],
+                            type: 'pie', // default type of chart
+                            colors: {
+                                'TongUserLoaiMot': Aero.colors["lime"],
+                                'TongUserDacBiet': Aero.colors["teal"],
+                            },
+                            names: {
+                                // name of each serie
+                                'TongUserLoaiMot': 'Normal User',
+                                'TongUserDacBiet': 'Special User',
+                            }
+                        },
+                        axis: {
+                        },
+                        legend: {
+                            show: true, //hide legend
+                        },
+                        padding: {
+                            bottom: 0,
+                            top: 0
+                        },
+                    });
+                }
+            });
+            $(document).ready(function () {
+                $.ajax({
+                    type: "GET",
+                    url: "/Admin/Home/PieChart",
+                    data: {},
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (response) {
+                        successFunc(response);
+                    },
+                });
+                function successFunc(jsondata) {
+                    var VarTongUserLoaiMot = jsondata.TongMovie;
+                    var VarTongUserDacBiet = jsondata.TongTV;
+                    
+                    var chart = c3.generate({
+                        bindto: '#MovievsTVShow', // id of chart wrapper
+                        data: {
+                            columns: [
+                                // each columns data
+                                ['TongMovie', VarTongUserLoaiMot],
+                                ['TongTV', VarTongUserDacBiet],
+                            ],
+                            type: 'pie', // default type of chart
+                            colors: {
+                                'TongMovie': Aero.colors["green"],
+                                'TongTV': Aero.colors["purple"],
+                            },
+                            names: {
+                                // name of each serie
+                                'TongMovie': 'Movie',
+                                'TongTV': 'TV Show',
+                            }
+                        },
+                        axis: {
+                        },
+                        legend: {
+                            show: true, //hide legend
+                        },
+                        padding: {
+                            bottom: 0,
+                            top: 0
+                        },
+                    });
+                }
+            });
+            $(document).ready(function () {
+                $.ajax({
+                    type: "GET",
+                    url: "/Admin/Home/PieChart",
+                    data: {},
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (response) {
+                        successFunc(response);
+                    },
+                });
+                function successFunc(jsondata) {
+                    var VarTongUserLoaiMot = jsondata.TongReview;
+                    var VarTongUserDacBiet = jsondata.TongNews;
+                    
+                    var chart = c3.generate({
+                        bindto: '#NewsvsReview', // id of chart wrapper
+                        data: {
+                            columns: [
+                                // each columns data
+                                ['TongReview', VarTongUserLoaiMot],
+                                ['TongNews', VarTongUserDacBiet],
+                            ],
+                            type: 'pie', // default type of chart
+                            colors: {
+                                'TongReview': Aero.colors["amber"],
+                                'TongNews': Aero.colors["pink"],
+                            },
+                            names: {
+                                // name of each serie
+                                'TongReview': 'Review',
+                                'TongNews': 'News',
+                            }
+                        },
+                        axis: {
+                        },
+                        legend: {
+                            show: true, //hide legend
+                        },
+                        padding: {
+                            bottom: 0,
+                            top: 0
+                        },
+                    });
+                }
+            });
+            $(document).ready(function () {
+                $.ajax({
+                    type: "GET",
+                    url: "/Admin/Home/PieChart",
+                    data: {},
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (response) {
+                        successFunc(response);
+                    },
+                });
+                function successFunc(jsondata) {
+                    var VarTongUserLoaiMot = jsondata.DoanhThuBanVe;
+                    var VarTongUserDacBiet = jsondata.DoanhThuBanDVD;
+                    
+                    var chart = c3.generate({
+                        bindto: '#TicketvsDVD', // id of chart wrapper
+                        data: {
+                            columns: [
+                                // each columns data
+                                ['DoanhThuBanVe', VarTongUserLoaiMot],
+                                ['DoanhThuBanDVD', VarTongUserDacBiet],
+                            ],
+                            type: 'pie', // default type of chart
+                            colors: {
+                                'DoanhThuBanVe': Aero.colors["red"],
+                                'DoanhThuBanDVD': Aero.colors["teal"],
+                            },
+                            names: {
+                                // name of each serie
+                                'DoanhThuBanVe': 'Ticket Revenue',
+                                'DoanhThuBanDVD': 'DVD Revenue',
+                            }
+                        },
+                        axis: {
+                        },
+                        legend: {
+                            show: true, //hide legend
+                        },
+                        padding: {
+                            bottom: 0,
+                            top: 0
+                        },
+                    });
+                }
+            });
+        }, 3000);
+}
+</script>

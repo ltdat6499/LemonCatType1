@@ -1,0 +1,216 @@
+﻿@model List<LemonCat.Models.EF.RootCommentNew>
+@{
+    ViewBag.Title = "ManagerComment";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<section class="content">
+    <div class="body_scroll">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-lg-7 col-md-6 col-sm-12">
+                    <h2>Comments</h2>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#"><i class="zmdi zmdi-home"></i> Admin</a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0);">News</a></li>
+                        <li class="breadcrumb-item active">Comments</li>
+                    </ul>
+                </div>
+                <div class="col-lg-5 col-md-6 col-sm-12">
+                    <button class="btn btn-primary btn-icon float-right right_icon_toggle_btn" type="button"><i class="zmdi zmdi-arrow-right"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="card">
+                        <div class="body header">
+                            <h2><strong>News</strong> Comments</h2>
+                        </div>
+                        <div class="">
+                            <div class="body input-group">
+                                <input id="IDNews" name="IDNews" type="text" value="@ViewBag.ID" readonly hidden>
+                                <input id="Comment" name="Comment" type="text" class="form-control col-sm-6" placeholder="Text something about this News">
+                                <div class="input-group-append" onclick="CommentFunction()"><span class="input-group-text" id="basic-addon2"><i class="zmdi zmdi-mail-send"></i></span></div>
+                            </div>
+                            <div id="NewCommment" style="margin-top:30px;">
+
+                            </div>
+                            @for (int i = 0; i < Model.Count; i++)
+                            {
+                                <div class="body panel-group" id="group_@(Model[i].ID)" role="tablist" aria-multiselectable="true">
+                                    <div class="panel l-coral">
+                                        <div class="panel-heading" role="tab" id="headingOne_@(Model[i].ID)">
+                                            <div class="panel-title">
+                                                <div class="media mleft">
+                                                    <div class="media-left icon-box"> <a href="javascript:void(0);"> <img alt="" class="img-fluid img-thumbnail media-object" src="@((ViewBag.AvataComment[i]).ToString())" style="height:90px;width:90px;"> </a> </div>
+                                                    <div class="media-body">
+                                                        <div class="row">
+                                                            <div class="col-sm-3">
+                                                                <span>&nbsp</span>
+                                                                <h4 class="media-heading" style="color:#03A9F4;"><b>@ViewBag.NameComment[i]</b></h4>
+                                                                <small>@Model[i].NgayBinhLuan</small> &nbsp&nbsp&nbsp&nbsp&nbsp <div class="badge badge-info rate_news_@(Model[i].ID)" id="">@(ViewBag.CountLikeRoot[i])</div>
+                                                            </div>
+                                                            <div class="col-sm-*">
+                                                                <a href="#" class="triggerRootComment_News zmdi zmdi-hc-fw" data-id="@(Model[i].ID)">@((bool)Model[i].Status ? "" : "")</a>
+                                                            </div>
+                                                            <div class="col-sm-*">
+                                                                <a href="#" class="" onclick="DeleteRootCommentFunction(@(Model[i].ID))"><i class="zmdi zmdi-hc-fw"></i></a>
+                                                            </div>
+                                                        </div>
+                                                        <span style="text-align:justify;">
+                                                            @Model[i].NoiDungBinhLuan
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-*">
+                                                        <a role="button" href="#" data-id="@(Model[i].ID)" class="triggerLikeRootNews">@if ((bool)ViewBag.MarkComment[i])
+                                                        {<text><span class='btn btn-danger btn-round'><i class='zmdi zmdi - hc - fw'></i></span></text>}
+                                                    else
+                                                    { <text><span class='btn btn-success btn-round'><i class='zmdi zmdi - hc - fw'></i></span></text>}</a>
+                                                    </div>
+                                                    <div class="col-sm-*">
+                                                        <a role="button" data-toggle="collapse" data-parent="#group_@(Model[i].ID)" href="#row_@(Model[i].ID)" aria-expanded="true" aria-controls="row_@(Model[i].ID)"><span class="btn btn-primary btn-round"> Reply <span id="countReply_@(Model[i].ID)"> (@(ViewBag.CountChildComment[i]))</span></span> </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="row_@(Model[i].ID)" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne_@(Model[i].ID)">
+                                            <div class="panel-body">
+                                                <div class="row">
+                                                    <div class="col-sm-1"></div>
+                                                    <div class="col-sm-10">
+                                                        <div class="input-group">
+                                                            <input name="ChildComment_@(Model[i].ID)" id="ChildComment_@(Model[i].ID)" type="text" class="form-control" placeholder="Text here">
+                                                            <div onclick="ChildCommentFunction(@(Model[i].ID))" class="input-group-append"><span class="input-group-text" id="basic-addon2"><i class="zmdi zmdi-mail-send"></i></span></div>
+                                                        </div>
+                                                        <div id="NewChildCommment_@(Model[i].ID)" style="margin-bottom:30px;margin-top:30px;">
+
+                                                        </div>
+                                                        @for (int j = 0; j < ViewBag.ListCommentThree[i].Count; j++)
+                                                        {
+                                                            <div class="media mleft" id="row_@(Model[i].ID)_@(((ViewBag.ListCommentThree[i])[j]).ID)">
+                                                                <div class="media-left icon-box"> <a href="javascript:void(0);"> <img alt="" class="img-fluid img-thumbnail media-object" src="@(((ViewBag.AvataChildComment[i])[j]).ToString())" style="height:70px;width:70px;"> </a> </div>
+                                                                <div class="media-body">
+                                                                    <div class="row">
+                                                                        <div class="col-sm-3">
+                                                                            <h4 class="media-heading">@(((ViewBag.NameChildComment[i])[j]))</h4>
+                                                                            <small>@(((ViewBag.ListCommentThree[i])[j]).NgayBinhLuan)</small>
+                                                                        </div>
+                                                                        <div class="col-sm-1">
+                                                                            <a href="#" class="zmdi zmdi-hc-fw triggerChildComment_News" data-id="@(((ViewBag.ListCommentThree[i])[j]).ID)">@((bool)((ViewBag.ListCommentThree[i])[j]).Status ? "" : "")</a>
+                                                                        </div>
+                                                                        <div class="col-sm-*">
+                                                                            <a href="#row_@(Model[i].ID)_@(((ViewBag.ListCommentThree[i])[j]).ID)" class="" onclick="DeleteChildCommentFunction(@(Model[i].ID), @(((ViewBag.ListCommentThree[i])[j]).ID))"><i class="zmdi zmdi-hc-fw"></i></a>
+                                                                        </div>
+                                                                    </div>
+                                                                    <span style="text-align:justify;">
+                                                                        @(((ViewBag.ListCommentThree[i])[j]).NoiDungBinhLuan)
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        }
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span>&nbsp</span>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    function DeleteChildCommentFunction(rootid, id) {
+            var idrow = "#row_" + rootid + "_" + id;
+            var r = confirm("Are you sure?!");
+            if (r == true) {
+                $.ajax({
+                    url: "/Admin/News/DeleteChildComment",
+                    data: { id: id },
+                    dataType: "Json",
+                    type: "POST",
+
+                    success: function (response) {
+                        if (response.status == true) {
+                            $(idrow).remove();
+                            alert("Your Row has been delete !!");
+                        }
+                        else {
+                            alert("Error");
+                        }
+                    }
+                });
+
+            } else {
+                alert("Your Row is saved !!");
+            }
+        }
+    function DeleteRootCommentFunction(id) {
+            var idrow = "#group_" + id;
+            var r = confirm("Are you sure?!");
+            if (r == true) {
+                $.ajax({
+                    url: "/Admin/News/DeleteRootComment",
+                    data: { id: id },
+                    dataType: "Json",
+                    type: "POST",
+
+                    success: function (response) {
+                        if (response.status == true) {
+                            $(idrow).remove();
+                            alert("Your Row has been delete !!");
+                        }
+                        else {
+                            alert("Error");
+                        }
+                    }
+                });
+
+            } else {
+                alert("Your Row is saved !!");
+            }
+        }
+    function CommentFunction() {
+        var content = $("#Comment").val();
+        var id = $("#IDNews").val();
+            $.post('/Admin/News/WriteComment', { id: id, content : content},
+                function(response){
+                    if (response.IDComment > 0) {
+                        var idnewcomment = response.IDComment;
+                        var avata = response.Avata;
+                        var name = response.Name;
+                        var date = response.Date;
+                        $("#NewCommment").append('<div class="body panel-group" id="group_' + idnewcomment + '" role="tablist" aria-multiselectable="true"> <div class="panel l-coral"> <div class="panel-heading" role="tab" id="headingOne_' + idnewcomment + ')"> <div class="panel-title"> <div class="media mleft"> <div class="media-left icon-box"> <a href="javascript:void(0);"> <img alt="" class="img-fluid img-thumbnail media-object" src="'+ avata +'" style="height:90px;width:90px;"> </a> </div><div class="media-body"> <div class="row"> <div class="col-sm-3"> <span>&nbsp</span> <h4 class="media-heading" style="color:#03A9F4;"><b>'+name+'</b></h4> <small>'+date+'</small> &nbsp&nbsp&nbsp&nbsp&nbsp <div class="badge badge-info" id="rate_' + idnewcomment + '">0</div></div><div class="col-sm-*"> <a href="#" class="triggerRootComment_News zmdi zmdi-hc-fw" data-id="' + idnewcomment + '"></a> </div><div class="col-sm-*"> <a href="#" class="" onclick="DeleteRootCommentFunction(' + idnewcomment + ')"><i class="zmdi zmdi-hc-fw"></i></a> </div></div><span style="text-align:justify;"> '+content+' </span> </div></div><div class="row"> <div class="col-sm-*"> <a role="button" href="#" data-id="' + idnewcomment + '" class="triggerLikeRootNews"><span class="btn btn-success btn-round"><i class="zmdi zmdi - hc - fw"></i></span></a> </div><div class="col-sm-*"> <a role="button" data-toggle="collapse" data-parent="#group_' + idnewcomment + '" href="#row_' + idnewcomment + '" aria-expanded="true" aria-controls="row_' + idnewcomment + '"><span class="btn btn-primary btn-round"> Reply<span id="countReply_'+idnewcomment+'"> 0</span></span></a> </div></div></div></div><div id="row_' + idnewcomment + '" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne_' + idnewcomment + '"> <div class="panel-body"> <div class="row"> <div class="col-sm-1"></div><div class="col-sm-10"> <div class="input-group"> <input name="ChildComment_' + idnewcomment + '" id="ChildComment_' + idnewcomment + '" type="text" class="form-control" placeholder="Text here"> <div onclick="ChildCommentFunction(' + idnewcomment + ')" class="input-group-append"><span class="input-group-text" id="basic-addon2"><i class="zmdi zmdi-mail-send"></i></span></div></div><div id="NewChildCommment_' + idnewcomment + '" style="margin-bottom:30px;margin-top:30px;"> </div></div></div></div></div></div></div><span>&nbsp</span>');
+                        $("#Comment").val("");
+                    }
+                    else {
+                        alert("Error");
+                    }
+            });
+    }
+    function ChildCommentFunction(id) {
+        var content = $("#ChildComment_" + id).val();
+            $.post('/Admin/News/WriteChildComment', { id: id, content : content},
+                function(response){
+                    if (response.IDComment > 0) {
+                        var idnewcomment = response.IDComment;
+                        var avata = response.Avata;
+                        var name = response.Name;
+                        var date = response.Date;
+                        $("#NewChildCommment_" + id).append('<div class="media mleft" id="row_'+id+'_'+idnewcomment+'"> <div class="media-left icon-box"> <a href="javascript:void(0);"> <img alt="" class="img-fluid img-thumbnail media-object" src="'+avata+'" style="height:70px;width:70px;"> </a> </div><div class="media-body"> <div class="row"> <div class="col-sm-3"> <h4 class="media-heading">'+name+'</h4> <small>'+date+'</small> </div><div class="col-sm-1"> <a href="#" class="zmdi zmdi-hc-fw triggerChildComment_News" data-id="'+idnewcomment+'"></a> </div><div class="col-sm-*"> <a href="#row_'+id+'_'+idnewcomment+'" class="" onclick="DeleteChildCommentFunction('+id+','+idnewcomment+')"><i class="zmdi zmdi-hc-fw"></i></a> </div></div><span style="text-align:justify;"> '+content+' </span> </div></div>');
+                        $("#ChildComment_" + id).val("");
+                    }
+                    else {
+                        alert("Error");
+                    }
+            });
+    }
+</script>

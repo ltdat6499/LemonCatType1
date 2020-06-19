@@ -1,0 +1,114 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "OpeningThisMonth";
+    Layout = "~/Areas/Client/Views/Shared/_layout.cshtml";
+}
+<head>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+</head>
+<script>
+    function Test() {
+        $("#pageSize").val($("#pagesizedown").val());
+        var form = $(event.target).parents("form");
+        form.submit();
+    }
+</script>
+<div class="hero common-hero">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="hero-ct">
+                    <h1> ALL TVShow </h1>
+                    <ul class="breadcumb">
+                        <li class="active"><a href="#">Home</a></li>
+                        <li> <span class="ion-ios-arrow-right"></span> All TVShow</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="page-single">
+    <div class="container">
+        <div class="row ipad-width">
+            <div class="col-md-8 col-sm-12 col-xs-12">
+                <div class="topbar-filter">
+                    <p>Found <span>@ViewBag.Count movies</span> in total</p>
+                    <label>Sort by:</label>
+                    <select>
+                        <option value="popularity">Popularity Descending</option>
+                        <option value="popularity">Popularity Ascending</option>
+                        <option value="rating">Rating Descending</option>
+                        <option value="rating">Rating Ascending</option>
+                        <option value="date">Release date Descending</option>
+                        <option value="date">Release date Ascending</option>
+                    </select>
+                </div>
+                <div class="flex-wrap-movielist">
+                    @for (int i = 0; i < ViewBag.Movie.Count; i++)
+                    {
+                        <div class="movie-item-style-2 movie-item-style-1">
+                            <img src="@(ViewBag.Movie[i].AnhDaiDien)" alt="">
+                            <div class="hvr-inner">
+                                <a href="/Client/Home/Movie?id=@(ViewBag.Movie[i].MaPhim)"> Read more <i class="ion-android-arrow-dropright"></i> </a>
+                            </div>
+                            <div class="mv-item-infor">
+                                <h6><a href="#">@(ViewBag.Movie[i].TenPhim)</a></h6>
+                                <p class="rate"><i class="ion-android-star"></i><span>@(ViewBag.Movie[i].LemonCatScore)</span> /100</p>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+                <div class="topbar-filter">
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-12 col-xs-12">
+                <div class="sidebar">
+                    <div class="searh-form">
+                        <h4 class="sb-title">Search for movie</h4>
+                        @using (Html.BeginForm("AllTVShow", "Home", FormMethod.Get, new { @class = "form-style-1" }))
+                        {
+                            <div class="row">
+                                <div class="col-md-12 form-it">
+                                    <label>Person name</label>
+                                    <input id="searchString" name="searchString" type="text" placeholder="Enter keywords" value="@ViewBag.SearchString">
+                                </div>
+
+                                <div class="col-md-12 ">
+                                    <input id="pageSize" name="pageSize" type="hidden" />
+                                    <div id='Paging' class="topbar-filter">
+                                        <select onchange="Test()" id="pagesizedown">
+                                            @foreach (var item in ViewBag.Dropdown)
+                                            {
+                                                if (item.Value == ViewBag.Pagesize + "")
+                                                {
+                                                    <option value="@item.Value" selected>@item.Text</option>
+                                                }
+                                                else
+                                                {
+                                                    <option value="@item.Value">@item.Text</option>
+                                                }
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 ">
+                                    <input class="submit" type="submit" value="submit">
+                                </div>
+                            </div>
+                        }
+                    </div>
+                    <div class="sb-facebook sb-it">
+                        <h4 class="sb-title">Find us on Facebook</h4>
+                        <iframe src="#" data-src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ftemplatespoint.net%2F%3Ffref%3Dts&tabs=timeline&width=340&height=315px&small_header=true&adapt_container_width=false&hide_cover=false&show_facepile=true&appId" height="315" style="width:100%;border:none;overflow:hidden"></iframe>
+                    </div>
+                </div>
+                <div class="pagination2">
+                    @Html.PagedListPager((IPagedList)(ViewBag.Movie), page => Url.Action("AllTVShow", new { controller = "Home", action = "AllTVShow", page = page, pageSize = ViewBag.Pagesize, searchString = ViewBag.SearchString })))
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,687 @@
+﻿<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Movie Seat Selection Flat Responsive Widget Template :: w3layouts</title>
+    <!-- Meta-Tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+
+
+    <link href="~/Areas/TicketForSale/assets/style.css" rel="stylesheet" />
+    
+
+</head>
+<body onload="onLoaderFunc()">
+
+    <!---728x90--->
+
+    <div class="container">
+
+        <div class="w3ls-reg">
+            <!-- input fields -->
+            <div class="inputForm">
+                <div class="mr_agilemain">
+                    <div class="agileits-left">
+                        <label style="color: black;">
+                            Number of Seats
+                            <span>*</span>
+                        </label>
+                        <input style="color: black;" type="number" id="Numseats" required="" min="1">
+                    </div>
+                </div>
+                <button onclick="takeData()">Start Selecting</button>
+            </div>
+            <!-- //input fields -->
+            <!---728x90--->
+            <!-- seat availabilty list -->
+            <ul class="seat_w3ls">
+                <li style="color: black;" class="smallBox greenBox">Selected Seat</li>
+
+                <li style="color: black;" class="smallBox redBox">Reserved Seat</li>
+
+                <li style="color: black;" class="smallBox emptyBox">Empty Seat</li>
+            </ul>
+            <!-- seat availabilty list -->
+            <!-- seat layout -->
+            <div class="seatStructure txt-center" style="overflow-x:visible;">
+                <p id="notification"></p><table id="seatsBlock">
+                    <div class="screen">
+                        <h2 class="wthree">Screen</h2>
+                    </div>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td style="color: black;">1</td>
+                            <td style="color: black;">2</td>
+                            <td style="color: black;">3</td>
+                            <td style="color: black;">4</td>
+                            <td style="color: black;">5</td>
+                            <td style="color: black;">6</td>
+                            <td style="color: black;">7</td>
+                            <td style="color: black;">8</td>
+                            <td style="color: black;">9</td>
+                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                            <td style="color: black;">10</td>
+                            <td style="color: black;">11</td>
+                            <td style="color: black;">12</td>
+                            <td style="color: black;">13</td>
+                            <td style="color: black;">14</td>
+                            <td style="color: black;">15</td>
+                            <td style="color: black;">16</td>
+                            <td style="color: black;">17</td>
+                            <td style="color: black;">18</td>
+                        </tr>
+                        <tr>
+                            <td style="color: black;">A</td>
+                            @for (int i = 1; i <= 9; i++)
+                            {
+                                if ((ViewBag.A).Contains("A" + i.ToString()))
+                                {
+                                    <td> <input type="checkbox" class="seats" value="A@(i)" disabled="" style="visibility:hidden"></td>
+                                }
+                                else
+                                {
+                                    <td> <input type="checkbox" class="seats" value="A@(i)" disabled=""> </td>
+                                }
+                            }
+                            <td class="seatGap"></td>
+                            @for (int i = 10; i <= 18; i++)
+                            {
+                                if ((ViewBag.A).Contains("A" + i.ToString()))
+                                {
+                                    <td> <input type="checkbox" class="seats" value="A@(i)" disabled="" style="visibility:hidden"></td>
+                                }
+                                else
+                                {
+                                    <td> <input type="checkbox" class="seats" value="A@(i)" disabled=""> </td>
+                                }
+                            }
+                        </tr>
+
+                        <tr>
+                            <td style="color: black;">B</td>
+                            @for (int i = 1; i <= 9; i++)
+                            {
+                                if ((ViewBag.B).Contains("B" + i.ToString()))
+                                {
+                                    <td> <input type="checkbox" class="seats" value="B@(i)" disabled="" style="visibility:hidden"></td>
+                                }
+                                else
+                                {
+                                    <td> <input type="checkbox" class="seats" value="B@(i)" disabled=""> </td>
+                                }
+                            }
+                            <td class="seatGap"></td>
+                            @for (int i = 10; i <= 18; i++)
+                            {
+                                if ((ViewBag.B).Contains("B" + i.ToString()))
+                                {
+                                    <td> <input type="checkbox" class="seats" value="B@(i)" disabled="" style="visibility:hidden"></td>
+                                }
+                                else
+                                {
+                                    <td> <input type="checkbox" class="seats" value="B@(i)" disabled=""> </td>
+                                }
+                            }
+                        </tr>
+
+                        <tr>
+                            <td style="color: black;">C</td>
+                            @for (int i = 1; i <= 9; i++)
+                            {
+                                if ((ViewBag.C).Contains("C" + i.ToString()))
+                                {
+                                    <td> <input type="checkbox" class="seats" value="C@(i)" disabled="" style="visibility:hidden"></td>
+                                }
+                                else
+                                {
+                                    <td> <input type="checkbox" class="seats" value="C@(i)" disabled=""> </td>
+                                }
+                            }
+                            <td class="seatGap"></td>
+                            @for (int i = 10; i <= 18; i++)
+                            {
+                                if ((ViewBag.C).Contains("C" + i.ToString()))
+                                {
+                                    <td> <input type="checkbox" class="seats" value="C@(i)" disabled="" style="visibility:hidden"></td>
+                                }
+                                else
+                                {
+                                    <td> <input type="checkbox" class="seats" value="C@(i)" disabled=""> </td>
+                                }
+                            }
+                        </tr>
+
+                        <tr>
+                            <td style="color: black;">D</td>
+                            @for (int i = 1; i <= 9; i++)
+                            {
+                                if ((ViewBag.D).Contains("D" + i.ToString()))
+                                {
+                                    <td> <input type="checkbox" class="seats" value="D@(i)" disabled="" style="visibility:hidden"></td>
+                                }
+                                else
+                                {
+                                    <td> <input type="checkbox" class="seats" value="D@(i)" disabled=""> </td>
+                                }
+                            }
+                            <td Class="seatGap"></td>
+                            @for (int i = 10; i <= 18; i++)
+                            {
+                                if ((ViewBag.D).Contains("D" + i.ToString()))
+                                {
+                                    <td> <input type="checkbox" class="seats" value="D@(i)" disabled="" style="visibility:hidden"></td>
+                                }
+                                else
+                                {
+                                    <td> <input type="checkbox" class="seats" value="D@(i)" disabled=""> </td>
+                                }
+                            }
+                        </tr>
+
+                        <tr>
+                            <td style="color: black;">E</td>
+                            @for (int i = 1; i <= 9; i++)
+                            {
+                                if ((ViewBag.E).Contains("E" + i.ToString()))
+                                {
+                                    <td> <input type="checkbox" class="seats" value="E@(i)" disabled="" style="visibility:hidden"></td>
+                                }
+                                else
+                                {
+                                    <td> <input type="checkbox" class="seats" value="E@(i)" disabled=""> </td>
+                                }
+                            }
+                            <td class="seatGap"></td>
+                            @for (int i = 10; i <= 18; i++)
+                            {
+                                if ((ViewBag.E).Contains("E" + i.ToString()))
+                                {
+                                    <td> <input type="checkbox" class="seats" value="E@(i)" disabled="" style="visibility:hidden"></td>
+                                }
+                                else
+                                {
+                                    <td> <input type="checkbox" class="seats" value="E@(i)" disabled=""> </td>
+                                }
+                            }
+                        </tr>
+
+                        <tr>
+                            <td style="color: black;">F</td>
+                            @for (int i = 1; i <= 9; i++)
+                            {
+                                if ((ViewBag.F).Contains("F" + i.ToString()))
+                                {
+                                    <td> <input type="checkbox" class="seats" value="F@(i)" disabled="" style="visibility:hidden"></td>
+                                }
+                                else
+                                {
+                                    <td> <input type="checkbox" class="seats" value="F@(i)" disabled=""> </td>
+                                }
+                            }
+                            <td Class="seatGap"></td>
+                            @for (int i = 10; i <= 18; i++)
+                            {
+                                if ((ViewBag.F).Contains("F" + i.ToString()))
+                                {
+                                    <td> <input type="checkbox" class="seats" value="F@(i)" disabled="" style="visibility:hidden"></td>
+                                }
+                                else
+                                {
+                                    <td> <input type="checkbox" class="seats" value="F@(i)" disabled=""> </td>
+                                }
+                            }
+                        </tr>
+
+                        <tr>
+                            <td style="color: black;">G</td>
+                            @for (int i = 1; i <= 9; i++)
+                            {
+                                if ((ViewBag.G).Contains("G" + i.ToString()))
+                                {
+                                    <td> <input type="checkbox" class="seats" value="G@(i)" disabled="" style="visibility:hidden"></td>
+                                }
+                                else
+                                {
+                                    <td> <input type="checkbox" class="seats" value="G@(i)" disabled=""> </td>
+                                }
+                            }
+                            <td Class="seatGap"></td>
+                            @for (int i = 10; i <= 18; i++)
+                            {
+                                if ((ViewBag.G).Contains("G" + i.ToString()))
+                                {
+                                    <td> <input type="checkbox" class="seats" value="G@(i)" disabled="" style="visibility:hidden"></td>
+                                }
+                                else
+                                {
+                                    <td> <input type="checkbox" class="seats" value="G@(i)" disabled=""> </td>
+                                }
+                            }
+                        </tr>
+
+                        <tr>
+                            <td style="color: black;">H</td>
+                            @for (int i = 1; i <= 9; i++)
+                            {
+                                if ((ViewBag.H).Contains("H" + i.ToString()))
+                                {
+                                    <td> <input type="checkbox" class="seats" value="H@(i)" disabled="" style="visibility:hidden"></td>
+                                }
+                                else
+                                {
+                                    <td> <input type="checkbox" class="seats" value="H@(i)" disabled=""> </td>
+                                }
+                            }
+                            <td Class="seatGap"></td>
+                            @for (int i = 10; i <= 18; i++)
+                            {
+                                if ((ViewBag.H).Contains("H" + i.ToString()))
+                                {
+                                    <td> <input type="checkbox" class="seats" value="H@(i)" disabled="" style="visibility:hidden"></td>
+                                }
+                                else
+                                {
+                                    <td> <input type="checkbox" class="seats" value="H@(i)" disabled=""> </td>
+                                }
+                            }
+                        </tr>
+
+                        <tr>
+                            <td style="color: black;">I</td>
+                            @for (int i = 1; i <= 9; i++)
+                            {
+                                if ((ViewBag.I).Contains("I" + i.ToString()))
+                                {
+                                    <td> <input type="checkbox" class="seats" value="I@(i)" disabled="" style="visibility:hidden"></td>
+                                }
+                                else
+                                {
+                                    <td> <input type="checkbox" class="seats" value="I@(i)" disabled=""> </td>
+                                }
+                            }
+                            <td Class="seatGap"></td>
+                            @for (int i = 1; i <= 9; i++)
+                            {
+                                if ((ViewBag.I).Contains("I" + i.ToString()))
+                                {
+                                    <td> <input type="checkbox" class="seats" value="I@(i)" disabled="" style="visibility:hidden"></td>
+                                }
+                                else
+                                {
+                                    <td> <input type="checkbox" class="seats" value="I@(i)" disabled=""> </td>
+                                }
+                            }
+                        </tr>
+                        <tr class="seatVGap"></tr>
+                        <tr>
+                            <td style="color: black;">J</td>
+                            @for (int i = 1; i <= 9; i++)
+                            {
+                                if ((ViewBag.J).Contains("J" + i.ToString()))
+                                {
+                                    <td> <input type="checkbox" class="seats" value="J@(i)" disabled="" style="visibility:hidden"></td>
+                                }
+                                else
+                                {
+                                    <td> <input type="checkbox" class="seats" value="J@(i)" disabled=""> </td>
+                                }
+                            }
+                            <td Class="seatGap"></td>
+                            @for (int i = 10; i <= 18; i++)
+                            {
+                                if ((ViewBag.J).Contains("J" + i.ToString()))
+                                {
+                                    <td> <input type="checkbox" class="seats" value="J@(i)" disabled="" style="visibility:hidden"></td>
+                                }
+                                else
+                                {
+                                    <td> <input type="checkbox" class="seats" value="J@(i)" disabled=""> </td>
+                                }
+                            }
+                        </tr>
+
+                        <tr>
+                            <td style="color: black;">K</td>
+                            @for (int i = 1; i <= 9; i++)
+                            {
+                                if ((ViewBag.K).Contains("K" + i.ToString()))
+                                {
+                                    <td> <input type="checkbox" class="seats" value="K@(i)" disabled="" style="visibility:hidden"></td>
+                                }
+                                else
+                                {
+                                    <td> <input type="checkbox" class="seats" value="K@(i)" disabled=""> </td>
+                                }
+                            }
+                            <td Class="seatGap"></td>
+                            @for (int i = 10; i <= 18; i++)
+                            {
+                                if ((ViewBag.K).Contains("K" + i.ToString()))
+                                {
+                                    <td> <input type="checkbox" class="seats" value="K@(i)" disabled="" style="visibility:hidden"></td>
+                                }
+                                else
+                                {
+                                    <td> <input type="checkbox" class="seats" value="K@(i)" disabled=""> </td>
+                                }
+                            }
+                        </tr>
+                        <tr>
+                            <td style="color: black;">L</td>
+                            @for (int i = 1; i <= 9; i++)
+                            {
+                                if ((ViewBag.L).Contains("L" + i.ToString()))
+                                {
+                                    <td> <input type="checkbox" class="seats" value="L@(i)" disabled="" style="visibility:hidden"></td>
+                                }
+                                else
+                                {
+                                    <td> <input type="checkbox" class="seats" value="L@(i)" disabled=""> </td>
+                                }
+                            }
+                            <td Class="seatGap"></td>
+                            @for (int i = 10; i <= 18; i++)
+                            {
+                                if ((ViewBag.L).Contains("L" + i.ToString()))
+                                {
+                                    <td> <input type="checkbox" class="seats" value="L@(i)" disabled="" style="visibility:hidden"></td>
+                                }
+                                else
+                                {
+                                    <td> <input type="checkbox" class="seats" value="L@(i)" disabled=""> </td>
+                                }
+                            }
+                        </tr>
+                        <tr>
+                            <td style="color: black;">M</td>
+                            @for (int i = 1; i <= 9; i++)
+                            {
+                                if ((ViewBag.M).Contains("M" + i.ToString()))
+                                {
+                                    <td> <input type="checkbox" class="seats" value="M@(i)" disabled="" style="visibility:hidden"></td>
+                                }
+                                else
+                                {
+                                    <td> <input type="checkbox" class="seats" value="M@(i)" disabled=""> </td>
+                                }
+                            }
+                            <td class="seatGap"></td>
+                            @for (int i = 10; i <= 18; i++)
+                            {
+                                if ((ViewBag.M).Contains("M" + i.ToString()))
+                                {
+                                    <td> <input type="checkbox" class="seats" value="M@(i)" disabled="" style="visibility:hidden"></td>
+                                }
+                                else
+                                {
+                                    <td> <input type="checkbox" class="seats" value="M@(i)" disabled=""> </td>
+                                }
+                            }
+                        </tr>
+                        <tr>
+                            <td style="color: black;">N</td>
+                            @for (int i = 1; i <= 9; i++)
+                            {
+                                if ((ViewBag.N).Contains("N" + i.ToString()))
+                                {
+                                    <td> <input type="checkbox" class="seats" value="N@(i)" disabled="" style="visibility:hidden"></td>
+                                }
+                                else
+                                {
+                                    <td> <input type="checkbox" class="seats" value="N@(i)" disabled=""> </td>
+                                }
+                            }
+                            <td class="seatGap"></td>
+                            @for (int i = 10; i <= 18; i++)
+                            {
+                                if ((ViewBag.N).Contains("N" + i.ToString()))
+                                {
+                                    <td> <input type="checkbox" class="seats" value="N@(i)" disabled="" style="visibility:hidden"></td>
+                                }
+                                else
+                                {
+                                    <td> <input type="checkbox" class="seats" value="N@(i)" disabled=""> </td>
+                                }
+                            }
+                        </tr>
+                        <tr>
+                            <td style="color: black;">O</td>
+                            @for (int i = 1; i <= 9; i++)
+                            {
+                                if ((ViewBag.O).Contains("O" + i.ToString()))
+                                {
+                                    <td> <input type="checkbox" class="seats" value="O@(i)" disabled="" style="visibility:hidden"></td>
+                                }
+                                else
+                                {
+                                    <td> <input type="checkbox" class="seats" value="O@(i)" disabled=""> </td>
+                                }
+                            }
+                            <td class="seatGap"></td>
+                            @for (int i = 1; i <= 9; i++)
+                            {
+                                if ((ViewBag.O).Contains("O" + i.ToString()))
+                                {
+                                    <td> <input type="checkbox" class="seats" value="O@(i)" disabled="" style="visibility:hidden"></td>
+                                }
+                                else
+                                {
+                                    <td> <input type="checkbox" class="seats" value="O@(i)" disabled=""> </td>
+                                }
+                            }
+                        </tr>
+                        <tr>
+                            <td style="color: black;">P</td>
+                            @for (int i = 1; i <= 9; i++)
+                            {
+                                if ((ViewBag.P).Contains("P" + i.ToString()))
+                                {
+                                    <td> <input type="checkbox" class="seats" value="P@(i)" disabled="" style="visibility:hidden"></td>
+                                }
+                                else
+                                {
+                                    <td> <input type="checkbox" class="seats" value="P@(i)" disabled=""> </td>
+                                }
+                            }
+                            <td class="seatGap"></td>
+                            @for (int i = 10; i <= 18; i++)
+                            {
+                                if ((ViewBag.P).Contains("P" + i.ToString()))
+                                {
+                                    <td> <input type="checkbox" class="seats" value="P@(i)" disabled="" style="visibility:hidden"></td>
+                                }
+                                else
+                                {
+                                    <td> <input type="checkbox" class="seats" value="P@(i)" disabled=""> </td>
+                                }
+                            }
+                        </tr>
+                        <tr>
+                            <td style="color: black;">Q</td>
+                            @for (int i = 1; i <= 9; i++)
+                            {
+                                if ((ViewBag.Q).Contains("Q" + i.ToString()))
+                                {
+                                    <td> <input type="checkbox" class="seats" value="Q@(i)" disabled="" style="visibility:hidden"></td>
+                                }
+                                else
+                                {
+                                    <td> <input type="checkbox" class="seats" value="Q@(i)" disabled=""> </td>
+                                }
+                            }
+                            <td class="seatGap"></td>
+                            @for (int i = 10; i <= 18; i++)
+                            {
+                                if ((ViewBag.Q).Contains("Q" + i.ToString()))
+                                {
+                                    <td> <input type="checkbox" class="seats" value="Q@(i)" disabled="" style="visibility:hidden"></td>
+                                }
+                                else
+                                {
+                                    <td> <input type="checkbox" class="seats" value="Q@(i)" disabled=""> </td>
+                                }
+                            }
+                        </tr>
+                        <tr>
+                            <td style="color: black;">R</td>
+                            @for (int i = 1; i <= 9; i++)
+                            {
+                                if ((ViewBag.R).Contains("R" + i.ToString()))
+                                {
+                                    <td> <input type="checkbox" class="seats" value="R@(i)" disabled="" style="visibility:hidden"></td>
+                                }
+                                else
+                                {
+                                    <td> <input type="checkbox" class="seats" value="R@(i)" disabled=""> </td>
+                                }
+                            }
+                            <td class="seatGap"></td>
+                            @for (int i = 10; i <= 18; i++)
+                            {
+                                if ((ViewBag.R).Contains("R" + i.ToString()))
+                                {
+                                    <td> <input type="checkbox" class="seats" value="R@(i)" disabled="" style="visibility:hidden"></td>
+                                }
+                                else
+                                {
+                                    <td> <input type="checkbox" class="seats" value="R@(i)" disabled=""> </td>
+                                }
+                            }
+                        </tr>
+
+                    </tbody>
+                </table>
+
+                <br>
+                <form id="form_create_movie" runat="server" method="POST" enctype="multipart/form-data">
+                    <input type="text" id="IDRap" name="IDRap" hidden value="@ViewBag.IDRap" />
+                    <input type="text" id="IDPhim" name="IDPhim" hidden value="@ViewBag.IDPhim" />
+                    <input type="text" id="DateTime" name="DateTime" hidden value="@ViewBag.DateTime" />
+                    <input type="text" id="SeatList" name="SeatList" hidden value="" />
+                    <button onclick="updateTextArea()" disabled="">Confirm Selection</button>
+                    <a onclick="MySubmit()">Submit</a>
+                    
+                </form>
+                <br>
+            </div>
+            <!-- //seat layout -->
+            <!-- details after booking displayed here -->
+            <div class="displayerBoxes txt-center" style="overflow-x:auto;">
+                <table class="Displaytable w3ls-table" width="100%">
+                    <tbody>
+                        <tr>
+                            <th>Name</th>
+                            <th>Number of Seats</th>
+                            <th>Seats</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <textarea id="nameDisplay" disabled=""></textarea>
+                            </td>
+                            <td>
+                                <textarea id="NumberDisplay" disabled=""></textarea>
+                            </td>
+                            <td>
+                                <textarea id="seatsDisplay" disabled=""></textarea>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- //details after booking displayed here -->
+        </div>
+    </div>
+    <script>
+        $("#sub").prop('disabled', false);
+        var Seat = "";
+        function MySubmit() {
+            if (Seat != "") {
+                $('#seatsBlock :checked').each(function () {
+                    Seat += $(this).val() + " ";
+                });
+
+                $.post('/TicketForSale/Home/Booking', { IDRap: $("#IDRap").val(), IDPhim : $("#IDPhim").val(), DateTime : $("#DateTime").val(), SeatList : Seat},
+                function(response){
+                    if (response.Status == true) {
+                        window.open('/TicketForSale/Home/Bill?id=' + response.ID, '_top');
+                    }
+                    else {
+                        alert("Error");
+                    }
+            });
+            }
+            else {
+                alert("Please comfirm before Submit");
+            }
+            
+        }
+        function onLoaderFunc() {
+            $(".seatStructure *").prop("disabled", true);
+            $(".displayerBoxes *").prop("disabled", true);
+        }
+
+        function takeData() {
+            if (($("#Numseats").val().length == 0)) {
+                alert("Please Enter your Name and Number of Seats");
+            } else {
+                $(".inputForm *").prop("disabled", false);
+                $(".seatStructure *").prop("disabled", false);
+                document.getElementById("notification").innerHTML =
+                    "<b style='margin-bottom:0px;letter-spacing:1px;'>Please Select your Seats!</b>";
+            }
+        }
+
+
+        function updateTextArea() {
+            if ($("input:checked").length == ($("#Numseats").val())) {
+                $(".seatStructure *").prop("disabled", true);
+                
+                var allNameVals = [];
+                var allNumberVals = [];
+                var allSeatsVals = [];
+
+                //Storing in Array
+                var name = "";
+                allNameVals.push(name);
+                allNumberVals.push($("#Numseats").val());
+                $('#seatsBlock :checked').each(function () {
+                    Seat += $(this).val() + " ";
+                    allSeatsVals.push($(this).val());
+                });
+
+                //Displaying
+                $("#SeatList").val(Seat);
+                $('#nameDisplay').val(allNameVals);
+                $('#NumberDisplay').val(allNumberVals);
+                $('#seatsDisplay').val(allSeatsVals);
+            } else {
+                alert("Please select " + ($("#Numseats").val()) + " seats")
+            }
+        }
+
+
+        function myFunction() {
+            alert($("input:checked").length);
+        }
+
+
+
+        $(":checkbox").click(function () {
+            if ($("input:checked").length == ($("#Numseats").val())) {
+                $(":checkbox").prop('disabled', true);
+                $(':checked').prop('disabled', false);
+            } else {
+                $(":checkbox").prop('disabled', false);
+            }
+        });
+    </script>
+    <!-- //script for seat selection -->
+
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+
+</body>
+</html>

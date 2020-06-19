@@ -1,0 +1,191 @@
+﻿@model LemonCat.Models.EF.TAIKHOAN
+@{
+    ViewBag.Title = "UserInfo";
+    Layout = "~/Areas/Client/Views/Shared/_layout.cshtml";
+}
+    <head>
+        <style>
+            .upload-btn-wrapper {
+                position: relative;
+                overflow: hidden;
+                display: inline-block;
+            }
+
+                .upload-btn-wrapper input[type=file] {
+                    font-size: 100px;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    opacity: 0;
+                    border: none;
+                }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    </head>
+<div class="hero user-hero">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="hero-ct">
+                    <h1>@Model.LastName's profile</h1>
+                    <ul class="breadcumb">
+                        <li class="active"><a href="#">Home</a></li>
+                        <li> <span class="ion-ios-arrow-right"></span>Profile</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="page-single">
+    <div class="container">
+        <div class="row ipad-width">
+            <div class="col-md-3 col-sm-12 col-xs-12">
+                <div class="user-information">
+                    @using (Html.BeginForm("EditAvata", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        <div class="user-img">
+                            <img id="img" src="@(Model.AnhDaiDien)" style="width:120px; height:120px; border-radius:50%" />
+                            <div class="upload-btn-wrapper">
+                                <button class="redbtn">CHANGE AVATAR</button>
+                                <input id="AnhDaiDien" type="file" name="AnhDaiDien" onchange="myUploadOnChangeFunction(this)" />
+                            </div>
+                        </div>
+                    }
+                    <div class="user-fav">
+                        <p>Account Details</p>
+                        <ul>
+                            
+                            <li class=""><a href="/Client/Home/WriteNews">Write News</a></li>
+                            <li class=""><a href="/Client/Home/UserInfo?id=@((Session["CLIENT_USER_SESSION"] as UserLogin).UserID)">Profile</a></li>
+                            <li><a href="/Client/Home/YourNews?id=@((Session["CLIENT_USER_SESSION"] as UserLogin).UserID)">Your News</a></li>
+                            <li><a href="/Client/Home/RatedMovie?id=@((Session["CLIENT_USER_SESSION"] as UserLogin).UserID)">Rated movies</a></li>
+                        </ul>
+                    </div>
+                    <div class="user-fav">
+                        <p>Others</p>
+                        <ul>
+                            <li><a href="#" onclick="Logout()">Log out</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9 col-sm-12 col-xs-12">
+                <div class="form-style-1 user-pro" action="#">
+                    @using (Html.BeginForm("EditInfo", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        <h4>01. Profile details</h4>
+                        <div class="row">
+                            <div class="col-md-6 form-it">
+                                <label>Username</label>
+                                <input id="TenTK" type="text" placeholder="User Name" value="@Model.TenTK" style="background-color: #607D8B;color:black;font-weight:600" readonly>
+                            </div>
+                            <div class="col-md-6 form-it">
+                                <label>State</label>
+                                <input type="text" value="@ViewBag.ChucVu" readonly style="background-color: #607D8B;color:black;font-weight:600">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 form-it">
+                                <label>First Name</label>
+                                <input id="FirstName" name="FirstName" type="text" placeholder="Edward" value="@Model.FirstName" style="font-weight:600">
+                            </div>
+                            <div class="col-md-6 form-it">
+                                <label>Last Name</label>
+                                <input id="LastName" name="LastName" type="text" placeholder="Kennedy" value="@Model.LastName" style="font-weight:600">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 form-it">
+                                <label>Address</label>
+                                <input id="DiaChi" name="DiaChi" type="text" placeholder="Your Address" value="@Model.DiaChi" style="font-weight:600">
+                            </div>
+                            <div class="col-md-6 form-it">
+                                <label>Email Address</label>
+                                <input id="Email" name="Email" type="text" placeholder="abcxyz@gmail.com" value="@Model.Email" style="font-weight:600">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 form-it">
+                                <label>ID Card</label>
+                                <input id="CMND" name="CMND" type="text" placeholder="XXXXXXXXXX" value="@Model.CMND" style="font-weight:600">
+                            </div>
+                            <div class="col-md-6 form-it">
+                                <label>Phone</label>
+                                <input id="Phone" name="Phone" type="number" placeholder="XXXXXXXXXX" value="@Model.Phone" style="font-weight:600">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <input class="submit" type="submit" value="Save">
+                            </div>
+                        </div>
+                    }
+                    @using (Html.BeginForm("ChangePassword", "Home", FormMethod.Post, new { enctype = "multipart/form-data", @class = "password" }))
+                    {
+                        <h4>02. Change password</h4>
+                        <div class="row">
+                            <div class="col-md-6 form-it">
+                                <label>Old Password</label>
+                                <input id="OPassword" name="OPassword" type="password" placeholder="**********" style="font-weight:600">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 form-it">
+                                <label>New Password</label>
+                                <input id="NPassword" name="NPassword"  type="password" placeholder="***************" style="font-weight:600">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 form-it">
+                                <label>Confirm New Password</label>
+                                <input id="RNPassword" name="RNPassword" type="password" placeholder="***************" style="font-weight:600">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <input class="submit" type="submit" value="change">
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function Logout() {
+            $.post('/Client/Home/Logout', {},
+                function (response) {
+                    if (response.status == true) {
+                        window.location.href = "/Client/Home/Index"
+                    }
+                    else {
+
+                    }
+                });
+function createObjectURL(object) {
+    return (window.URL) ? window.URL.createObjectURL(object) : window.webkitURL.createObjectURL(object);
+}
+
+function revokeObjectURL(url) {
+    return (window.URL) ? window.URL.revokeObjectURL(url) : window.webkitURL.revokeObjectURL(url);
+}
+
+function myUploadOnChangeFunction(res) {
+    if(res.files.length) {
+        for(var i in res.files) {
+            if(res.files.hasOwnProperty(i)){
+              console.log(i);
+            var src = createObjectURL(res.files[i]);
+            var image = new Image();
+            image.src = src;
+                $('#img').attr('src', src);
+                var form = $(event.target).parents("form");
+                form.submit();
+            }
+        }
+    }
+}
+</script>

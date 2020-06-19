@@ -1,0 +1,122 @@
+﻿@model LemonCat.Models.EF.DIENVIEN
+    @{
+        ViewBag.Title = "Edit";
+        Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    }
+    <script>
+        $(function () {
+            $('#NgaySinh').bootstrapMaterialDatePicker({
+                format: 'DD-MM-YYYY',
+                time: false
+            });
+        });
+    </script>
+    <section class="content">
+        <div class="body_scroll">
+            <div class="block-header">
+                <div class="row">
+                    <div class="col-lg-7 col-md-6 col-sm-12">
+                        <h2>Person</h2>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#"><i class="zmdi zmdi-home"></i> Admin</a></li>
+                            <li class="breadcrumb-item"><a href="#">Person</a></li>
+                            <li class="breadcrumb-item active">Edit Person</li>
+                        </ul>
+                        <button class="btn btn-primary btn-icon mobile_menu" type="button"><i class="zmdi zmdi-sort-amount-desc"></i></button>
+                    </div>
+                    <div class="col-lg-5 col-md-6 col-sm-12">
+                        <button class="btn btn-primary btn-icon float-right right_icon_toggle_btn" type="button"><i class="zmdi zmdi-arrow-right"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-fluid">
+                <!-- Advanced Validation -->
+                <div class="row clearfix">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="card">
+                            <div class="header">
+                                <h2><strong>Edit</strong> Person</h2>
+                            </div>
+                            <div class="body">
+                                <form id="form_edit_person" runat="server" method="POST" enctype="multipart/form-data">
+                                    <input value="@Model.MaDienVien" type="text" class="form-control" id="MaDienVien" name="MaDienVien" readonly hidden>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <div class="form-group form-float">
+                                                <input value="@Model.TenDienVien" placeholder="Person Name" type="text" class="form-control" id="TenDienVien" name="TenDienVien" maxlength="50" minlength="2" required>
+                                                <div class="help-info">Min. 2, Max. 50 characters</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group form-float">
+                                                <input value="@Model.NoiSinh" placeholder="Birth Place" type="text" class="form-control" id="NoiSinh" name="NoiSinh" required>
+                                                <div class="help-info">Ex: London</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="zmdi zmdi-calendar"></i></span>
+                                                </div>
+                                                <input value="@Model.NgaySinh" id="NgaySinh" name="NgaySinh" type="text" class="form-control datetimepicker" placeholder="Birth date" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="form-group form-float">
+                                                <textarea id="TieuSu" name="TieuSu" class="form-control m-b-20" placeholder="Summary" rows="9" required>@Model.TieuSu</textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="body">
+                                                <label for="AnhDaiDien">Avata</label>
+                                                <input name="AnhDaiDien" id="AnhDaiDien" type="file" class="dropify" data-max-file-size="3M" data-allowed-file-extensions="jpg jpeg icon pdf png psd" data-default-file="@(Model.AnhDaiDien.ToString())">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-raised btn-primary waves-effect" type="submit">Edit Person</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+    $(document).ready(function () {
+        $("#form_edit_person").submit(function () {
+            //var fdata = {
+            //    TenTk: $("#TenTK").val();
+            //};
+
+            var AnhDaiDien = document.getElementById('AnhDaiDien');
+
+            var form_data = new FormData();
+                form_data.append("MaDienVien", $("#MaDienVien").val()),
+                form_data.append("TenDienVien", $("#TenDienVien").val()),
+                form_data.append("NoiSinh", $("#NoiSinh").val()),
+                form_data.append("NgaySinh", $("#NgaySinh").val()),
+                form_data.append("TieuSu", $("#TieuSu").val()),
+                form_data.append("AnhDaiDien", AnhDaiDien);
+            $.ajax({
+                url: '/Admin/Person/Edit',
+                type: 'post',
+                data: form_data,
+                success: function (msg) {
+                    if (msg == 'ok') {
+                        window.open('/Admin/User/Index', '_Top');
+                    }
+                    else {
+                        alert("Create Failed");
+                    }
+                }
+            });
+            return false;
+        });
+    });
+    </script>

@@ -1,0 +1,74 @@
+﻿@model List<LemonCat.Models.EF.ORDERSEAT>
+@{
+    ViewBag.Title = "BookingList";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<section class="content contact">
+    <div class="body_scroll">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-lg-7 col-md-6 col-sm-12">
+                    <h2>CINEMA</h2>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#"><i class="zmdi zmdi-home"></i> Admin</a></li>
+                        <li class="breadcrumb-item"><a href="#">Cinema</a></li>
+                        <li class="breadcrumb-item active">@ViewBag.MovieName</li>
+                    </ul>
+                    <button class="btn btn-primary btn-icon mobile_menu" type="button"><i class="zmdi zmdi-sort-amount-desc"></i></button>
+                </div>
+                <div class="col-lg-5 col-md-6 col-sm-12">
+                    <button class="btn btn-primary btn-icon float-right right_icon_toggle_btn" type="button"><i class="zmdi zmdi-arrow-right"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <form class="row clearfix">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="table-responsive">
+                            <!--js-basic-example <> js-exportable-->
+                            <table id="example" class="table table-striped table table-hover mb-0 c_list c_table js-exportable dataTable">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Customer Name</th>
+                                        <th>Created Date</th>
+                                        <th>Cinema Name</th>
+                                        <th>Total Price</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @for (int i = 0; i < Model.Count; i++)
+                                    {
+                                        <tr id="row_@(Model[i].ID)">
+                                            <td>
+                                                <p class="c_name" style="visibility:hidden">@(Model[i].ID)</p>
+                                            </td>
+                                            <td>
+                                                <p class="c_name">@(Model[i].TenKhach)</p>
+                                            </td>
+                                            <td>
+                                                <span class="email">@(Model[i].NgayTaoHoaDon)</span>
+                                            </td>
+                                            <td>
+                                                <span class="email">@(ViewBag.Name[i])</span>
+                                            </td>
+                                            <td>
+                                                <span class="email">@(Model[i].TongTien)</span>
+                                            </td>
+                                            <td>
+                                                <a href="/Admin/Ticket/Bill?id=@(Model[i].ID)"><span class="btn btn-success btn-sm"><i class="zmdi zmdi-eye"></i></span></a>
+                                            </td>
+                                        </tr>
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

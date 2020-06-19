@@ -1,0 +1,329 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Client/Views/Shared/_layout.cshtml";
+}
+<div class="slider movie-items">
+    <div class="container">
+        <div class="row">
+            <div class="social-link">
+                <p>Follow us: </p>
+                <a href="#"><i class="ion-social-facebook"></i></a>
+                <a href="#"><i class="ion-social-twitter"></i></a>
+                <a href="#"><i class="ion-social-googleplus"></i></a>
+                <a href="#"><i class="ion-social-youtube"></i></a>
+            </div>
+            <div class="slick-multiItemSlider">
+                @for (int i = 0; i < (ViewBag.ListPanel).Count; i++)
+                {
+                    <div class="movie-item">
+                        <div class="mv-img">
+                            <a href="#"><img src="@((ViewBag.ListPanel)[i].AnhDaiDien)" style="width:285px; height:437px"></a>
+                        </div>
+                        <div class="title-in">
+                            <div class="cate">
+                                @foreach (var item in ViewBag.GenresList[i])
+                                {
+                                    <span class="blue"><a href="#">@item</a></span>
+                                }
+
+                            </div>
+                            <h6><a href="/Client/Home/Movie?id=@((ViewBag.ListPanel)[i].MaPhim)">@((ViewBag.ListPanel)[i].TenPhim)</a></h6>
+                            <p><i class="ion-android-star"></i><span>@((ViewBag.ListPanel)[i].LemonCatScore)</span> /100</p>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<div class="movie-items">
+    <div class="container">
+        <div class="row ipad-width">
+            <div class="col-md-8">
+                <div class="title-hd">
+                    <h2>in theater</h2>
+                    <a href="/Client/Home/AllMovies" class="viewall">View all <i class="ion-ios-arrow-right"></i></a>
+                </div>
+                <div class="tabs">
+                    <ul class="tab-links">
+                        <li class="active"><a href="#tab1">#Popular</a></li>
+                        <li><a href="#tab2"> #Coming soon</a></li>
+                        <li><a href="#tab3">  #Top rated  </a></li>
+                        <li><a href="#tab4"> #Most reviewed</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div id="tab1" class="tab active">
+                            <div class="row">
+                                <div class="slick-multiItem">
+                                    @for (int i = 0; i < (ViewBag.ListPanel).Count; i++)
+                                    {
+                                    <div class="slide-it">
+                                        <div class="movie-item">
+                                            <div class="mv-img">
+                                                <a href="#"><img src="@((ViewBag.ListPanel)[i].AnhDaiDien)" style="width:185px; height:250px"></a>
+                                            </div>
+                                            <div class="hvr-inner">
+                                                <a href="/Client/Home/Movie?id=@((ViewBag.ListPanel)[i].MaPhim)"> Read more <i class="ion-android-arrow-dropright"></i> </a>
+                                            </div>
+                                            <div class="title-in">
+                                                <h6><a href="/Client/Home/Movie?id=@((ViewBag.ListPanel)[i].MaPhim)">@((ViewBag.ListPanel)[i].TenPhim)</a></h6>
+                                                <p><i class="ion-android-star"></i><span>@((ViewBag.ListPanel)[i].LemonCatScore)</span> /100</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tab2" class="tab">
+                            <div class="row">
+                                <div class="slick-multiItem">
+                                    @for (int i = 0; i < (ViewBag.SlideCMS).Count; i++)
+                                    {
+                                        <div class="slide-it">
+                                            <div class="movie-item">
+                                                <div class="mv-img">
+                                                    <a href="#"><img src="@((ViewBag.SlideCMS)[i].AnhDaiDien)" style="width:185px; height:250px"></a>
+                                                </div>
+                                                <div class="hvr-inner">
+                                                    <a href="/Client/Home/Movie?id=@((ViewBag.SlideCMS)[i].MaPhim)"> Read more <i class="ion-android-arrow-dropright"></i> </a>
+                                                </div>
+                                                <div class="title-in">
+                                                    <h6><a href="/Client/Home/Movie?id=@((ViewBag.SlideCMS)[i].MaPhim)">@((ViewBag.SlideCMS)[i].TenPhim)</a></h6>
+                                                    <p><i class="ion-android-star"></i><span>@((ViewBag.SlideCMS)[i].LemonCatScore)</span> /100</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tab3" class="tab">
+                            <div class="row">
+                                <div class="slick-multiItem">
+                                    @for (int i = 0; i < (ViewBag.SlideTopM).Count; i++)
+                                    {
+                                        <div class="slide-it">
+                                            <div class="movie-item">
+                                                <div class="mv-img">
+                                                    <a href="#"><img src="@((ViewBag.SlideTopM)[i].AnhDaiDien)" style="width:185px; height:250px"></a>
+                                                </div>
+                                                <div class="hvr-inner">
+                                                    <a href="/Client/Home/Movie?id=@((ViewBag.SlideTopM)[i].MaPhim)"> Read more <i class="ion-android-arrow-dropright"></i> </a>
+                                                </div>
+                                                <div class="title-in">
+                                                    <h6><a href="/Client/Home/Movie?id=@((ViewBag.SlideTopM)[i].MaPhim)">@((ViewBag.SlideTopM)[i].TenPhim)</a></h6>
+                                                    <p><i class="ion-android-star"></i><span>@((ViewBag.SlideTopM)[i].LemonCatScore)</span> /100</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tab4" class="tab">
+                            <div class="row">
+                                <div class="slick-multiItem">
+                                    @for (int i = 0; i < (ViewBag.SlideMostReview).Count; i++)
+                                    {
+                                        <div class="slide-it">
+                                            <div class="movie-item">
+                                                <div class="mv-img">
+                                                    <a href="#"><img src="@((ViewBag.SlideMostReview)[i].AnhDaiDien)" style="width:185px; height:250px"></a>
+                                                </div>
+                                                <div class="hvr-inner">
+                                                    <a href="/Client/Home/Movie?id=@((ViewBag.SlideMostReview)[i].MaPhim)"> Read more <i class="ion-android-arrow-dropright"></i> </a>
+                                                </div>
+                                                <div class="title-in">
+                                                    <h6><a href="/Client/Home/Movie?id=@((ViewBag.SlideMostReview)[i].MaPhim)">@((ViewBag.SlideMostReview)[i].TenPhim)</a></h6>
+                                                    <p><i class="ion-android-star"></i><span>@((ViewBag.SlideMostReview)[i].LemonCatScore)</span> /100</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    } 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="title-hd">
+                    <h2>on tv</h2>
+                    <a href="/Client/Home/AllTVShow" class="viewall">View all <i class="ion-ios-arrow-right"></i></a>
+                </div>
+                <div class="tabs">
+                    <ul class="tab-links-2">
+                        <li><a href="#tab21">#Popular</a></li>
+                        <li class="active"><a href="#tab22"> #Coming soon</a></li>
+                        <li><a href="#tab23">  #Top rated  </a></li>
+                        <li><a href="#tab24"> #Most reviewed</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div id="tab21" class="tab">
+                            <div class="row">
+                                <div class="slick-multiItem">
+                                    @for (int i = 0; i < (ViewBag.tempTVS).Count; i++)
+                                    {
+                                        <div class="slide-it">
+                                            <div class="movie-item">
+                                                <div class="mv-img">
+                                                    <a href="#"><img src="@((ViewBag.tempTVS)[i].AnhDaiDien)" style="width:185px; height:250px"></a>
+                                                </div>
+                                                <div class="hvr-inner">
+                                                    <a href="/Client/Home/Movie?id=@((ViewBag.tempTVS)[i].MaPhim)"> Read more <i class="ion-android-arrow-dropright"></i> </a>
+                                                </div>
+                                                <div class="title-in">
+                                                    <h6><a href="/Client/Home/Movie?id=@((ViewBag.tempTVS)[i].MaPhim)">@((ViewBag.tempTVS)[i].TenPhim)</a></h6>
+                                                    <p><i class="ion-android-star"></i><span>@((ViewBag.tempTVS)[i].LemonCatScore)</span> /100</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tab22" class="tab active">
+                            <div class="row">
+                                <div class="slick-multiItem">
+                                    @for (int i = 0; i < (ViewBag.TVCMS).Count; i++)
+                                    {
+                                        <div class="slide-it">
+                                            <div class="movie-item">
+                                                <div class="mv-img">
+                                                    <a href="#"><img src="@((ViewBag.TVCMS)[i].AnhDaiDien)" style="width:185px; height:250px"></a>
+                                                </div>
+                                                <div class="hvr-inner">
+                                                    <a href="/Client/Home/Movie?id=@((ViewBag.TVCMS)[i].MaPhim)"> Read more <i class="ion-android-arrow-dropright"></i> </a>
+                                                </div>
+                                                <div class="title-in">
+                                                    <h6><a href="/Client/Home/Movie?id=@((ViewBag.TVCMS)[i].MaPhim)">@((ViewBag.TVCMS)[i].TenPhim)</a></h6>
+                                                    <p><i class="ion-android-star"></i><span>@((ViewBag.TVCMS)[i].LemonCatScore)</span> /100</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tab23" class="tab">
+                            <div class="row">
+                                <div class="slick-multiItem">
+                                    @for (int i = 0; i < (ViewBag.TVTOP).Count; i++)
+                                    {
+                                        <div class="slide-it">
+                                            <div class="movie-item">
+                                                <div class="mv-img">
+                                                    <a href="#"><img src="@((ViewBag.TVTOP)[i].AnhDaiDien)" style="width:185px; height:250px"></a>
+                                                </div>
+                                                <div class="hvr-inner">
+                                                    <a href="/Client/Home/Movie?id=@((ViewBag.TVTOP)[i].MaPhim)"> Read more <i class="ion-android-arrow-dropright"></i> </a>
+                                                </div>
+                                                <div class="title-in">
+                                                    <h6><a href="/Client/Home/Movie?id=@((ViewBag.TVTOP)[i].MaPhim)">@((ViewBag.TVTOP)[i].TenPhim)</a></h6>
+                                                    <p><i class="ion-android-star"></i><span>@((ViewBag.TVTOP)[i].LemonCatScore)</span> /100</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tab24" class="tab">
+                            <div class="row">
+                                <div class="slick-multiItem">
+                                    @for (int i = 0; i < (ViewBag.TVTOP).Count; i++)
+                                    {
+                                        <div class="slide-it">
+                                            <div class="movie-item">
+                                                <div class="mv-img">
+                                                    <a href="#"><img src="@((ViewBag.TVTOP)[i].AnhDaiDien)" style="width:185px; height:250px"></a>
+                                                </div>
+                                                <div class="hvr-inner">
+                                                    <a href="/Client/Home/Movie?id=@((ViewBag.TVTOP)[i].MaPhim)"> Read more <i class="ion-android-arrow-dropright"></i> </a>
+                                                </div>
+                                                <div class="title-in">
+                                                    <h6><a href="/Client/Home/Movie?id=@((ViewBag.TVTOP)[i].MaPhim)">@((ViewBag.TVTOP)[i].TenPhim)</a></h6>
+                                                    <p><i class="ion-android-star"></i><span>@((ViewBag.TVTOP)[i].LemonCatScore)</span> /100</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="sidebar">
+                    <div class="ads">
+                        <img src="~/Areas/Client/assets/images/uploads/ads2.png" style="width:336px; height:296px">
+                    </div>
+                    <div class="celebrities">
+                        <h4 class="sb-title">Spotlight Person</h4>
+                        @for (int i = 0; i < (ViewBag.Star).Count; i++)
+                        {
+                            <div class="celeb-item">
+                                <a href="/Client/Home/Person?id=@((ViewBag.Star)[i].MaDienVien)"><img src="@((ViewBag.Star)[i].AnhDaiDien)" style="width:70px;height:70px;"></a>
+                                <div class="celeb-author">
+                                    <h6><a href="/Client/Home/Person?id=@((ViewBag.Star)[i].MaDienVien)">@((ViewBag.Star)[i].TenDienVien)</a></h6>
+                                    <span>Actor</span>
+                                </div>
+                            </div>
+                        }
+                        <a href="/Client/Home/AllStar" class="btn">See all Person<i class="ion-ios-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- latest new v1 section-->
+<div class="latestnew">
+    <div class="container">
+        <div class="row ipad-width">
+            <div class="col-md-8">
+                <div class="title-hd">
+                    <h2>Latest news</h2>
+                </div>
+                <div class="tabs">
+                    <ul class="tab-links-3">
+                        <li class="active"><a href="#tab31">#Movies </a></li>
+                        <li><a href="#tab32"> #TV Shows </a></li>
+                        <li><a href="#tab33">  # Celebs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div id="tab31" class="tab active">
+                            <div class="row">
+                                <div class="blog-item-style-1">
+                                    <img src="~/Areas/Client/assets/images/uploads/blog-it1.jpg" style="width:170px; height:220px">
+                                    <div class="blog-it-infor">
+                                        <h3><a href="/Client/Home/NewsDetail?id=@(ViewBag.LastNew.MaNew)">@(ViewBag.LastNew.TuaNews)</a></h3>
+                                        <span class="time">@(ViewBag.LastNew.NgayDang)</span>
+                                        <p>@(ViewBag.LastNew.NoiDungNgan)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="morenew">
+                    <div class="title-hd">
+                        <h3>&nbsp;</h3>
+                        <a href="/Client/Home/AllNews" class="viewall">See All News<i class="ion-ios-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="sidebar">
+                    <div class="sb-facebook sb-it">
+                        <h4 class="sb-title">Find us on Facebook</h4>
+                        <iframe src="#" data-src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Ftemplatespoint.net%2F%3Ffref%3Dts&tabs=timeline&width=300&height=315px&small_header=true&adapt_container_width=false&hide_cover=false&show_facepile=true&appId" width="300" height="315" style="border:none;overflow:hidden"></iframe>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

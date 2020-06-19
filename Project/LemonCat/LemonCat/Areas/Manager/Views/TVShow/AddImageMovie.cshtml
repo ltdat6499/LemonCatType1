@@ -1,0 +1,92 @@
+﻿
+@{
+    ViewBag.Title = "AddImageMovie";
+    Layout = "~/Areas/Manager/Views/Shared/_Layout.cshtml";
+}
+<section class="content">
+    <div class="body_scroll">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-lg-7 col-md-6 col-sm-12">
+                    <h2>Movie</h2>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#"><i class="zmdi zmdi-home"></i> Manager</a></li>
+                        <li class="breadcrumb-item"><a href="#">Movie</a></li>
+                        <li class="breadcrumb-item active">Add Image TVShow</li>
+                    </ul>
+                    <button class="btn btn-primary btn-icon mobile_menu" type="button"><i class="zmdi zmdi-sort-amount-desc"></i></button>
+                </div>
+                <div class="col-lg-5 col-md-6 col-sm-12">
+                    <button class="btn btn-primary btn-icon float-right right_icon_toggle_btn" type="button"><i class="zmdi zmdi-arrow-right"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <!-- Advanced Validation -->
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2><strong>Add</strong> Image</h2>
+                        </div>
+                        <div class="body">
+                            <form id="form_add_image_movie" runat="server" method="POST" enctype="multipart/form-data">
+                                <div class="row" hidden>
+                                    <div class="col-sm-3">
+                                        <div class="form-group form-float">
+                                            <input value="@(ViewBag.IDMovie)" type="text" class="form-control" id="ID" name="ID" readonly>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="body">
+                                            <label for="Anh">Images </label>
+                                            <input name="Anh" id="Anh" type="file" class="dropify" data-max-file-size="3M" data-allowed-file-extensions="jpg jpeg icon pdf png psd" multiple>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="btn btn-raised btn-primary waves-effect" type="submit">Add Images</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    $(document).ready(function () {
+        $("#form_add_image_movie").submit(function () {
+            //var fdata = {
+            //    TenTk: $("#TenTK").val();
+            //};
+
+            var files = $("#Anh").get(0).files;
+
+            var form_data = new FormData();
+                form_data.append("ID", $("#ID").val());
+            for (var i = 0; i < files.length; i++) {
+                form_data.append("Anh", files[i]);
+            }
+            $.ajax({
+                url: '/Manager/TVShow/AddImageMovie',
+                type: 'post',
+                data: form_data,
+                dataType: "Json",
+                success: function (response) {
+                    if (response.PersonAddImageResult == true) {
+                        alert("Create Success");
+                    }
+                    else {
+                        alert("Create Failed");
+                    }
+                }
+            });
+            return false;
+        });
+    });
+</script>
+
+

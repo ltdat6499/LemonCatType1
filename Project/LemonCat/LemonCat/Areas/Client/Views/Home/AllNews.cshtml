@@ -1,0 +1,82 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "HotReview";
+    Layout = "~/Areas/Client/Views/Shared/_layout.cshtml";
+}
+<div class="hero common-hero">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="hero-ct">
+                    <h1> All News</h1>
+                    <ul class="breadcumb">
+                        <li class="active"><a href="#">Home</a></li>
+                        <li> <span class="ion-ios-arrow-right"></span> All News</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- blog list section-->
+<div class="page-single">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 col-sm-12 col-xs-12">
+                @for (int i = 0; i < ViewBag.Movie.Count; i++)
+                {
+                    <div class="blog-item-style-1 blog-item-style-3">
+                        <img src="@(ViewBag.Avata[i])" alt="">
+                        <div class="blog-it-infor">
+                            <h3><a href="/Client/Home/NewsDetail?id=@((ViewBag.Movie[i].MaNew))">@((ViewBag.Movie[i].TuaNews))</a></h3>
+                            <p class="rate"><i class="ion-heart"></i><span>&nbsp;@(ViewBag.Movie[i].DiemDanhGia) </span></p>
+                            <span class="time">@((ViewBag.Movie[i].NgayDang))</span>
+                            <p>@((ViewBag.Movie[i].NoiDungNgan)) ...</p>
+                        </div>
+                    </div>
+                }
+
+                <ul class="pagination">
+                </ul>
+            </div>
+            <div class="col-md-3 col-sm-12 col-xs-12">
+                <div class="sidebar">
+                    <div class="sb-search sb-it">
+                        @using (Html.BeginForm("AllNews", "Home", FormMethod.Get, new { @class = "form-style-1 celebrity-form" }))
+                        {
+                            <div class="col-md-12 form-it">
+                                <label>Movie name</label>
+                                <input id="searchString" name="searchString" type="text" placeholder="Enter keywords" value="@ViewBag.SearchString">
+                            </div>
+                            <div class="col-md-12 ">
+                                <input id="pageSize" name="pageSize" type="hidden" />
+                                <div id='Paging' class="topbar-filter">
+                                    <select onchange="Test()" id="pagesizedown">
+                                        @foreach (var item in ViewBag.Dropdown)
+                                        {
+                                            if (item.Value == ViewBag.Pagesize + "")
+                                            {
+                                                <option value="@item.Value" selected>@item.Text</option>
+                                            }
+                                            else
+                                            {
+                                                <option value="@item.Value">@item.Text</option>
+                                            }
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-12 ">
+                                <input class="submit" type="submit" value="submit">
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="pagination2">
+        @Html.PagedListPager((IPagedList)(ViewBag.Movie), page => Url.Action("AllNews", new { controller = "Home", action = "AllNews", page = page, pageSize = ViewBag.Pagesize, searchString = ViewBag.SearchString })))
+    </div>
+</div>

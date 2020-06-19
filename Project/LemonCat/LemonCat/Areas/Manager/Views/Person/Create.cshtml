@@ -1,0 +1,133 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Manager/Views/Shared/_Layout.cshtml";
+}
+    <script>
+        $(function () {
+            $('#NgaySinh').bootstrapMaterialDatePicker({
+                format: 'DD-MM-YYYY',
+                time: false
+            });
+        });
+    </script>
+    <section class="content">
+        <div class="body_scroll">
+            <div class="block-header">
+                <div class="row">
+                    <div class="col-lg-7 col-md-6 col-sm-12">
+                        <h2>Person</h2>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#"><i class="zmdi zmdi-home"></i> Manager</a></li>
+                            <li class="breadcrumb-item"><a href="#">Person</a></li>
+                            <li class="breadcrumb-item active">Create new Person</li>
+                        </ul>
+                        <button class="btn btn-primary btn-icon mobile_menu" type="button"><i class="zmdi zmdi-sort-amount-desc"></i></button>
+                    </div>
+                    <div class="col-lg-5 col-md-6 col-sm-12">
+                        <button class="btn btn-primary btn-icon float-right right_icon_toggle_btn" type="button"><i class="zmdi zmdi-arrow-right"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-fluid">
+                <!-- Advanced Validation -->
+                <div class="row clearfix">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="card">
+                            <div class="header">
+                                <h2><strong>Create</strong> New Person</h2>
+                            </div>
+                            <div class="body">
+                                <form id="form_create_person" runat="server" method="POST" enctype="multipart/form-data">
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <div class="form-group form-float">
+                                                <input placeholder="Person Name" type="text" class="form-control" id="TenDienVien" name="TenDienVien" maxlength="50" minlength="2" required>
+                                                <div class="help-info">Min. 2, Max. 50 characters</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group form-float">
+                                                <input placeholder="Birth Place" type="text" class="form-control" id="NoiSinh" name="NoiSinh" required>
+                                                <div class="help-info">Ex: London</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="zmdi zmdi-calendar"></i></span>
+                                                </div>
+                                                <input id="NgaySinh" name="NgaySinh" type="text" class="form-control datetimepicker" placeholder="Birth date" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="form-group form-float">
+                                                <textarea id="TieuSu" name="TieuSu" class="form-control m-b-20" placeholder="Summary" rows="9" required></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="body">
+                                                <label for="AnhDaiDien">Avata</label>
+                                                <input name="AnhDaiDien" id="AnhDaiDien" type="file" class="dropify" data-max-file-size="3M" data-allowed-file-extensions="jpg jpeg icon pdf png psd" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="body">
+                                                <label for="Anh">Image</label>
+                                                <input name="Anh" id="Anh" type="file" class="dropify" data-max-file-size="10M" data-allowed-file-extensions="jpg jpeg icon pdf png psd" multiple required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-raised btn-primary waves-effect" type="submit">Create Person</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+    $(document).ready(function () {
+        $("#form_create_person").submit(function () {
+            //var fdata = {
+            //    TenTk: $("#TenTK").val();
+            //};
+
+            var AnhDaiDien = document.getElementById('AnhDaiDien');
+            var files = $("#Anh").get(0).files;
+
+            var form_data = new FormData();
+                form_data.append("TenDienVien", $("#TenDienVien").val()),
+                form_data.append("NoiSinh", $("#NoiSinh").val()),
+                form_data.append("NgaySinh", $("#NgaySinh").val()),
+                form_data.append("TieuSu", $("#TieuSu").val()),
+                form_data.append("AnhDaiDien", AnhDaiDien);
+            for (var i = 0; i < files.length; i++) {
+                form_data.append("Anh", files[i]);
+            }
+            $.ajax({
+                url: '/Manager/Person/Create',
+                type: 'post',
+                data: form_data,
+                dataType: "Json",
+                success: function (response) {
+                    if (response.PersonCreateResult == true) {
+                        //window.open('/Manager/User/Index', '_Top');
+                        //window.location.href = "/Manager/Person/Index";
+                        window.location.href = "@Url.Action("Index", "Person")";
+                    }
+                    else {
+                        alert("Create Failed");
+                    }
+                }
+            });
+            return false;
+        });
+    });
+    </script>

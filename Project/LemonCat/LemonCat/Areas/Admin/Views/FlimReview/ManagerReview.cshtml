@@ -1,0 +1,158 @@
+﻿@model List<LemonCat.Models.EF.BAIVIETDANHGIA>
+@{
+    ViewBag.Title = "ManagerReview";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<script>
+    $(document).ready(function()
+    { $(".c_name").each(function(i){
+     var len=$(this).text().trim().length;
+     if(len>100)
+     {
+      $(this).text($(this).text().substr(0, 25)+'...');
+     }
+    });
+});
+</script>
+<section class="content contact">
+    <div class="body_scroll">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-lg-7 col-md-6 col-sm-12">
+                    <h2>Movie</h2>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#"><i class="zmdi zmdi-home"></i> Admin</a></li>
+                        <li class="breadcrumb-item"><a href="#">Movie</a></li>
+                        <li class="breadcrumb-item active">Movie List</li>
+                    </ul>
+                    <button class="btn btn-primary btn-icon mobile_menu" type="button"><i class="zmdi zmdi-sort-amount-desc"></i></button>
+                </div>
+                <div class="col-lg-5 col-md-6 col-sm-12">
+                    <button class="btn btn-primary btn-icon float-right right_icon_toggle_btn" type="button"><i class="zmdi zmdi-arrow-right"></i></button>
+                    <a href="/Admin/FlimReview/WriteReview?id=@ViewBag.ID"><button class="btn btn-success btn-icon float-right" type="button"><i class="zmdi zmdi-plus"></i></button></a>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <form class="row clearfix">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="table-responsive">
+                            <!--js-basic-example <> js-exportable-->
+                            <table id="example" class="table table-striped table table-hover mb-0 c_list c_table js-exportable dataTable">
+                                <thead>
+                                    <tr>
+                                        <th>Owner</th>
+                                        <th>News Header</th>
+                                        <th>Date</th>
+                                        <th>Like</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @for (int i = 0; i < Model.Count; i++)
+                                    {
+                                        <tr id="row_@Model[i].MaBaiViet">
+                                            <td>
+                                                <img src="@(ViewBag.AvataOwner[i])" class="avatar w30" alt="Avata">
+                                                <p class="c_name">@(ViewBag.NameOwner[i])</p>
+                                            </td>
+                                            <td>
+                                                <p class="c_name">@Model[i].NoiDungNgan</p>
+                                            </td>
+                                            <td>
+                                                <span class="email">@Model[i].NgayBinhLuan</span>
+                                            </td>
+                                            <td>
+                                                <span id="Mark_@Model[i].MaBaiViet" class="email">@Model[i].DiemDanhGia</span>
+                                            </td>
+                                            <td>
+                                                <a href="#" onclick="ChangStatusFunction(@(Model[i].MaBaiViet))" class="zmdi zmdi-hc-fw" id="Status_@(Model[i].MaBaiViet)">@((bool)Model[i].Status ? "" : "")</a>
+                                            </td>
+                                            <td>
+                                                <a href="/Admin/FlimReview/Edit?id=@Model[i].MaBaiViet"><span class="btn btn-primary btn-sm"><i class="zmdi zmdi-edit"></i></span></a>
+                                                <a href="/Admin/FlimReview/ShowLikeNews?id=@Model[i].MaBaiViet"><span class="btn btn-primary btn-sm"><i class="zmdi zmdi-hc-fw"></i></span></a>
+                                                <a href="/Admin/FlimReview/ManagerComment?id=@Model[i].MaBaiViet"><span class="btn btn-primary btn-sm"><i class="zmdi zmdi-hc-fw"></i></span></a>
+                                                <a role="button" href="#" onclick="LikeReview(@(Model[i].MaBaiViet))" id="Like_@(Model[i].MaBaiViet)">
+                                                    @if ((bool)ViewBag.MarkNews[i])
+                                                    {<text><span class='btn btn-danger btn-round'><i class='zmdi zmdi - hc - fw'></i></span></text>}
+                                                else
+                                                { <text><span class='btn btn-success btn-round'><i class='zmdi zmdi - hc - fw'></i></span></text>}
+                                                </a>
+                                                <button class="btn btn-danger btn-sm" onclick="myFunction(@Model[i].MaBaiViet)"><i class="zmdi zmdi-delete"></i></button>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+<script>
+    function LikeReview(id) {
+        $.ajax({
+                url: "/Admin/FlimReview/LikeNews",
+                data: { id: id },
+                dataType: "Json",
+                type: "POST",
+
+                success: function (response) {
+                    if (response.status == true) {
+                        $("#Like_" + id).html("<span class='btn btn-danger btn-round'><i class='zmdi zmdi - hc - fw'></i></span>");
+                    }
+                    else {
+                        $("#Like_" + id).html("<span class='btn btn-success btn-round'><i class='zmdi zmdi - hc - fw'></i></span>");
+                    }
+                    $("#Mark_" + id).html(response.mark);
+                }
+            })
+    }
+    function ChangStatusFunction(id) {
+            $.ajax({
+                url: "/Admin/FlimReview/ChangeStatusReview",
+                data: { id: id },
+                dataType: "Json",
+                type: "POST",
+
+                success: function (response) {
+                    if (response.status == true) {
+                        $("#Status_" + id).text('');
+                    }
+                    else {
+                        $("#Status_" + id).text('');
+                    }
+                }
+            })
+    }
+        function myFunction(id) {
+            var idrow = "#row_" + id;
+            var r = confirm("Are you sure?!");
+            if (r == true) {
+                $.ajax({
+                    url: "/Admin/FlimReview/Delete",
+                    data: { id: id },
+                    dataType: "Json",
+                    type: "POST",
+
+                    success: function (response) {
+                        if (response.status == true) {
+                            $(idrow).remove();
+                            alert("Your Row has been delete !!");
+                        }
+                        else {
+                            alert("Error");
+                        }
+                    }
+                });
+
+            } else {
+                alert("Your Row is saved !!");
+            }
+        }
+</script>
+

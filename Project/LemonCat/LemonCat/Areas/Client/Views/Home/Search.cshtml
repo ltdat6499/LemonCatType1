@@ -1,0 +1,121 @@
+﻿
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Areas/Client/Views/Shared/_layout.cshtml";
+}
+<div class="slider movie-items">
+    <div class="container">
+        <div class="row">
+            <div class="slick-multiItemSlider">
+                @for (int i = 0; i < (ViewBag.ListPanel).Count; i++)
+                {
+                    <div class="movie-item">
+                        <div class="mv-img">
+                            <a href="#"><img src="@((ViewBag.ListPanel)[i].AnhDaiDien)" style="width:285px; height:437px"></a>
+                        </div>
+                        <div class="title-in">
+                            <h6><a href="/Client/Home/Movie?id=@((ViewBag.ListPanel)[i].MaPhim)">@((ViewBag.ListPanel)[i].TenPhim)</a></h6>
+                            <p><i class="ion-android-star"></i><span>@((ViewBag.ListPanel)[i].LemonCatScore)</span> /100</p>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<div class="slider movie-items">
+    <div class="container">
+        <div class="row">
+            <div class="slick-multiItemSlider">
+                @for (int i = 0; i < (ViewBag.ListPanel1).Count; i++)
+                {
+                    <div class="movie-item">
+                        <div class="mv-img">
+                            <a href="#"><img src="@((ViewBag.ListPanel1)[i].AnhDaiDien)" style="width:285px; height:437px"></a>
+                        </div>
+                        <div class="title-in">
+                            <h6><a href="/Client/Home/Movie?id=@((ViewBag.ListPanel1)[i].MaPhim)">@((ViewBag.ListPanel1)[i].TenPhim)</a></h6>
+                            <p><i class="ion-android-star"></i><span>@((ViewBag.ListPanel1)[i].LemonCatScore)</span> /100</p>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<div class="page-single-2">
+    <div class="container">
+        <div class="row ipad-width2">
+            <div class="col-md-9 col-sm-12 col-xs-12">
+                <div class="row">
+                    @for (int i = 0; i < ViewBag.Movie.Count; i++)
+                    {
+                        <div class="col-md-12">
+                            <div class="ceb-item-style-2">
+                                <img src="@(ViewBag.Movie[i].AnhDaiDien)" alt="" style="width:103px;height:141px;">
+                                <div class="ceb-infor">
+                                    <h2><a href="/Client/Home/Person?id=@(ViewBag.Movie[i].MaDienVien)">@(ViewBag.Movie[i].TenDienVien)</a></h2>
+                                    <span>@(ViewBag.Movie[i].NoiSinh)</span>
+                                    @if ((ViewBag.Movie[i].TieuSu).Length > 149)
+                                    {
+                                        <p>@((ViewBag.Movie[i].TieuSu).Substring(0, 149))...</p>
+                                    }
+                                    else
+                                    {
+                                        <p>@((ViewBag.Movie[i].TieuSu))...</p>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="page-single">
+    <div class="container">
+        <div class="row ipad-width2">
+            <div class="col-md-9 col-sm-12 col-xs-12">
+                <div class="row">
+                    @for (int i = 0; i < ViewBag.Review.Count; i++)
+                    {
+                        <div class="blog-item-style-1 blog-item-style-3">
+                            <img src="@(ViewBag.ReviewAvata[i])" style="width:150px;height:230px" alt="">
+                            <div class="blog-it-infor">
+                                <h3><a href="/Client/Home/ReviewDetail?id=@((ViewBag.Review[i].MaBaiViet))">@(ViewBag.ReviewName[i])</a></h3>
+                                <p class="rate"><i class="ion-android-star"></i><span>&nbsp;@(ViewBag.Review[i].Score) </span> /100</p>
+                                <p class="rate"><i class="ion-heart"></i><span>&nbsp;@(ViewBag.Review[i].DiemDanhGia) </span></p>
+                                <span class="time">@((ViewBag.Review[i].NgayBinhLuan))</span>
+                                <p>@((ViewBag.Review[i].NoiDungNgan)) ...</p>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page-single">
+    <div class="container">
+        <div class="row ipad-width2">
+            <div class="col-md-9 col-sm-12 col-xs-12">
+                <div class="row">
+                    @for (int i = 0; i < ViewBag.News.Count; i++)
+                    {
+                        <div class="blog-item-style-1 blog-item-style-3">
+                            <img src="@(ViewBag.NewsAvata[i])" alt="">
+                            <div class="blog-it-infor">
+                                <h3><a href="/Client/Home/NewsDetail?id=@((ViewBag.News[i].MaNew))">@((ViewBag.News[i].TuaNews))</a></h3>
+                                <p class="rate"><i class="ion-heart"></i><span>&nbsp;@(ViewBag.News[i].DiemDanhGia) </span></p>
+                                <span class="time">@((ViewBag.News[i].NgayDang))</span>
+                                <p>@((ViewBag.News[i].NoiDungNgan)) ...</p>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

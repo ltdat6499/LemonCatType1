@@ -1,0 +1,20 @@
+														<div class="media mleft" id="row_'+id+'_'+idnewcomment+'">
+                                                            <div class="media-left icon-box"> <a href="javascript:void(0);"> <img alt="" class="img-fluid img-thumbnail media-object" src="'+avata+'" style="height:70px;width:70px;"> </a> </div>
+                                                            <div class="media-body">
+                                                                <div class="row">
+                                                                    <div class="col-sm-3">
+                                                                        <h4 class="media-heading">'+name+'</h4>
+                                                                        <small>'+date+'</small>
+                                                                    </div>
+                                                                    <div class="col-sm-1">
+                                                                        <a onclick="ChangeChildStatus('+idnewcomment+')" href="#" class="zmdi zmdi-hc-fw" id="ChildStatus_'+idnewcomment+'"></a>
+                                                                    </div>
+                                                                    <div class="col-sm-*">
+                                                                        <a href="#row_'+id+'_'+idnewcomment+'" class="" onclick="DeleteChildCommentFunction('+id+', '+idnewcomment+')"><i class="zmdi zmdi-hc-fw"></i></a>
+                                                                    </div>
+                                                                </div>
+                                                                <span style="text-align:justify;">
+                                                                    '+content+'
+                                                                </span>
+                                                            </div>
+                                                        </div>

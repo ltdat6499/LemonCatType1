@@ -1,0 +1,55 @@
+								<div class="body panel-group" id="group_' + idnewcomment + '" role="tablist" aria-multiselectable="true">
+                                    <div class="panel l-coral">
+                                        <div class="panel-heading" role="tab" id="headingOne_' + idnewcomment + '">
+                                            <div class="panel-title">
+                                                <div class="media mleft">
+                                                    <div class="media-left icon-box"> <a href="javascript:void(0);"> <img alt="" class="img-fluid img-thumbnail media-object" src="'+avata+'" style="height:90px;width:90px;"> </a> </div>
+                                                    <div class="media-body">
+                                                        <div class="row">
+                                                            <div class="col-sm-3">
+                                                                <span>&nbsp</span>
+                                                                <h4 class="media-heading" style="color:#03A9F4;"><b>'+name+'</b></h4>
+                                                                <small>'+date+'</small> &nbsp&nbsp&nbsp&nbsp&nbsp <div class="badge badge-info rate_news_' + idnewcomment + '" id="">0</div>
+                                                            </div>
+                                                            <div class="col-sm-*">
+                                                                <a href="#" onclick="ChangeRootStatus(' + idnewcomment + ')" id="RootStatus_' + idnewcomment + '" class="zmdi zmdi-hc-fw"></a>
+                                                            </div>
+                                                            <div class="col-sm-*">
+                                                                <a href="#" class="" onclick="DeleteRootCommentFunction(' + idnewcomment + ')"><i class="zmdi zmdi-hc-fw"></i></a>
+                                                            </div>
+                                                        </div>
+                                                        <span style="text-align:justify;">
+                                                            '+content+'
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-*">
+                                                        <a role="button" href="#" id="LikeRoot_' + idnewcomment + '" onclick="LikeRoot(' + idnewcomment + ')"><span class="btn btn-success btn-round"><i class="zmdi zmdi - hc - fw"></i></span></a>
+                                                </div>
+                                                <div class="col-sm-*">
+                                                    <a role="button" data-toggle="collapse" data-parent="#group_' + idnewcomment + '" href="#row_' + idnewcomment + '" aria-expanded="true" aria-controls="row_' + idnewcomment + '"><span class="btn btn-primary btn-round"> Reply <span id="countReply_' + idnewcomment + '"> 0</span></span> </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="row_' + idnewcomment + '" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne_' + idnewcomment + '">
+                                        <div class="panel-body">
+                                            <div class="row">
+                                                <div class="col-sm-1"></div>
+                                                <div class="col-sm-10">
+                                                    <div class="input-group">
+                                                        <input name="ChildComment_' + idnewcomment + '" id="ChildComment_' + idnewcomment + '" type="text" class="form-control" placeholder="Text here">
+                                                        <div onclick="ChildCommentFunction(' + idnewcomment + ')" class="input-group-append"><span class="input-group-text" id="basic-addon2"><i class="zmdi zmdi-mail-send"></i></span></div>
+                                                    </div>
+                                                    <div id="NewChildCommment_' + idnewcomment + '" style="margin-bottom:30px;margin-top:30px;">
+
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <span>&nbsp</span>

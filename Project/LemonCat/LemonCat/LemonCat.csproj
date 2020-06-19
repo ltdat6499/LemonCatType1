@@ -1,0 +1,1143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C2611FBE-BCF1-46A7-87C6-C3312A63F163}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LemonCat</RootNamespace>
+    <AssemblyName>LemonCat</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44309</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="QRCoder, Version=1.3.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\QRCoder.1.3.6\lib\net40\QRCoder.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Common, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Drawing.Common.4.5.0\lib\net461\System.Drawing.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DVDController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ErrorController.cs" />
+    <Compile Include="Areas\Admin\Controllers\FlimReviewController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\LockController.cs" />
+    <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
+    <Compile Include="Areas\Admin\Controllers\MovieController.cs" />
+    <Compile Include="Areas\Admin\Controllers\NewsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PersonController.cs" />
+    <Compile Include="Areas\Admin\Controllers\TicketController.cs" />
+    <Compile Include="Areas\Admin\Controllers\TVShowController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UserController.cs" />
+    <Compile Include="Areas\Admin\Models\LoginModel.cs" />
+    <Compile Include="Areas\ClientDVD\ClientDVDAreaRegistration.cs" />
+    <Compile Include="Areas\ClientDVD\Controllers\DVDController.cs" />
+    <Compile Include="Areas\ClientDVD\Controllers\LockController.cs" />
+    <Compile Include="Areas\ClientDVD\Controllers\LoginController.cs" />
+    <Compile Include="Areas\ClientDVD\Controllers\TicketController.cs" />
+    <Compile Include="Areas\ClientTicket\ClientTicketAreaRegistration.cs" />
+    <Compile Include="Areas\Client\ClientAreaRegistration.cs" />
+    <Compile Include="Areas\Client\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Client\Controllers\LockController.cs" />
+    <Compile Include="Areas\Client\Controllers\MovieSuggestController.cs" />
+    <Compile Include="Areas\Manager\Controllers\BaseController.cs" />
+    <Compile Include="Areas\Manager\Controllers\DVDController.cs" />
+    <Compile Include="Areas\Manager\Controllers\ErrorController.cs" />
+    <Compile Include="Areas\Manager\Controllers\FlimReviewController.cs" />
+    <Compile Include="Areas\Manager\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Manager\Controllers\LockController.cs" />
+    <Compile Include="Areas\Manager\Controllers\LoginController.cs" />
+    <Compile Include="Areas\Manager\Controllers\MovieController.cs" />
+    <Compile Include="Areas\Manager\Controllers\NewsController.cs" />
+    <Compile Include="Areas\Manager\Controllers\PersonController.cs" />
+    <Compile Include="Areas\Manager\Controllers\TicketController.cs" />
+    <Compile Include="Areas\Manager\Controllers\TVShowController.cs" />
+    <Compile Include="Areas\Manager\Controllers\UserController.cs" />
+    <Compile Include="Areas\Manager\ManagerAreaRegistration.cs" />
+    <Compile Include="Areas\TicketForSale\Controllers\BaseController.cs" />
+    <Compile Include="Areas\TicketForSale\Controllers\HomeController.cs" />
+    <Compile Include="Areas\TicketForSale\Controllers\LoginController.cs" />
+    <Compile Include="Areas\TicketForSale\TicketForSaleAreaRegistration.cs" />
+    <Compile Include="Common\Calendar.cs" />
+    <Compile Include="Common\CommonConstaints.cs" />
+    <Compile Include="Common\Encryptor.cs" />
+    <Compile Include="Common\HoiQuyTuyenTinh.cs" />
+    <Compile Include="Common\ImageConvert.cs" />
+    <Compile Include="Common\UserLogin.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DAO\DVDDAO.cs" />
+    <Compile Include="Models\DAO\FlimDAO.cs" />
+    <Compile Include="Models\DAO\MovieDAO.cs" />
+    <Compile Include="Models\DAO\NewsDAO.cs" />
+    <Compile Include="Models\DAO\PersonDAO.cs" />
+    <Compile Include="Models\DAO\SuggestDAO.cs" />
+    <Compile Include="Models\DAO\TicketDAO.cs" />
+    <Compile Include="Models\DAO\TVShowDAO.cs" />
+    <Compile Include="Models\DAO\UserDAO.cs" />
+    <Compile Include="Models\DAO\YearDataDAO.cs" />
+    <Compile Include="Models\EF\ANHDIENVIEN.cs">
+      <DependentUpon>LemonCat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\ANHPHIM.cs">
+      <DependentUpon>LemonCat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\BAG.cs">
+      <DependentUpon>LemonCat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\BAIVIETDANHGIA.cs">
+      <DependentUpon>LemonCat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\BAIVIET_CHILDCOMMENT.cs">
+      <DependentUpon>LemonCat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\BAIVIET_ROOTCOMMENT.cs">
+      <DependentUpon>LemonCat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\BAIVIET_ROOTSCORE.cs">
+      <DependentUpon>LemonCat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\BAIVIET_SCORE.cs">
+      <DependentUpon>LemonCat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\ChildCommentNew.cs">
+      <DependentUpon>LemonCat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\CHITIETDIENVIENNEW.cs">
+      <DependentUpon>LemonCat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\CHITIETHOADON.cs">
+      <DependentUpon>LemonCat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\CHITIETPHIMNEW.cs">
+      <DependentUpon>LemonCat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\CHUCVU.cs">
+      <DependentUpon>LemonCat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\DAODIENPHIM.cs">
+      <DependentUpon>LemonCat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\DATASET.cs">
+      <DependentUpon>LemonCat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\DIENVIEN.cs">
+      <DependentUpon>LemonCat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\DIENVIENPHIM.cs">
+      <DependentUpon>LemonCat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\DVD.cs">
+      <DependentUpon>LemonCat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\GENRE.cs">
+      <DependentUpon>LemonCat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\GENREPHIM.cs">
+      <DependentUpon>LemonCat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\HanChieu.cs">
+      <DependentUpon>LemonCat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\HOADON.cs">
+      <DependentUpon>LemonCat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\KICHBANPHIM.cs">
+      <DependentUpon>LemonCat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\LemonCat.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LemonCat.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\LemonCat.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LemonCat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\LemonCat.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LemonCat.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\LOAINEW.cs">
+      <DependentUpon>LemonCat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\NETWORK.cs">
+      <DependentUpon>LemonCat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\NEW.cs">
+      <DependentUpon>LemonCat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\NewsScore.cs">
+      <DependentUpon>LemonCat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\ORDERSEAT.cs">
+      <DependentUpon>LemonCat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\PHIM.cs">
+      <DependentUpon>LemonCat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\RAPPHIM.cs">
+      <DependentUpon>LemonCat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\RATING.cs">
+      <DependentUpon>LemonCat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\RootCommentNew.cs">
+      <DependentUpon>LemonCat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\RootNewScore.cs">
+      <DependentUpon>LemonCat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\SCORE.cs">
+      <DependentUpon>LemonCat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\SelectAllCustomers_Result.cs">
+      <DependentUpon>LemonCat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>LemonCat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\sp_helpdiagrams_Result.cs">
+      <DependentUpon>LemonCat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\STUDIO.cs">
+      <DependentUpon>LemonCat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\SUATCHIEU.cs">
+      <DependentUpon>LemonCat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\sysdiagram.cs">
+      <DependentUpon>LemonCat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\TAGS_MOVIE.cs">
+      <DependentUpon>LemonCat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\TAGS_PERSON.cs">
+      <DependentUpon>LemonCat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\TAIKHOAN.cs">
+      <DependentUpon>LemonCat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\TVSHOW.cs">
+      <DependentUpon>LemonCat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\TVSHOWEP.cs">
+      <DependentUpon>LemonCat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\VIEWEDPRODUCT.cs">
+      <DependentUpon>LemonCat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\YEARDATA.cs">
+      <DependentUpon>LemonCat.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\assets\bundles\c3.bundle.js" />
+    <Content Include="Areas\Admin\assets\bundles\countTo.bundle.js" />
+    <Content Include="Areas\Admin\assets\bundles\datatablescripts.bundle.js" />
+    <Content Include="Areas\Admin\assets\bundles\flotscripts.bundle.js" />
+    <Content Include="Areas\Admin\assets\bundles\footable.bundle.js" />
+    <Content Include="Areas\Admin\assets\bundles\fullcalendarscripts.bundle.js" />
+    <Content Include="Areas\Admin\assets\bundles\jvectormap.bundle.js" />
+    <Content Include="Areas\Admin\assets\bundles\knob.bundle.js" />
+    <Content Include="Areas\Admin\assets\bundles\libscripts.bundle.js" />
+    <Content Include="Areas\Admin\assets\bundles\mainscripts.bundle.js" />
+    <Content Include="Areas\Admin\assets\bundles\morrisscripts.bundle.js" />
+    <Content Include="Areas\Admin\assets\bundles\sparkline.bundle.js" />
+    <Content Include="Areas\Admin\assets\bundles\vendorscripts.bundle.js" />
+    <Content Include="Areas\Admin\assets\css\star.css" />
+    <Content Include="Areas\Admin\assets\css\style.min.css" />
+    <Content Include="Areas\Admin\assets\css\weather-icons.min.css" />
+    <Content Include="Areas\Admin\assets\fonts\themify9f24.svg" />
+    <Content Include="Areas\Admin\assets\fonts\weathericons-regular-webfont.svg" />
+    <Content Include="Areas\Admin\assets\images\404.svg" />
+    <Content Include="Areas\Admin\assets\images\blog\05-img.jpg" />
+    <Content Include="Areas\Admin\assets\images\blog\06-img.jpg" />
+    <Content Include="Areas\Admin\assets\images\blog\07-img.jpg" />
+    <Content Include="Areas\Admin\assets\images\blog\08-img.jpg" />
+    <Content Include="Areas\Admin\assets\images\blog\09-img.jpg" />
+    <Content Include="Areas\Admin\assets\images\blog\10-img.jpg" />
+    <Content Include="Areas\Admin\assets\images\blog\11-img.jpg" />
+    <Content Include="Areas\Admin\assets\images\blog\12-img.jpg" />
+    <Content Include="Areas\Admin\assets\images\blog\13-img.jpg" />
+    <Content Include="Areas\Admin\assets\images\ecommerce\1.png" />
+    <Content Include="Areas\Admin\assets\images\ecommerce\10.png" />
+    <Content Include="Areas\Admin\assets\images\ecommerce\11.png" />
+    <Content Include="Areas\Admin\assets\images\ecommerce\2.png" />
+    <Content Include="Areas\Admin\assets\images\ecommerce\3.png" />
+    <Content Include="Areas\Admin\assets\images\ecommerce\4.png" />
+    <Content Include="Areas\Admin\assets\images\ecommerce\5.png" />
+    <Content Include="Areas\Admin\assets\images\ecommerce\6.png" />
+    <Content Include="Areas\Admin\assets\images\ecommerce\7.png" />
+    <Content Include="Areas\Admin\assets\images\ecommerce\8.png" />
+    <Content Include="Areas\Admin\assets\images\ecommerce\9.png" />
+    <Content Include="Areas\Admin\assets\images\image-gallery\1.jpg" />
+    <Content Include="Areas\Admin\assets\images\image-gallery\10.jpg" />
+    <Content Include="Areas\Admin\assets\images\image-gallery\11.jpg" />
+    <Content Include="Areas\Admin\assets\images\image-gallery\12.jpg" />
+    <Content Include="Areas\Admin\assets\images\image-gallery\13.jpg" />
+    <Content Include="Areas\Admin\assets\images\image-gallery\14.jpg" />
+    <Content Include="Areas\Admin\assets\images\image-gallery\15.jpg" />
+    <Content Include="Areas\Admin\assets\images\image-gallery\2.jpg" />
+    <Content Include="Areas\Admin\assets\images\image-gallery\3.jpg" />
+    <Content Include="Areas\Admin\assets\images\image-gallery\4.jpg" />
+    <Content Include="Areas\Admin\assets\images\image-gallery\5.jpg" />
+    <Content Include="Areas\Admin\assets\images\image-gallery\6.jpg" />
+    <Content Include="Areas\Admin\assets\images\image-gallery\7.jpg" />
+    <Content Include="Areas\Admin\assets\images\image-gallery\8.jpg" />
+    <Content Include="Areas\Admin\assets\images\image-gallery\9.jpg" />
+    <Content Include="Areas\Admin\assets\images\lg\avatar1.jpg" />
+    <Content Include="Areas\Admin\assets\images\lg\avatar2.jpg" />
+    <Content Include="Areas\Admin\assets\images\lg\avatar3.jpg" />
+    <Content Include="Areas\Admin\assets\images\lg\avatar4.jpg" />
+    <Content Include="Areas\Admin\assets\images\loader.svg" />
+    <Content Include="Areas\Admin\assets\images\logo.svg" />
+    <Content Include="Areas\Admin\assets\images\maintanance.svg" />
+    <Content Include="Areas\Admin\assets\images\profile_av.jpg" />
+    <Content Include="Areas\Admin\assets\images\signin.svg" />
+    <Content Include="Areas\Admin\assets\images\signup.svg" />
+    <Content Include="Areas\Admin\assets\images\sm\avatar1.jpg" />
+    <Content Include="Areas\Admin\assets\images\sm\avatar2.jpg" />
+    <Content Include="Areas\Admin\assets\images\sm\avatar3.jpg" />
+    <Content Include="Areas\Admin\assets\images\sm\avatar4.jpg" />
+    <Content Include="Areas\Admin\assets\images\sm\avatar5.jpg" />
+    <Content Include="Areas\Admin\assets\images\sm\avatar6.jpg" />
+    <Content Include="Areas\Admin\assets\images\xs\avatar1.jpg" />
+    <Content Include="Areas\Admin\assets\images\xs\avatar10.jpg" />
+    <Content Include="Areas\Admin\assets\images\xs\avatar2.jpg" />
+    <Content Include="Areas\Admin\assets\images\xs\avatar3.jpg" />
+    <Content Include="Areas\Admin\assets\images\xs\avatar4.jpg" />
+    <Content Include="Areas\Admin\assets\images\xs\avatar5.jpg" />
+    <Content Include="Areas\Admin\assets\images\xs\avatar6.jpg" />
+    <Content Include="Areas\Admin\assets\images\xs\avatar7.jpg" />
+    <Content Include="Areas\Admin\assets\images\xs\avatar8.jpg" />
+    <Content Include="Areas\Admin\assets\images\xs\avatar9.jpg" />
+    <Content Include="Areas\Admin\assets\js\Admin\NewsController.js" />
+    <Content Include="Areas\Admin\assets\js\Admin\ReviewController.js" />
+    <Content Include="Areas\Admin\assets\js\Admin\userController.js" />
+    <Content Include="Areas\Admin\assets\js\Manager\NewsController.js" />
+    <Content Include="Areas\Admin\assets\js\Manager\ReviewController.js" />
+    <Content Include="Areas\Admin\assets\js\Manager\userController.js" />
+    <Content Include="Areas\Admin\assets\js\pages\blog\blog.js" />
+    <Content Include="Areas\Admin\assets\js\pages\calendar\calendar.js" />
+    <Content Include="Areas\Admin\assets\js\pages\charts\c3.js" />
+    <Content Include="Areas\Admin\assets\js\pages\charts\chartjs.js" />
+    <Content Include="Areas\Admin\assets\js\pages\charts\flot.js" />
+    <Content Include="Areas\Admin\assets\js\pages\charts\jquery-knob.js" />
+    <Content Include="Areas\Admin\assets\js\pages\charts\jquery-knob.min.js" />
+    <Content Include="Areas\Admin\assets\js\pages\charts\morris.js" />
+    <Content Include="Areas\Admin\assets\js\pages\charts\polar_area_chart.js" />
+    <Content Include="Areas\Admin\assets\js\pages\charts\sparkline.js" />
+    <Content Include="Areas\Admin\assets\js\pages\ecommerce.js" />
+    <Content Include="Areas\Admin\assets\js\pages\forms\advanced-form-elements.js" />
+    <Content Include="Areas\Admin\assets\js\pages\forms\basic-form-elements.js" />
+    <Content Include="Areas\Admin\assets\js\pages\forms\dropify.js" />
+    <Content Include="Areas\Admin\assets\js\pages\forms\editors.js" />
+    <Content Include="Areas\Admin\assets\js\pages\forms\form-validation.js" />
+    <Content Include="Areas\Admin\assets\js\pages\forms\form-wizard.js" />
+    <Content Include="Areas\Admin\assets\js\pages\index.js" />
+    <Content Include="Areas\Admin\assets\js\pages\maps\google.js" />
+    <Content Include="Areas\Admin\assets\js\pages\maps\jvectormap.js" />
+    <Content Include="Areas\Admin\assets\js\pages\medias\image-gallery.js" />
+    <Content Include="Areas\Admin\assets\js\pages\tables\editable-table.js" />
+    <Content Include="Areas\Admin\assets\js\pages\tables\footable.js" />
+    <Content Include="Areas\Admin\assets\js\pages\tables\jquery-datatable.js" />
+    <Content Include="Areas\Admin\assets\js\pages\ticket-page.js" />
+    <Content Include="Areas\Admin\assets\js\pages\todo-js.js" />
+    <Content Include="Areas\Admin\assets\js\pages\ui\notifications.js" />
+    <Content Include="Areas\Admin\assets\js\pages\ui\range-sliders.js" />
+    <Content Include="Areas\Admin\assets\js\pages\ui\sortable-nestable.js" />
+    <Content Include="Areas\Admin\assets\js\pages\ui\sweetalert.js" />
+    <Content Include="Areas\Admin\assets\js\pages\widgets\infobox\infobox-1.js" />
+    <Content Include="Areas\Admin\assets\plugins\bootstrap-colorpicker\css\bootstrap-colorpicker.css" />
+    <Content Include="Areas\Admin\assets\plugins\bootstrap-colorpicker\img\bootstrap-colorpicker\alpha-horizontal.png" />
+    <Content Include="Areas\Admin\assets\plugins\bootstrap-colorpicker\img\bootstrap-colorpicker\alpha.png" />
+    <Content Include="Areas\Admin\assets\plugins\bootstrap-colorpicker\img\bootstrap-colorpicker\hue-horizontal.png" />
+    <Content Include="Areas\Admin\assets\plugins\bootstrap-colorpicker\img\bootstrap-colorpicker\hue.png" />
+    <Content Include="Areas\Admin\assets\plugins\bootstrap-colorpicker\img\bootstrap-colorpicker\saturation.png" />
+    <Content Include="Areas\Admin\assets\plugins\bootstrap-colorpicker\js\bootstrap-colorpicker.js" />
+    <Content Include="Areas\Admin\assets\plugins\bootstrap-material-datetimepicker\css\bootstrap-material-datetimepicker.css" />
+    <Content Include="Areas\Admin\assets\plugins\bootstrap-material-datetimepicker\js\bootstrap-material-datetimepicker.js" />
+    <Content Include="Areas\Admin\assets\plugins\bootstrap-notify\bootstrap-notify.js" />
+    <Content Include="Areas\Admin\assets\plugins\bootstrap-select\css\bootstrap-select.css" />
+    <Content Include="Areas\Admin\assets\plugins\bootstrap-tagsinput\bootstrap-tagsinput.css" />
+    <Content Include="Areas\Admin\assets\plugins\bootstrap-tagsinput\bootstrap-tagsinput.js" />
+    <Content Include="Areas\Admin\assets\plugins\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Areas\Admin\assets\plugins\chartjs\Chart.bundle.js" />
+    <Content Include="Areas\Admin\assets\plugins\chartjs\polar_area_chart.js" />
+    <Content Include="Areas\Admin\assets\plugins\charts-c3\plugin.css" />
+    <Content Include="Areas\Admin\assets\plugins\ckeditor\ckeditor.js" />
+    <Content Include="Areas\Admin\assets\plugins\dropify\css\dropify.min.css" />
+    <Content Include="Areas\Admin\assets\plugins\dropify\fonts\dropify.svg" />
+    <Content Include="Areas\Admin\assets\plugins\dropify\js\dropify.min.js" />
+    <Content Include="Areas\Admin\assets\plugins\dropzone\dropzone.js" />
+    <Content Include="Areas\Admin\assets\plugins\editable-table\mindmup-editabletable.js" />
+    <Content Include="Areas\Admin\assets\plugins\footable-bootstrap\css\footable.bootstrap.min.css" />
+    <Content Include="Areas\Admin\assets\plugins\footable-bootstrap\css\footable.standalone.min.css" />
+    <Content Include="Areas\Admin\assets\plugins\fullcalendar\fullcalendar.min.css" />
+    <Content Include="Areas\Admin\assets\plugins\gmaps\gmaps.js" />
+    <Content Include="Areas\Admin\assets\plugins\ion-rangeslider\css\ion.rangeSlider.css" />
+    <Content Include="Areas\Admin\assets\plugins\ion-rangeslider\js\ion.rangeSlider.js" />
+    <Content Include="Areas\Admin\assets\plugins\jquery-datatable\buttons\buttons.bootstrap4.min.js" />
+    <Content Include="Areas\Admin\assets\plugins\jquery-datatable\buttons\buttons.colVis.min.js" />
+    <Content Include="Areas\Admin\assets\plugins\jquery-datatable\buttons\buttons.flash.min.js" />
+    <Content Include="Areas\Admin\assets\plugins\jquery-datatable\buttons\buttons.html5.min.js" />
+    <Content Include="Areas\Admin\assets\plugins\jquery-datatable\buttons\buttons.print.min.js" />
+    <Content Include="Areas\Admin\assets\plugins\jquery-datatable\buttons\dataTables.buttons.min.js" />
+    <Content Include="Areas\Admin\assets\plugins\jquery-datatable\dataTables.bootstrap4.min.css" />
+    <Content Include="Areas\Admin\assets\plugins\jquery-inputmask\jquery.inputmask.bundle.js" />
+    <Content Include="Areas\Admin\assets\plugins\jquery-knob\jquery.knob.min.js" />
+    <Content Include="Areas\Admin\assets\plugins\jquery-sparkline\jquery.sparkline.js" />
+    <Content Include="Areas\Admin\assets\plugins\jquery-spinner\css\bootstrap-spinner.css" />
+    <Content Include="Areas\Admin\assets\plugins\jquery-spinner\js\jquery.spinner.js" />
+    <Content Include="Areas\Admin\assets\plugins\jquery-steps\jquery.steps.css" />
+    <Content Include="Areas\Admin\assets\plugins\jquery-steps\jquery.steps.js" />
+    <Content Include="Areas\Admin\assets\plugins\jquery-validation\jquery.validate.js" />
+    <Content Include="Areas\Admin\assets\plugins\jvectormap\jquery-jvectormap-2.0.3.css" />
+    <Content Include="Areas\Admin\assets\plugins\jvectormap\jquery-jvectormap-2.0.3.min.css" />
+    <Content Include="Areas\Admin\assets\plugins\jvectormap\jquery-jvectormap-au-mill.js" />
+    <Content Include="Areas\Admin\assets\plugins\jvectormap\jquery-jvectormap-in-mill.js" />
+    <Content Include="Areas\Admin\assets\plugins\jvectormap\jquery-jvectormap-uk-mill-en.js" />
+    <Content Include="Areas\Admin\assets\plugins\jvectormap\jquery-jvectormap-us-aea-en.js" />
+    <Content Include="Areas\Admin\assets\plugins\jvectormap\jquery-jvectormap-world-mill-en.js" />
+    <Content Include="Areas\Admin\assets\plugins\light-gallery\css\lightgallery.css" />
+    <Content Include="Areas\Admin\assets\plugins\light-gallery\fonts\lgd641.svg" />
+    <Content Include="Areas\Admin\assets\plugins\light-gallery\img\loading.gif" />
+    <Content Include="Areas\Admin\assets\plugins\light-gallery\img\video-play.png" />
+    <Content Include="Areas\Admin\assets\plugins\light-gallery\img\vimeo-play.png" />
+    <Content Include="Areas\Admin\assets\plugins\light-gallery\img\youtube-play.png" />
+    <Content Include="Areas\Admin\assets\plugins\light-gallery\js\lightgallery-all.min.js" />
+    <Content Include="Areas\Admin\assets\plugins\momentjs\moment.js" />
+    <Content Include="Areas\Admin\assets\plugins\morrisjs\morris.css" />
+    <Content Include="Areas\Admin\assets\plugins\morrisjs\morris.min.css" />
+    <Content Include="Areas\Admin\assets\plugins\multi-select\css\multi-select.css" />
+    <Content Include="Areas\Admin\assets\plugins\multi-select\img\switch.png" />
+    <Content Include="Areas\Admin\assets\plugins\multi-select\js\jquery.multi-select.js" />
+    <Content Include="Areas\Admin\assets\plugins\nestable\jquery.nestable.js" />
+    <Content Include="Areas\Admin\assets\plugins\nouislider\nouislider.js" />
+    <Content Include="Areas\Admin\assets\plugins\nouislider\nouislider.min.css" />
+    <Content Include="Areas\Admin\assets\plugins\select2\select2-spinner.gif" />
+    <Content Include="Areas\Admin\assets\plugins\select2\select2.css" />
+    <Content Include="Areas\Admin\assets\plugins\select2\select2.min.js" />
+    <Content Include="Areas\Admin\assets\plugins\select2\select2.png" />
+    <Content Include="Areas\Admin\assets\plugins\select2\select2x2.png" />
+    <Content Include="Areas\Admin\assets\plugins\summernote\dist\summernote.css" />
+    <Content Include="Areas\Admin\assets\plugins\summernote\dist\summernote.js" />
+    <Content Include="Areas\Admin\assets\plugins\sweetalert\sweetalert.css" />
+    <Content Include="Areas\Admin\assets\plugins\sweetalert\sweetalert.min.js" />
+    <Content Include="Areas\Admin\favicon.ico" />
+    <Content Include="Areas\Admin\pppp.jpg" />
+    <Content Include="Areas\ClientTicket\TicketAssets\BillCss\logo.png" />
+    <Content Include="Areas\ClientTicket\TicketAssets\BillCss\style.css" />
+    <Content Include="Areas\ClientTicket\TicketAssets\css\component.css" />
+    <Content Include="Areas\ClientTicket\TicketAssets\css\demo.css" />
+    <Content Include="Areas\ClientTicket\TicketAssets\css\normalize.css" />
+    <Content Include="Areas\ClientTicket\TicketAssets\favicon.ico" />
+    <Content Include="Areas\ClientTicket\TicketAssets\fonts\codropsicons\codropsicons.svg" />
+    <Content Include="Areas\ClientTicket\TicketAssets\fonts\codropsicons\license.txt" />
+    <Content Include="Areas\ClientTicket\TicketAssets\img\camera.svg" />
+    <Content Include="Areas\ClientTicket\TicketAssets\img\lookaround.svg" />
+    <Content Include="Areas\ClientTicket\TicketAssets\img\play.svg" />
+    <Content Include="Areas\ClientTicket\TicketAssets\img\seat.svg" />
+    <Content Include="Areas\ClientTicket\TicketAssets\img\seats.svg" />
+    <Content Include="Areas\ClientTicket\TicketAssets\js\classie.js" />
+    <Content Include="Areas\ClientTicket\TicketAssets\js\main.js" />
+    <Content Include="Areas\ClientTicket\TicketAssets\js\modernizr-custom.js" />
+    <Content Include="Areas\ClientTicket\TicketAssets\media\sintel.jpg" />
+    <Content Include="Areas\ClientTicket\TicketAssets\media\sintel.mp4" />
+    <Content Include="Areas\ClientTicket\TicketAssets\media\sintel.ogg" />
+    <Content Include="Areas\Client\assets\alert.js" />
+    <Content Include="Areas\Client\assets\css\ajax-loader.html" />
+    <Content Include="Areas\Client\assets\css\ckeditor.css" />
+    <Content Include="Areas\Client\assets\css\fonts\slick-2.html" />
+    <Content Include="Areas\Client\assets\css\fonts\slick-3.html" />
+    <Content Include="Areas\Client\assets\css\fonts\slick-4.html" />
+    <Content Include="Areas\Client\assets\css\fonts\slick.html" />
+    <Content Include="Areas\Client\assets\css\fonts\slickd41d.html" />
+    <Content Include="Areas\Client\assets\css\plugins.css" />
+    <Content Include="Areas\Client\assets\css\style.css" />
+    <Content Include="Areas\Client\assets\fonts\clientfont.css" />
+    <Content Include="Areas\Client\assets\fonts\fontawesome-webfont93e3.svg" />
+    <Content Include="Areas\Client\assets\images\blank.html" />
+    <Content Include="Areas\Client\assets\images\fancybox_loading%402x.gif" />
+    <Content Include="Areas\Client\assets\images\fancybox_loading.gif" />
+    <Content Include="Areas\Client\assets\images\fancybox_overlay.png" />
+    <Content Include="Areas\Client\assets\images\fancybox_sprite%402x.png" />
+    <Content Include="Areas\Client\assets\images\fancybox_sprite.png" />
+    <Content Include="Areas\Client\assets\images\logo1.png" />
+    <Content Include="Areas\Client\assets\images\logo2.png" />
+    <Content Include="Areas\Client\assets\images\nivo\close%402x.png" />
+    <Content Include="Areas\Client\assets\images\nivo\close.png" />
+    <Content Include="Areas\Client\assets\images\nivo\loading%402x.gif" />
+    <Content Include="Areas\Client\assets\images\nivo\loading.gif" />
+    <Content Include="Areas\Client\assets\images\nivo\next%402x.png" />
+    <Content Include="Areas\Client\assets\images\nivo\next.png" />
+    <Content Include="Areas\Client\assets\images\nivo\prev%402x.png" />
+    <Content Include="Areas\Client\assets\images\nivo\prev.png" />
+    <Content Include="Areas\Client\assets\images\uploads\ads1.png" />
+    <Content Include="Areas\Client\assets\images\uploads\ads2.png" />
+    <Content Include="Areas\Client\assets\images\uploads\author.png" />
+    <Content Include="Areas\Client\assets\images\uploads\author2.png" />
+    <Content Include="Areas\Client\assets\images\uploads\author3.png" />
+    <Content Include="Areas\Client\assets\images\uploads\author4.png" />
+    <Content Include="Areas\Client\assets\images\uploads\ava1.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\ava2.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\ava3.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\ava4.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\blog-detail.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\blog-detail2.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\blog-it1.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\blog-it2.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\blog26.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\blog27.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\blog29.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\bloglist-it1.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\bloglist-it2.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\bloglist-it3.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\bloglist-it4.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\bloglist-it5.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\bloglist-it6.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\blogv21.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\blogv22.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\blogv23.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\blogv24.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\blogv25.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\blogv29.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\cast1.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\cast2.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\cast3.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\cast4.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\cast5.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\cast6.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\cast7.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\cast9.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\ceb1.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\ceb2.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\ceb21.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\ceb22.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\ceb23.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\ceb24.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\ceb25.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\ceb26.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\ceb27.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\ceb28.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\ceb29.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\ceb3.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\ceb4.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\ceb5.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\ceb6.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\ceb7.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\ceb8.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\ceb9.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\ceblist1.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\ceblist2.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\ceblist3.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\ceblist4.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\ceblist5.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\ceblist6.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\ceblist7.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\ceblist8.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\cebsingle2.png" />
+    <Content Include="Areas\Client\assets\images\uploads\celeb-hero-single.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\cm-img.png" />
+    <Content Include="Areas\Client\assets\images\uploads\drop-icon.png" />
+    <Content Include="Areas\Client\assets\images\uploads\err-img.png" />
+    <Content Include="Areas\Client\assets\images\uploads\error-bg.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\film1.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\film2.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\film3.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\film4.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\film5.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\film6.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\film7.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\film8.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\ft-bg.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\hero-bg.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\image1-1.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\image1.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\image10.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\image101.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\image11.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\image111.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\image12.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\image121.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\image13.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\image131.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\image14.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\image141.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\image15.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\image151.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\image16.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\image161.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\image17.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\image171.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\image18.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\image181.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\image19.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\image191.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\image2-1.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\image2.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\image20.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\image201.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\image21.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\image211.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\image3.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\image31.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\image4.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\image41.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\image5.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\image51.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\image6.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\image61.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\image7.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\image71.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\image8.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\image81.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\image9.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\image91.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\landing-dark-version.png" />
+    <Content Include="Areas\Client\assets\images\uploads\landing-light-version.png" />
+    <Content Include="Areas\Client\assets\images\uploads\movie-single.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\mv-it1.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\mv-it10.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\mv-it11.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\mv-it12.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\mv-it2.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\mv-it3.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\mv-it4.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\mv-it5.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\mv-it6.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\mv-it7.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\mv-it8.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\mv-it9.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\mv-item1.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\mv-item10.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\mv-item11.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\mv-item12.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\mv-item2.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\mv-item3.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\mv-item4.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\mv-item5.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\mv-item6.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\mv-item7.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\mv-item8.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\mv-item9.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\mv1.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\mv2.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\mv3.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\mv4.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\mv5.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\play-vd.png" />
+    <Content Include="Areas\Client\assets\images\uploads\poster1.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\search-bg.png" />
+    <Content Include="Areas\Client\assets\images\uploads\search-bgsb.png" />
+    <Content Include="Areas\Client\assets\images\uploads\season.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\series-img.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\slider-bg.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\slider-bg2.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\slider1.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\slider2.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\slider3.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\slider4.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\sr-single.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\topsearch.png" />
+    <Content Include="Areas\Client\assets\images\uploads\trailer2.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\trailer3.png" />
+    <Content Include="Areas\Client\assets\images\uploads\trailer4.png" />
+    <Content Include="Areas\Client\assets\images\uploads\trailer5.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\trailer6.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\trailer7.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\user-hero-bg.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\user-img.png" />
+    <Content Include="Areas\Client\assets\images\uploads\userava1.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\userava2.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\userava3.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\userava4.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\userava5.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\vd-item1.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\vd-item2.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\vd-item3.jpg" />
+    <Content Include="Areas\Client\assets\images\uploads\vd-item4.jpg" />
+    <Content Include="Areas\Client\assets\js\ckeditor.js" />
+    <Content Include="Areas\Client\assets\js\custom.js" />
+    <Content Include="Areas\Client\assets\js\jquery.js" />
+    <Content Include="Areas\Client\assets\js\plugins.js" />
+    <Content Include="Areas\Client\assets\js\plugins2.js" />
+    <Content Include="Areas\Client\assets\vdo.png" />
+    <Content Include="Areas\TicketForSale\assets\jquery.min.js" />
+    <Content Include="Areas\TicketForSale\assets\style.css" />
+    <Content Include="Avata\1.jpeg" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Models\EF\LemonCat.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>LemonCat.Context.cs</LastGenOutput>
+      <DependentUpon>LemonCat.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\EF\LemonCat.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LemonCat.edmx</DependentUpon>
+      <LastGenOutput>LemonCat.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="Models\EF\LemonCat.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>LemonCat.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\EF\LemonCat.edmx.diagram">
+      <DependentUpon>LemonCat.edmx</DependentUpon>
+    </Content>
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\assets\fonts\Material-Design-Iconic-Fontd1f1.ttf" />
+    <Content Include="Areas\Admin\assets\fonts\Material-Design-Iconic-Fontd1f1.woff" />
+    <Content Include="Areas\Admin\assets\fonts\Material-Design-Iconic-Fontd1f1.woff2" />
+    <Content Include="Areas\Admin\assets\fonts\themify9f24.eot" />
+    <Content Include="Areas\Admin\assets\fonts\themify9f24.ttf" />
+    <Content Include="Areas\Admin\assets\fonts\themify9f24.woff" />
+    <Content Include="Areas\Admin\assets\fonts\themifyd41d.eot" />
+    <Content Include="Areas\Admin\assets\fonts\weathericons-regular-webfont.eot" />
+    <Content Include="Areas\Admin\assets\fonts\weathericons-regular-webfont.ttf" />
+    <Content Include="Areas\Admin\assets\fonts\weathericons-regular-webfont.woff" />
+    <Content Include="Areas\Admin\assets\fonts\weathericons-regular-webfont.woff2" />
+    <Content Include="Areas\Admin\assets\fonts\weathericons-regular-webfontd41d.eot" />
+    <Content Include="Areas\Admin\assets\plugins\dropify\fonts\dropify.eot" />
+    <Content Include="Areas\Admin\assets\plugins\dropify\fonts\dropify.ttf" />
+    <Content Include="Areas\Admin\assets\plugins\dropify\fonts\dropify.woff" />
+    <Content Include="Areas\Admin\assets\plugins\light-gallery\fonts\lgd41d.eot" />
+    <Content Include="Areas\Admin\assets\plugins\light-gallery\fonts\lgd641.eot" />
+    <Content Include="Areas\Admin\assets\plugins\light-gallery\fonts\lgd641.ttf" />
+    <Content Include="Areas\Admin\assets\plugins\light-gallery\fonts\lgd641.woff" />
+    <Content Include="Areas\Admin\assets\plugins\summernote\dist\font\summernoted41d.eot" />
+    <Content Include="Areas\Admin\assets\plugins\summernote\dist\font\summernotef534.eot" />
+    <Content Include="Areas\Admin\assets\plugins\summernote\dist\font\summernotef534.ttf" />
+    <Content Include="Areas\Admin\assets\plugins\summernote\dist\font\summernotef534.woff" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Login\SendPasswordToEmail.cshtml" />
+    <Content Include="Areas\Admin\Views\Login\EmailError.cshtml" />
+    <Content Include="Areas\Admin\Views\Login\SignIn.cshtml" />
+    <Content Include="Areas\Admin\Views\Movie\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Person\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Person\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Person\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Person\PersonImage.cshtml" />
+    <Content Include="Areas\Admin\Views\Person\EditImagePerson.cshtml" />
+    <Content Include="Areas\Admin\Views\Person\AddImagePerson.cshtml" />
+    <Content Include="Areas\Admin\Views\Movie\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Movie\MovieImage.cshtml" />
+    <Content Include="Areas\Admin\Views\Movie\EditImageMovie.cshtml" />
+    <Content Include="Areas\Admin\Views\Movie\AddImageMovie.cshtml" />
+    <Content Include="Areas\Admin\Views\Movie\EditInfo.cshtml" />
+    <Content Include="Areas\Admin\Views\Movie\EditCast.cshtml" />
+    <Content Include="Areas\Admin\Views\TVShow\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\TVShow\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Movie\CreateNewCast.cshtml" />
+    <Content Include="Areas\Admin\Views\TVShow\MovieImage.cshtml" />
+    <Content Include="Areas\Admin\Views\TVShow\AddImageMovie.cshtml" />
+    <Content Include="Areas\Admin\Views\TVShow\EditImageMovie.cshtml" />
+    <Content Include="Areas\Admin\Views\TVShow\EditCast.cshtml" />
+    <Content Include="Areas\Admin\Views\TVShow\CreateNewCast.cshtml" />
+    <Content Include="Areas\Admin\Views\TVShow\EditInfo.cshtml" />
+    <Content Include="Areas\Admin\Views\TVShow\EditEps.cshtml" />
+    <Content Include="Areas\Admin\Views\TVShow\CreateNewEps.cshtml" />
+    <Content Include="Areas\Admin\Views\Error\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\News\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\News\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\News\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Lock\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\News\ManagerComment.cshtml" />
+    <Content Include="Areas\Admin\Views\News\ShowLikeNews.cshtml" />
+    <Content Include="Areas\Admin\Views\FlimReview\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\FlimReview\WriteReview.cshtml" />
+    <Content Include="Areas\Admin\Views\FlimReview\ManagerReview.cshtml" />
+    <Content Include="Areas\Admin\Views\FlimReview\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\FlimReview\ShowLikeNews.cshtml" />
+    <Content Include="Areas\Admin\Views\FlimReview\ManagerComment.cshtml" />
+    <Content Include="Areas\Admin\Views\DVD\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\DVD\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\DVD\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\DVD\BillManager.cshtml" />
+    <Content Include="Areas\Admin\Views\DVD\ShowBill.cshtml" />
+    <Content Include="Areas\Admin\Views\DVD\ProductView.cshtml" />
+    <Content Include="Areas\Admin\Views\DVD\ManagerBag.cshtml" />
+    <Content Include="Areas\Client\Views\web.config" />
+    <Content Include="Areas\Client\Views\Shared\_layout.cshtml" />
+    <Content Include="Areas\Client\assets\fonts\fontawesome-webfont93e3.eot" />
+    <Content Include="Areas\Client\assets\fonts\fontawesome-webfont93e3.ttf" />
+    <Content Include="Areas\Client\assets\fonts\fontawesome-webfont93e3.woff" />
+    <Content Include="Areas\Client\assets\fonts\fontawesome-webfont93e3.woff2" />
+    <Content Include="Areas\Client\assets\fonts\fontawesome-webfontd41d.eot" />
+    <Content Include="Areas\Client\Views\Home\Movie.cshtml" />
+    <Content Include="Areas\Client\Views\Home\Person.cshtml" />
+    <Content Include="Areas\Client\Views\Lock\Index.cshtml" />
+    <Content Include="Areas\Client\Views\Home\SendPasswordToEmail.cshtml" />
+    <Content Include="Areas\Client\Views\Home\SendPasswordToEmailPost.cshtml" />
+    <Content Include="Areas\Client\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Client\Views\Home\UserInfo.cshtml" />
+    <Content Include="Areas\Client\Views\Home\YourNews.cshtml" />
+    <Content Include="Areas\Client\Views\Home\RatedMovie.cshtml" />
+    <Content Include="Areas\Client\Views\Home\WriteReview.cshtml" />
+    <Content Include="Areas\ClientDVD\Views\web.config" />
+    <Content Include="Areas\ClientDVD\Views\Shared\_layout.cshtml" />
+    <Content Include="Areas\ClientDVD\Views\DVD\Index.cshtml" />
+    <Content Include="Areas\ClientDVD\Views\Login\Login.cshtml" />
+    <Content Include="Areas\ClientDVD\Views\Login\SendPasswordToEmail.cshtml" />
+    <Content Include="Areas\ClientDVD\Views\Lock\Index.cshtml" />
+    <Content Include="Areas\ClientDVD\Views\Login\SignIn.cshtml" />
+    <Content Include="Areas\ClientDVD\Views\Login\EmailError.cshtml" />
+    <Content Include="Areas\ClientDVD\Views\DVD\ViewDetail.cshtml" />
+    <Content Include="Areas\ClientDVD\Views\DVD\ManagerBag.cshtml" />
+    <Content Include="Areas\ClientDVD\Views\DVD\ShowBill.cshtml" />
+    <Content Include="Areas\ClientDVD\Views\DVD\BillManager.cshtml" />
+    <Content Include="Areas\ClientTicket\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Ticket\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Ticket\SetDate.cshtml" />
+    <Content Include="Areas\Admin\Views\Ticket\BuyTicket.cshtml" />
+    <Content Include="Areas\ClientTicket\TicketAssets\css\.sass-cache\f06f659efa73d6e7bef3e15945001ac4273933b6\component.scssc" />
+    <Content Include="Areas\ClientTicket\TicketAssets\css\component.css.map" />
+    <Content Include="Areas\ClientTicket\TicketAssets\css\component.scss" />
+    <Content Include="Areas\ClientTicket\TicketAssets\fonts\codropsicons\codropsicons.eot" />
+    <Content Include="Areas\ClientTicket\TicketAssets\fonts\codropsicons\codropsicons.ttf" />
+    <Content Include="Areas\ClientTicket\TicketAssets\fonts\codropsicons\codropsicons.woff" />
+    <Content Include="Areas\Admin\Views\Ticket\Booking.cshtml" />
+    <Content Include="Areas\Admin\Views\Ticket\Bill.cshtml" />
+    <Content Include="Areas\Admin\Views\Ticket\BookingList.cshtml" />
+    <Content Include="Areas\ClientTicket\TicketAssets\BillCss\SourceSansPro-Regular.ttf" />
+    <Content Include="Areas\Client\Views\Home\WriteNews.cshtml" />
+    <Content Include="Areas\Client\Views\Home\ReviewDetail.cshtml" />
+    <Content Include="Areas\Client\Views\Home\NewsDetail.cshtml" />
+    <Content Include="Areas\Client\Views\Home\OpeningThisMonth.cshtml" />
+    <Content Include="Areas\Client\Views\Home\ComingSoomToTheaters.cshtml" />
+    <Content Include="Areas\Client\Views\Home\TopBoxOfice.cshtml" />
+    <Content Include="Areas\Client\Views\Home\CertifiedMovies.cshtml" />
+    <Content Include="Areas\Client\Views\Home\AllMovies.cshtml" />
+    <Content Include="Areas\Client\Views\Home\TVOpeningThisMonth.cshtml" />
+    <Content Include="Areas\Client\Views\Home\ComingSoomToTV.cshtml" />
+    <Content Include="Areas\Client\Views\Home\CertifiedFreshTVShow.cshtml" />
+    <Content Include="Areas\Client\Views\Home\AllTVShow.cshtml" />
+    <Content Include="Areas\Client\Views\Home\TopStar.cshtml" />
+    <Content Include="Areas\Client\Views\Home\AllStar.cshtml" />
+    <Content Include="Areas\Client\Views\Home\HotReview.cshtml" />
+    <Content Include="Areas\Client\Views\Home\AllReview.cshtml" />
+    <Content Include="Areas\Client\Views\Home\HotNews.cshtml" />
+    <Content Include="Areas\Client\Views\Home\AllNews.cshtml" />
+    <Content Include="Areas\ClientDVD\Views\Ticket\Index.cshtml" />
+    <Content Include="Areas\ClientDVD\Views\Ticket\BuyTicket.cshtml" />
+    <Content Include="Areas\ClientDVD\Views\Ticket\Booking.cshtml" />
+    <Content Include="Areas\ClientDVD\Views\Ticket\BookingList.cshtml" />
+    <Content Include="Areas\ClientDVD\Views\Ticket\Bill.cshtml" />
+    <Content Include="Areas\Manager\Views\web.config" />
+    <Content Include="Areas\Manager\Views\Shared\_layout.cshtml" />
+    <Content Include="Areas\Manager\Views\Login\EmailError.cshtml" />
+    <Content Include="Areas\Manager\Views\Login\Index.cshtml" />
+    <Content Include="Areas\Manager\Views\Login\SendPasswordToEmail.cshtml" />
+    <Content Include="Areas\Manager\Views\Login\SignIn.cshtml" />
+    <Content Include="Areas\Manager\Views\Movie\AddImageMovie.cshtml" />
+    <Content Include="Areas\Manager\Views\Movie\Create.cshtml" />
+    <Content Include="Areas\Manager\Views\Movie\CreateNewCast.cshtml" />
+    <Content Include="Areas\Manager\Views\Movie\EditCast.cshtml" />
+    <Content Include="Areas\Manager\Views\Movie\EditImageMovie.cshtml" />
+    <Content Include="Areas\Manager\Views\Movie\EditInfo.cshtml" />
+    <Content Include="Areas\Manager\Views\Movie\Index.cshtml" />
+    <Content Include="Areas\Manager\Views\Movie\MovieImage.cshtml" />
+    <Content Include="Areas\Manager\Views\News\Create.cshtml" />
+    <Content Include="Areas\Manager\Views\News\Edit.cshtml" />
+    <Content Include="Areas\Manager\Views\News\Index.cshtml" />
+    <Content Include="Areas\Manager\Views\News\ManagerComment.cshtml" />
+    <Content Include="Areas\Manager\Views\News\ShowLikeNews.cshtml" />
+    <Content Include="Areas\Manager\Views\Person\AddImagePerson.cshtml" />
+    <Content Include="Areas\Manager\Views\Person\Create.cshtml" />
+    <Content Include="Areas\Manager\Views\Person\Edit.cshtml" />
+    <Content Include="Areas\Manager\Views\Person\EditImagePerson.cshtml" />
+    <Content Include="Areas\Manager\Views\Person\Index.cshtml" />
+    <Content Include="Areas\Manager\Views\Person\PersonImage.cshtml" />
+    <Content Include="Areas\Manager\Views\DVD\BillManager.cshtml" />
+    <Content Include="Areas\Manager\Views\DVD\Create.cshtml" />
+    <Content Include="Areas\Manager\Views\DVD\Edit.cshtml" />
+    <Content Include="Areas\Manager\Views\DVD\Index.cshtml" />
+    <Content Include="Areas\Manager\Views\DVD\ManagerBag.cshtml" />
+    <Content Include="Areas\Manager\Views\DVD\ProductView.cshtml" />
+    <Content Include="Areas\Manager\Views\DVD\ShowBill.cshtml" />
+    <Content Include="Areas\Manager\Views\Error\Index.cshtml" />
+    <Content Include="Areas\Manager\Views\FlimReview\Edit.cshtml" />
+    <Content Include="Areas\Manager\Views\FlimReview\Index.cshtml" />
+    <Content Include="Areas\Manager\Views\FlimReview\ManagerComment.cshtml" />
+    <Content Include="Areas\Manager\Views\FlimReview\ManagerReview.cshtml" />
+    <Content Include="Areas\Manager\Views\FlimReview\ShowLikeNews.cshtml" />
+    <Content Include="Areas\Manager\Views\FlimReview\WriteReview.cshtml" />
+    <Content Include="Areas\Manager\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Manager\Views\Lock\Index.cshtml" />
+    <Content Include="Areas\Manager\Views\Ticket\Bill.cshtml" />
+    <Content Include="Areas\Manager\Views\Ticket\Booking.cshtml" />
+    <Content Include="Areas\Manager\Views\Ticket\BookingList.cshtml" />
+    <Content Include="Areas\Manager\Views\Ticket\BuyTicket.cshtml" />
+    <Content Include="Areas\Manager\Views\Ticket\Index.cshtml" />
+    <Content Include="Areas\Manager\Views\Ticket\SetDate.cshtml" />
+    <Content Include="Areas\Manager\Views\TVShow\AddImageMovie.cshtml" />
+    <Content Include="Areas\Manager\Views\TVShow\Create.cshtml" />
+    <Content Include="Areas\Manager\Views\TVShow\CreateNewCast.cshtml" />
+    <Content Include="Areas\Manager\Views\TVShow\CreateNewEps.cshtml" />
+    <Content Include="Areas\Manager\Views\TVShow\EditCast.cshtml" />
+    <Content Include="Areas\Manager\Views\TVShow\EditEps.cshtml" />
+    <Content Include="Areas\Manager\Views\TVShow\EditImageMovie.cshtml" />
+    <Content Include="Areas\Manager\Views\TVShow\EditInfo.cshtml" />
+    <Content Include="Areas\Manager\Views\TVShow\Index.cshtml" />
+    <Content Include="Areas\Manager\Views\TVShow\MovieImage.cshtml" />
+    <Content Include="Areas\Manager\Views\User\Edit.cshtml" />
+    <Content Include="Areas\Client\Views\MovieSuggest\Index.cshtml" />
+    <Content Include="Areas\Client\Views\Home\Search.cshtml" />
+    <Content Include="Areas\TicketForSale\Views\web.config" />
+    <Content Include="Areas\TicketForSale\Views\Login\Index.cshtml" />
+    <Content Include="Areas\TicketForSale\Views\Login\EmailError.cshtml" />
+    <Content Include="Areas\TicketForSale\Views\Login\SendPasswordToEmail.cshtml" />
+    <Content Include="Areas\TicketForSale\Views\Login\SignIn.cshtml" />
+    <Content Include="Areas\TicketForSale\Views\Shared\_layout.cshtml" />
+    <Content Include="Areas\TicketForSale\Views\Home\Index.cshtml" />
+    <Content Include="Areas\TicketForSale\Views\Home\BuyTicketIndex.cshtml" />
+    <Content Include="Areas\TicketForSale\Views\Home\BuyTicket.cshtml" />
+    <Content Include="Areas\TicketForSale\Views\Home\Booking.cshtml" />
+    <Content Include="Areas\TicketForSale\Views\Home\Bill.cshtml" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Views\Base\" />
+    <Folder Include="Areas\ClientDVD\Models\" />
+    <Folder Include="Areas\ClientTicket\Controllers\" />
+    <Folder Include="Areas\ClientTicket\Models\" />
+    <Folder Include="Areas\ClientTicket\Views\Shared\" />
+    <Folder Include="Areas\Client\Models\" />
+    <Folder Include="Areas\Manager\Models\" />
+    <Folder Include="Areas\Manager\Views\Base\" />
+    <Folder Include="Areas\TicketForSale\Models\" />
+    <Folder Include="Areas\TicketForSale\Views\Base\" />
+    <Folder Include="Flim Image\Movie\" />
+    <Folder Include="Flim Image\Person\" />
+    <Folder Include="Flim Image\TV\" />
+    <Folder Include="Views\Flim\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>57459</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44309/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
